@@ -3,14 +3,28 @@
 #include <assert.h>
 
 #include "Quad_Equ.h"
+#include "QE_TESTS.cpp"
+
 
 int main(void) {
+    // printf("printf: %d", printf("\n"));
+    if (test) {
+        for (int i = 0; i < N_TEST; i++) {
+            struct quadr_roots temp_roots;
+            QE_solver(QE_TESTS[i], &temp_roots);
+            printf("TEST %d:OK\n", i);
+        }
+        return 0;
+    }
     struct quadr_coeffs coeffs;
     init_quadr_coeffs(&coeffs);
     printf("# Program for quadratic equation solution\n"
            "# Abryutin I. D. \n\n");
     printf("# Enter coefficients(a, b, c): ");
     if (scanf_coeffs(&coeffs)) {
+        for (int i = 0; i < N_TEST; i++) {
+
+        }
         return 0;
     }
     debug("a, b, c: %lg, %lg, %lg\n", coeffs.a, coeffs.b, coeffs.c);

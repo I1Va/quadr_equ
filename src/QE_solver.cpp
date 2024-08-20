@@ -19,7 +19,9 @@ int QE_solver(const struct quadr_coeffs coeffs, struct quadr_roots *const roots)
                 return NO_SOLUTIONS;
             }
         } else {
-            roots->x1 = -coeffs.c / coeffs.b;
+            double x1 = -coeffs.c / coeffs.b;
+            assert(x1 != NAN && x1 != INFINITY);
+            roots->x1 = x1;
             return ONE_SOLUTION;
         }
     }
@@ -61,3 +63,11 @@ int scanf_coeffs(struct quadr_coeffs *coeffs) {
     return 1;
 }
 
+struct quadr_coeffs make_coeffs(double a, double b, double c) {
+    struct quadr_coeffs temp;
+    init_quadr_coeffs(&temp);
+    temp.a = a;
+    temp.b = b;
+    temp.c = c;
+    return temp;
+}
