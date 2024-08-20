@@ -1,28 +1,26 @@
 #ifndef QUAD_EQU_H
 #define QUAD_EQU_H
 
+#include <stdint.h>
+
 #ifdef DEBUG
-#define debug(f_, ...) printf(f_, __VA_ARGS__) // stderr,
+#define debug(f_, ...) fprintf(stderr, f_, __VA_ARGS__) // stderr,
 #else
 #define debug(f_, ...)
 #endif
 
-#ifdef TESTING
-#define test 1
-#else 
-#define test 0
-#endif
+#define ARR_SIZE(arr) (sizeof(arr) / sizeof(arr[0]))
 
 enum roots_num
 {
     INF_SOLUTIONS = -1, 
     NO_SOLUTIONS  = 0,
     ONE_SOLUTION  = 1,
-    TWO_SOLUTIONS  = 2,
+    TWO_SOLUTIONS = 2,
 };
-static const int N_TESTS = 10;
-const double EPS = 1e-6;
-const int N_REPEATS = 5;
+
+static const double EPS = 1e-6;
+static const size_t N_ATTEMPTS = 5;
 
 struct quadr_coeffs
 {
@@ -45,6 +43,6 @@ int scanf_coeffs(struct quadr_coeffs *coeffs);
 
 struct quadr_coeffs make_coeffs(double a, double b, double c);
 
-int tests();
+void quad_equ_solver_testing();
 
 #endif // QUAD_EQU_H

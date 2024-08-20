@@ -1,31 +1,23 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include <assert.h>
 
-#include "Quad_Equ.h"
-#include "quad_equ_tests.cpp"
-
+#include "quad_equ.h"
 
 int main(void) {
-    // printf("printf: %d", printf("\n"));
-    if (test) {
-        for (int i = 0; i < N_TESTS; i++) {
-            struct quadr_roots temp_roots;
-            quad_equ_solver(QE_TESTS[i], &temp_roots);
-            printf("TEST %d:OK\n", i);
-        }
-        return 0;
-    }
+#ifdef TESTING
+    quad_equ_solver_testing();
+#endif
     struct quadr_coeffs coeffs;
     init_quadr_coeffs(&coeffs);
+    // printf("\e[0;32m");
+    // printf("\e[0;37m");
     printf("# Program for quadratic equation solution\n"
            "# Abryutin I. D. \n\n");
     printf("# Enter coefficients(a, b, c): ");
     if (scanf_coeffs(&coeffs)) {
-        for (int i = 0; i < N_TESTS; i++) {
-
-        }
-        return 0;
+        return EXIT_FAILURE;
     }
     debug("a, b, c: %lg, %lg, %lg\n", coeffs.a, coeffs.b, coeffs.c);
     // getcharami поройтись до \n eof.
