@@ -3,15 +3,15 @@
 #include <assert.h>
 
 #include "Quad_Equ.h"
-#include "QE_TESTS.cpp"
+#include "quad_equ_tests.cpp"
 
 
 int main(void) {
     // printf("printf: %d", printf("\n"));
     if (test) {
-        for (int i = 0; i < N_TEST; i++) {
+        for (int i = 0; i < N_TESTS; i++) {
             struct quadr_roots temp_roots;
-            QE_solver(QE_TESTS[i], &temp_roots);
+            quad_equ_solver(QE_TESTS[i], &temp_roots);
             printf("TEST %d:OK\n", i);
         }
         return 0;
@@ -22,7 +22,7 @@ int main(void) {
            "# Abryutin I. D. \n\n");
     printf("# Enter coefficients(a, b, c): ");
     if (scanf_coeffs(&coeffs)) {
-        for (int i = 0; i < N_TEST; i++) {
+        for (int i = 0; i < N_TESTS; i++) {
 
         }
         return 0;
@@ -34,7 +34,7 @@ int main(void) {
     assert(coeffs.b != NAN);
     assert(coeffs.c != NAN);
     struct quadr_roots roots;
-    int n_solutions = QE_solver(coeffs, &roots);
+    int n_solutions = quad_equ_solver(coeffs, &roots);
     debug("sols: %d\n", n_solutions);
     switch (n_solutions)
     {
@@ -55,5 +55,3 @@ int main(void) {
         break;
     }
 }
-
-// void QE_solver(double a, double b, double c, double* x1, double* x2);

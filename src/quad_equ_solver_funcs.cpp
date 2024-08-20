@@ -10,7 +10,7 @@ void init_quadr_coeffs(struct quadr_coeffs *coeffs) {
     coeffs->c = NAN;
 }
 
-int QE_solver(const struct quadr_coeffs coeffs, struct quadr_roots *const roots) {
+int quad_equ_solver(const struct quadr_coeffs coeffs, struct quadr_roots *const roots) {
     if (abs(coeffs.a) < EPS) {
         if (abs(coeffs.b) < EPS) {
             if (abs(coeffs.c) < EPS) {
@@ -25,24 +25,24 @@ int QE_solver(const struct quadr_coeffs coeffs, struct quadr_roots *const roots)
             return ONE_SOLUTION;
         }
     }
-    double Discr = coeffs.b * coeffs.b - 4 * coeffs.a * coeffs.c;
-    if (Discr < -EPS) {
+    double discr = coeffs.b * coeffs.b - 4 * coeffs.a * coeffs.c;
+    if (discr < -EPS) {
         return NO_SOLUTIONS;
-    } else if (abs(Discr) < EPS) {
+    } else if (abs(discr) < EPS) {
         roots->x1 = -coeffs.b / 2.0 / coeffs.a;
         return ONE_SOLUTION;
     }
-    double S_Discr = sqrt(Discr); // !поменять название sqrt_sqdef...
+    double sqrt_discr = sqrt(discr); // !поменять название sqrt_sqdef...
     debug("Sq_D: %lg\n", S_Discr);
     debug("-b: %lg\n", -coeffs.b);
-    roots->x1 = (-coeffs.b - S_Discr) / 2.0 / coeffs.a;
-    roots->x2 = (-coeffs.b + S_Discr) / 2.0 / coeffs.a;
+    roots->x1 = (-coeffs.b - sqrt_discr) / 2.0 / coeffs.a;
+    roots->x2 = (-coeffs.b + sqrt_discr) / 2.0 / coeffs.a;
     return TWO_SOLUTIONS ;
 }
 
 int scanf_coeffs(struct quadr_coeffs *coeffs) {
     int cnt = 0;
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < N_REPEATS; i++) {
         cnt = scanf("%lg %lg %lg", &(coeffs->a), &(coeffs->b), &(coeffs->c));
         debug("cnt: %d\n", cnt);
         if (cnt != 3) {

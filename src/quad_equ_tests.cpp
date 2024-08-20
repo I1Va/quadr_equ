@@ -1,4 +1,4 @@
-#include "Quad_Equ.h"
+#include "quad_equ.h"
 
 static struct quadr_coeffs QE_TESTS[] = 
 {

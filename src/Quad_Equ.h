@@ -20,10 +20,9 @@ enum roots_num
     ONE_SOLUTION  = 1,
     TWO_SOLUTIONS  = 2,
 };
-
-static const int N_TEST = 10;
-
+static const int N_TESTS = 10;
 const double EPS = 1e-6;
+const int N_REPEATS = 5;
 
 struct quadr_coeffs
 {
@@ -38,7 +37,7 @@ struct quadr_roots
     double x2;
 };
 
-int QE_solver(const struct quadr_coeffs coeffs, struct quadr_roots *const roots);
+int quad_equ_solver(const struct quadr_coeffs coeffs, struct quadr_roots *const roots);
     
 void init_quadr_coeffs(struct quadr_coeffs *const coeffs);
 
