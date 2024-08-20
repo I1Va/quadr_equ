@@ -10,7 +10,10 @@ int main(void) {
     printf("# Program for quadratic equation solution\n"
            "# Abryutin I. D. \n\n");
     printf("# Enter coefficients(a, b, c): ");
-    scanf("%lg %lg %lg", &coeffs.a, &coeffs.b, &coeffs.c); // цикл, пока не вернет три норм значения
+    if (scanf_coeffs(&coeffs)) {
+        return 0;
+    }
+    debug("a, b, c: %lg, %lg, %lg\n", coeffs.a, coeffs.b, coeffs.c);
     // getcharami поройтись до \n eof.
     // printf("%lg %lg %lg", coeffs.a, coeffs.b, coeffs.c);
     assert(coeffs.a != NAN);
@@ -21,16 +24,16 @@ int main(void) {
     debug("sols: %d\n", n_solutions);
     switch (n_solutions)
     {
-    case QE_NO_SOLUTIONS: 
+    case NO_SOLUTIONS: 
         printf("quadratic equation hasn't solutions\n");
         break;
-    case QE_ONE_SOLUTIONS: 
-        printf("x = %lg\n");
+    case ONE_SOLUTION: 
+        printf("x = %lg\n", roots.x1);
         break;
-    case QE_TWO_SOLUTIONS : 
-        printf("x1 = %0.3lg, x2 = %lg\n");
+    case TWO_SOLUTIONS : 
+        printf("x1 = %0.3lg, x2 = %lg\n", roots.x1, roots.x2);
         break;
-    case QE_INF_SOLUTIONS: 
+    case INF_SOLUTIONS: 
         printf("quadratic equation has infinity solutions\n");
         break;
     default:
