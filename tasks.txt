@@ -12,7 +12,7 @@ functionality, it usually exposes only a few "public" functions to users.
   This is encapsulation, a good practice.
 
 
-  8) Доюавить структруры для х1 х2
+V8) Доюавить структруры для х1 х2
   9) сделать enum для констант
 10) привести к одному стилю
   ->snake<- - маленькие, нижнее подчеркивание

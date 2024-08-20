@@ -7,10 +7,13 @@
 #define debug(f_, ...)
 #endif
 
-static const int QE_Inf_Solutions = -1;
-static const int QE_No_Solutions = 0;
-static const int QE_One_Solution = 1;
-static const int QE_Two_Solutions = 2;
+enum roots_num
+{
+    INF_SOLUTIONS = -1, 
+    NO_SOLUTIONS  = 0,
+    ONE_SOLUTIONS  = 1,
+    TWO_SOLUTIONS  = 2,
+};
 
 struct quadr_coeffs
 {
@@ -19,8 +22,14 @@ struct quadr_coeffs
     double c;
 };
 
-int QE_solver(const struct quadr_coeffs, double *const x1, double *const x2);
+struct quadr_roots
+{
+    double x1;
+    double x2;
+};
+
+int QE_solver(const struct quadr_coeffs coeffs, struct quadr_roots *const roots);
     
-void init_quadr_coeffs(struct quadr_coeffs *constcoeffs);
+void init_quadr_coeffs(struct quadr_coeffs *const coeffs);
 
 #endif // QUAD_EQU_H

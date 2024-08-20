@@ -16,21 +16,21 @@ int main(void) {
     assert(coeffs.a != NAN);
     assert(coeffs.b != NAN);
     assert(coeffs.c != NAN);
-    double x1 = NAN, x2 = NAN;
-    int solutions = QE_solver(coeffs, &x1, &x2);
-    debug("sols: %d\n", solutions);
-    switch (solutions)
+    struct quadr_roots roots;
+    int n_solutions = QE_solver(coeffs, &roots);
+    debug("sols: %d\n", n_solutions);
+    switch (n_solutions)
     {
-    case QE_No_Solutions: 
+    case QE_NO_SOLUTIONS: 
         printf("quadratic equation hasn't solutions\n");
         break;
-    case QE_One_Solution: 
+    case QE_ONE_SOLUTIONS: 
         printf("x = %lg\n");
         break;
-    case QE_Two_Solutions: 
+    case QE_TWO_SOLUTIONS : 
         printf("x1 = %0.3lg, x2 = %lg\n");
         break;
-    case QE_Inf_Solutions: 
+    case QE_INF_SOLUTIONS: 
         printf("quadratic equation has infinity solutions\n");
         break;
     default:
