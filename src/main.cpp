@@ -30,6 +30,6 @@ int main() {
     int n_solutions = quadr_equ_solver(coeffs, &roots);
 
     debug("sols: %d\n", n_solutions);
-    assert(quadr_equ_print_solutions(n_solutions, roots, 0) != -1);
+    assert(quadr_equ_print_solutions(n_solutions, roots, false) != -1);
 #endif // TESTING
 }

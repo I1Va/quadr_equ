@@ -69,7 +69,7 @@ int scanf_quadr_coeffs(struct quadr_coeffs *coeffs) {
     return -1;
 }
 
-int quadr_equ_print_solutions(const int n_solutions, const struct quadr_roots roots, const int test_flag) {
+int quadr_equ_print_solutions(const int n_solutions, const struct quadr_roots roots, const bool show_roots) {
     switch (n_solutions)
     {
     case NO_SOLUTIONS: 
@@ -88,7 +88,7 @@ int quadr_equ_print_solutions(const int n_solutions, const struct quadr_roots ro
         return -1;
         break;
     }
-    if (test_flag) {
+    if (show_roots) {
         printf("x1 = %lg, x2 = %lg\n", roots.x1, roots.x2);
     }
     return 0;

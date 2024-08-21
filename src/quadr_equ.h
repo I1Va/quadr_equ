@@ -50,10 +50,10 @@ int scanf_quadr_coeffs(struct quadr_coeffs *coeffs);
 
 void quadr_equ_solver_testing();
 
-int quadr_equ_print_solutions(const int n_solutions, const struct quadr_roots, const int test_flag);
+int quadr_equ_print_solutions(const int n_solutions, const struct quadr_roots, const bool show_roots);
 
-int eq_x(const double x1, const double x2);
+bool cmp_eq(const double x1, const double x2);
 
-int eq_roots(const struct quadr_roots r1, const struct quadr_roots r2);
+bool cmp_eq_roots(const struct quadr_roots r1, const struct quadr_roots r2);
 
 #endif // QUADR_EQU_H

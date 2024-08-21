@@ -8,15 +8,22 @@ CC_FLAGS = -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-e
 	-Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -Werror=vla
 
 SRC_DIR = src
-SRC =  $(SRC_DIR)/main.cpp $(SRC_DIR)/quadr_equ_solver_funcs.cpp $(SRC_DIR)/quadr_equ_tests.cpp
-DEFINES = -DTESTING # -D_DEBUG
-OUTPUTFILE = main.exe
+SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
+
+DEFINES = # -D_DEBUG
+
+OUTPUTFILE = quadr_eq.exe
+OUTPUTFILE1 = tests.exe
 # LD_FLAGS = 
 
-all:
-	$(CC) $(SRC) -O0 -o $(OUTPUTFILE) $(CC_FLAGS)
+all: build launch
 
+build:
+	$(CC) $(SRC_FILES) -O0 -o $(OUTPUTFILE) $(CC_FLAGS) $(DEFINES)
+	$(CC) $(SRC_FILES) -O0 -o $(OUTPUTFILE1) $(CC_FLAGS) $(DEFINES) -DTESTING
 launch:
 	$(OUTPUTFILE)
+tests:
+	$(OUTPUTFILE1)
 clean:
-	rm -f $(OUTPUTFILE)
+	rm -f $(OUTPUTFILE) $(OUTPUTFILE1)
