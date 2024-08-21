@@ -61,7 +61,7 @@ int scanf_quadr_coeffs(struct quadr_coeffs *coeffs) {
             int c = EOF;
             while ((c = getchar()) != EOF && c != '\n');
         } else {
-            printf("OK\n");
+            fprintf(stderr, "OK\n");
             return 0;
         }
     }

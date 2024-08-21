@@ -34,7 +34,17 @@ static struct quadr_equ_obj QUADR_TESTS[] =
 };
 
 
+// int quadr_equ_check_solver(const struct quadr_coeffs coeffs, struct quadr_coeffs *roots) {
+//     return 
+// }
+
 const size_t N_TESTS = ARR_SIZE(QUADR_TESTS);
+
+// void quadr_equ_obj_filler(struct quadr_equ_obj QUADR_TESTS[]) {
+//     for (size_t i = 0; i < N_TESTS; i++) {
+//         QUADR_TESTS[i].n_roots = quadr_equ_solver(QUADR_TESTS[i].coeffs, &QUADR_TESTS[i].roots);
+//     }
+// }
 
 int eq_x(const double x1, const double x2) {
     if (isnan(x1) && isnan(x2)) {
@@ -49,7 +59,7 @@ int eq_x(const double x1, const double x2) {
     else if (fabs(x1 - x2) > EPS) {
         return 0;
     } else {
-        return -1;
+        return 1;
     }
 }
 

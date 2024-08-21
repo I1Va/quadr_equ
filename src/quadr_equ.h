@@ -3,11 +3,12 @@
 
 #include <stdint.h>
 
-#ifdef DEBUG
+#ifdef _DEBUG
 #define debug(f_, ...) fprintf(stderr, f_, __VA_ARGS__) // stderr,
 #else
 #define debug(f_, ...)
-#endif // DEBUG
+#endif // _DEBUG
+
 #define GRN "\e[0;32m"
 #define WHT "\e[0;37m"
 #define RED "\e[0;31m"
