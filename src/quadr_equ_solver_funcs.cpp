@@ -55,6 +55,7 @@ int scanf_quadr_coeffs(struct quadr_coeffs *coeffs) {
     for (size_t i = 0; i < N_ATTEMPTS; i++) {
         int n_suc_args = scanf("%lg %lg %lg", &(coeffs->a), &(coeffs->b), &(coeffs->c));
         debug("n_suc_args: %d\n", n_suc_args);
+
         if (n_suc_args != 3) {
             fprintf(stderr, "Invalid data format. Repeat input\n");
             int c = EOF;

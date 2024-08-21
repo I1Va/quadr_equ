@@ -8,8 +8,11 @@
 #else
 #define debug(f_, ...)
 #endif // DEBUG
-// #define white_print(f_, ...) printf("\e[0;32m");fprintf(stdout, f_, __VA_ARGS__)
-// #define green_print(f_, ...) printf("\e[0;37m");fprintf(stdout, f_, __VA_ARGS__)
+#define GRN "\e[0;32m"
+#define WHT "\e[0;37m"
+#define RED "\e[0;31m"
+#define YEL "\e[0;33m"
+
 #define ARR_SIZE(arr) (sizeof(arr) / sizeof(arr[0]))
 
 enum roots_num

@@ -6,7 +6,9 @@
 #define INIT_QUADR_COEFFS(a_, b_, c_) {.a = a_, .b = b_, .c = c_}
 #define INIT_QUADR_ROOTS(x1_, x2_) {.x1 = x1_, .x2 = x2_}
 #define INIT_QUADR_EQU_OBJ(a_, b_, c_, x1_, x2_, n_roots_) \
-    {.coeffs = INIT_QUADR_COEFFS(a_, b_, c_), .roots = INIT_QUADR_ROOTS(x1_, x2_), .n_roots = n_roots_}
+    {.coeffs = INIT_QUADR_COEFFS(a_, b_, c_), \
+    .roots = INIT_QUADR_ROOTS(x1_, x2_), \
+    .n_roots = n_roots_}
 
 struct quadr_equ_obj
 {
@@ -27,7 +29,6 @@ static struct quadr_equ_obj QUADR_TESTS[] =
     INIT_QUADR_EQU_OBJ(1, 1, 0, -1, 0, TWO_SOLUTIONS),
     INIT_QUADR_EQU_OBJ(1, 1, 1, NAN, NAN, NO_SOLUTIONS),
     // INIT_QUADR_EQU_OBJ(-12.52, 924.242, 1232.22),
-
     // INIT_QUADR_EQU_OBJ(0, 1e100, 1e-100),
     // INIT_QUADR_EQU_OBJ(0, 1e-100, 1e100),
 };
@@ -61,25 +62,18 @@ void quadr_equ_solver_testing() {
         struct quadr_roots roots;
         init_quadr_roots(&roots);
         int n_solutions = quadr_equ_solver(QUADR_TESTS[i].coeffs, &roots);
-        // debug("EQ: %d %d\n", eq_x(roots.x1, QUADR_TESTS[i].roots.x1), eq_x(roots.x1, QUADR_TESTS[i].roots.x1));
-        // debug("NANS: %d %d %d %d\n", roots.x1 == NAN, QUADR_TESTS[i].roots.x1 == NAN, roots.x2 == NAN, QUADR_TESTS[i].roots.x2 == NAN);
-        // debug("VALS: %lg %lg %lg %lg\n", roots.x1, QUADR_TESTS[i].roots.x1, roots.x2, QUADR_TESTS[i].roots.x2);
-        // quadr_coeffs temp;
-        // init_quadr_coeffs(&temp);
-        // debug("NAN: %d\n", temp.a == QNAN);
-        // debug("NAN: %lg\n", temp.a);
-        // debug("check %d\n", eq_roots(roots, QUADR_TESTS[i].roots));
+
         if (!eq_roots(roots, QUADR_TESTS[i].roots) || 
                 n_solutions != QUADR_TESTS[i].n_roots) {
-            printf("\nTEST %d: WA\na, b, c = %lg, %lg, %lg\n",
+            printf("\nTEST %d:" RED "WA" YEL "\na, b, c = %lg, %lg, %lg\n" WHT,
             i, QUADR_TESTS[i].coeffs.a, QUADR_TESTS[i].coeffs.b, QUADR_TESTS[i].coeffs.c);
-            printf("CORRECT ANSWER:\n");
+            printf(GRN "CORRECT ANSWER:\n");
             quadr_equ_print_solutions(QUADR_TESTS[i].n_roots, QUADR_TESTS[i].roots, 1);
-            printf("WRONG ANSWER:\n");
+            printf(RED "WRONG ANSWER:\n");
             quadr_equ_print_solutions(n_solutions, roots, 1);
-            printf("\n\n");
+            printf(WHT "\n\n");
         } else {
-            printf("TEST %d: OK\n", i);
+            printf("TEST %d:" GRN "OK" WHT "\n", i);
         } 
     }
 }
