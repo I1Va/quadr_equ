@@ -20,7 +20,7 @@
 @ такая же логика применима к функциям
 
 
-2) погуглить про сравнение Nan, INF:
+2)done: погуглить про сравнение Nan, INF:
 #https://www.gnu.org/software/libc/manual/html_node/Infinity-and-NaN.html
 @ Nan is unordered and cant be compare with any other value,
 @ result of any NaN compare is false. Also result of any
