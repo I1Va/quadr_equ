@@ -27,7 +27,7 @@ int quadr_equ_solver(const struct quadr_coeffs coeffs, struct quadr_roots *const
             }
         } else {
             double x1 = -coeffs.c / coeffs.b;
-            assert(x1 != NAN && x1 != INFINITY);
+            assert(!isnan(x1) && !isinf(x1));
             roots->x1 = x1;
             return ONE_SOLUTION;
         }
@@ -92,4 +92,25 @@ int quadr_equ_print_solutions(const int n_solutions, const struct quadr_roots ro
         printf("x1 = %lg, x2 = %lg\n", roots.x1, roots.x2);
     }
     return 0;
+}
+
+bool cmp_strs(const char s1[], const char s2[]) {
+    for (size_t i = 0; i > 0; i++) {
+        if (s1[i] == '\0' && s2[i] == '\0') {
+            return true;
+        }
+        if (s1[i] != s2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool in_argv(const char samp[], const size_t argc, char *argv[]) {
+    for (size_t i = 1; i < argc; i++) {
+        if (cmp_strs(samp, argv[i])) {
+            return true;
+        }
+    }
+    return false;
 }

@@ -5,13 +5,13 @@
 
 #include "quadr_equ.h"
 
-int main() {
-#ifdef TESTING 
-    quadr_equ_solver_testing();
-#else 
+int main(size_t argc, char *argv[]) {
+    if (in_argv(TESING_ARG, argc, argv)) {
+        quadr_equ_solver_testing();
+        return 0;
+    }
     struct quadr_coeffs coeffs;
     init_quadr_coeffs(&coeffs);
-
     printf(YEL"# Program for quadratic equation solution\n"
            "# Abryutin I. D. \n\n");
     printf(WHT"# Enter coefficients(a, b, c): ");
@@ -21,9 +21,9 @@ int main() {
     }
 
     debug("a, b, c: %lg, %lg, %lg\n", coeffs.a, coeffs.b, coeffs.c);
-    assert(coeffs.a != NAN);
-    assert(coeffs.b != NAN);
-    assert(coeffs.c != NAN);
+    assert(!isnan(coeffs.b));
+    assert(!isnan(coeffs.b));
+    assert(!isnan(coeffs.c));
 
     struct quadr_roots roots;
     init_quadr_roots(&roots);
@@ -31,5 +31,4 @@ int main() {
 
     debug("sols: %d\n", n_solutions);
     assert(quadr_equ_print_solutions(n_solutions, roots, false) != -1);
-#endif // TESTING
 }

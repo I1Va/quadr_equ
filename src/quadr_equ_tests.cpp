@@ -2,6 +2,8 @@
 #include <math.h>
 #include <assert.h>
 #include "quadr_equ.h"
+#include <float.h>
+#include <limits.h>
 
 #define INIT_QUADR_COEFFS(a_, b_, c_) {.a = a_, .b = b_, .c = c_}
 #define INIT_QUADR_ROOTS(x1_, x2_) {.x1 = x1_, .x2 = x2_}
@@ -28,9 +30,8 @@ static struct quadr_equ_obj QUADR_TESTS[] =
     INIT_QUADR_EQU_OBJ(1, 0, 1, NAN, NAN, NO_SOLUTIONS),
     INIT_QUADR_EQU_OBJ(1, 1, 0, -1, 0, TWO_SOLUTIONS),
     INIT_QUADR_EQU_OBJ(1, 1, 1, NAN, NAN, NO_SOLUTIONS),
-    // INIT_QUADR_EQU_OBJ(-12.52, 924.242, 1232.22),
-    // INIT_QUADR_EQU_OBJ(0, 1e100, 1e-100),
-    // INIT_QUADR_EQU_OBJ(0, 1e-100, 1e100),
+    INIT_QUADR_EQU_OBJ(0, DBL_MAX, DBL_MIN, 0, NAN, ONE_SOLUTION),
+    INIT_QUADR_EQU_OBJ(0, DBL_MIN, DBL_MAX, -INFINITY, NAN, ONE_SOLUTION),
 };
 
 
@@ -47,17 +48,13 @@ const size_t N_TESTS = ARR_SIZE(QUADR_TESTS);
 // }
 
 bool cmp_eq(const double x1, const double x2) {
-    if (isnan(x1) && isnan(x2)) {
-        return true;
-    } else if (isnan(x1) && !isnan(x2)) {
+    if (fpclassify(x1) != fpclassify(x2)) {
         return false;
-    } else if (!isnan(x1) && isnan(x2)) {
-        return false;
-    } else if (fabs(x1 - x2) > EPS) {
-        return false;
-    } else {
-        return true;
     }
+    if (isnormal(x1) && isnormal(x2) && fabs(x1 - x2) > EPS) {
+        return false;
+    }
+    return true;
 }
 
 bool cmp_eq_roots(const struct quadr_roots r1, const struct quadr_roots r2) {
@@ -72,7 +69,7 @@ void quadr_equ_solver_testing() {
 
         if (!cmp_eq_roots(roots, QUADR_TESTS[i].roots) || 
                 n_solutions != QUADR_TESTS[i].n_roots) {
-            printf("\nTEST %d:" RED "WA" YEL "\n"
+            printf("\nTEST %ld:" RED "WA" YEL "\n"
                    "a, b, c = %lg, %lg, %lg\n" WHT,
                    i, QUADR_TESTS[i].coeffs.a, QUADR_TESTS[i].coeffs.b, QUADR_TESTS[i].coeffs.c);
             printf(GRN "CORRECT ANSWER:\n");
@@ -81,7 +78,7 @@ void quadr_equ_solver_testing() {
             quadr_equ_print_solutions(n_solutions, roots, true);
             printf(WHT "\n\n");
         } else {
-            printf("TEST %d:" GRN "OK" WHT "\n", i);
+            printf("TEST %ld:" GRN "OK" WHT "\n", i);
         } 
     }
 }

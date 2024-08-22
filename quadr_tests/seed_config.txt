@@ -1,0 +1,3 @@
+seed_step: 1588
+
+seed_mod : 179179

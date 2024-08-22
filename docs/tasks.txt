@@ -6,20 +6,36 @@ isnormal - проверка на нормальное число
 gitlog - история комитов
 git checkout <хэш комита>
 git ammend - 
+man7
+ctrl shift p -> wsl
+
+учет ошибок: errno, strerror(errno)
 
 Дела на сейчас
-2)как работать с файлами в C. FILE*.
+
+
+V1) добавлю проверку на инф в тестинге. fpclassify Defined in header <math.h>
+V1) // INIT_QUADR_EQU_OBJ(0, 1e100, 1e-100),
+V1) // INIT_QUADR_EQU_OBJ(0, 1e-100, 1e100), Имеется проблемся. 1e-100 < EPS
+
+2) Прочитать argc, argv, env в керниган ритчи
+
+3) Придумать опции. Прочитать getopt в man7
+--help, --testing, --example (генерация квадартных)
+начать отказывать от #define Testing, 
+6) Добавить define на pr_gr, pr_red и тд + доавбить все define color в новы header
+
+
+
 2)Указать файле название цвета вывода, define цвет ascii code 
-2)// INIT_QUADR_EQU_OBJ(0, 1e100, 1e-100),
-2)// INIT_QUADR_EQU_OBJ(0, 1e-100, 1e100),
-1) добавлю проверку на инф в тестинге
 
-**1) doxygen. Добавить в хедер, разобраться
+3) doxygen. Добавить в хедер, разобраться
 
-
+10) написать readme
 
 
 Дела на потом
+fixme, todo подсветка
 поставить на комп nmake
 
 
