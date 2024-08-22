@@ -5,8 +5,8 @@
 
 #include "quadr_equ.h"
 
-int main(size_t argc, char *argv[]) {
-    if (in_argv(TESING_ARG, argc, argv)) {
+int main(int argc, char **argv) {
+    if (in_argv(TESING_ARG, argc, argv)) { /// FIXME: заменить на getopt
         quadr_equ_solver_testing();
         return 0;
     }

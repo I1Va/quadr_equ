@@ -103,7 +103,7 @@ long f_getline_only_num(FILE* fp) { /// FIXME: можно заменить на 
             break;
         }
         if (isdigit(v)) {
-            str[str_idx++] = v;
+            str[str_idx++] = (char) v; /// FIXME: warnings: решить через (char) v
         } else {
             continue; // Пропускаем символы
         }

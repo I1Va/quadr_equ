@@ -1,0 +1,130 @@
+\doxysection{inc/quadr\+\_\+equ.h File Reference}
+\hypertarget{quadr__equ_8h}{}\label{quadr__equ_8h}\index{inc/quadr\_equ.h@{inc/quadr\_equ.h}}
+
+
+Заголовочный файл с описанием классов  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for quadr\+\_\+equ.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{quadr__equ_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structquadr__coeffs}{quadr\+\_\+coeffs}}
+\begin{DoxyCompactList}\small\item\em Class of coe. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structquadr__roots}{quadr\+\_\+roots}}
+\item 
+struct \mbox{\hyperlink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{quadr__equ_8h_aef8dde8d9df909fa74121c4cd58d22ba}\label{quadr__equ_8h_aef8dde8d9df909fa74121c4cd58d22ba} 
+\#define {\bfseries debug}(f\+\_\+, ...)
+\item 
+\Hypertarget{quadr__equ_8h_aea69ffbacdcdf16c21b8c9961df84448}\label{quadr__equ_8h_aea69ffbacdcdf16c21b8c9961df84448} 
+\#define {\bfseries GRN}~"{}\textbackslash{}e\mbox{[}0;32m"{}
+\item 
+\Hypertarget{quadr__equ_8h_aeaf3a04d5bf63b204689a714718ea930}\label{quadr__equ_8h_aeaf3a04d5bf63b204689a714718ea930} 
+\#define {\bfseries WHT}~"{}\textbackslash{}e\mbox{[}0;37m"{}
+\item 
+\Hypertarget{quadr__equ_8h_a8d23feea868a983c8c2b661e1e16972f}\label{quadr__equ_8h_a8d23feea868a983c8c2b661e1e16972f} 
+\#define {\bfseries RED}~"{}\textbackslash{}e\mbox{[}0;31m"{}
+\item 
+\Hypertarget{quadr__equ_8h_a96fac03c4ab3363f06a0328e0e53a40c}\label{quadr__equ_8h_a96fac03c4ab3363f06a0328e0e53a40c} 
+\#define {\bfseries YEL}~"{}\textbackslash{}e\mbox{[}0;33m"{}
+\item 
+\Hypertarget{quadr__equ_8h_a0eed1117909081286ff660bc9bffa0c4}\label{quadr__equ_8h_a0eed1117909081286ff660bc9bffa0c4} 
+\#define {\bfseries ARR\+\_\+\+SIZE}(arr)~(sizeof(arr) / sizeof(arr\mbox{[}0\mbox{]}))
+\item 
+\Hypertarget{quadr__equ_8h_a54c15d85646c5cd3da8cd8bbc6bee0ce}\label{quadr__equ_8h_a54c15d85646c5cd3da8cd8bbc6bee0ce} 
+\#define {\bfseries INIT\+\_\+\+QUADR\+\_\+\+COEFFS}(a\+\_\+,  b\+\_\+,  c\+\_\+)~\{.a = a\+\_\+, .b = b\+\_\+, .c = c\+\_\+\}
+\item 
+\Hypertarget{quadr__equ_8h_afcb3fd2a256d0c79c64234a2b78b628e}\label{quadr__equ_8h_afcb3fd2a256d0c79c64234a2b78b628e} 
+\#define {\bfseries INIT\+\_\+\+QUADR\+\_\+\+ROOTS}(x1\+\_\+,  x2\+\_\+)~\{.x1 = x1\+\_\+, .x2 = x2\+\_\+\}
+\item 
+\#define \mbox{\hyperlink{quadr__equ_8h_a597bb1b539c7f889cd4498f31437111e}{INIT\+\_\+\+QUADR\+\_\+\+EQU\+\_\+\+OBJ}}(a\+\_\+,  b\+\_\+,  c\+\_\+,  x1\+\_\+,  x2\+\_\+,  n\+\_\+roots\+\_\+)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09d}\label{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09d} 
+enum {\bfseries roots\+\_\+num} \{ {\bfseries INF\+\_\+\+SOLUTIONS} = -\/1
+, {\bfseries NO\+\_\+\+SOLUTIONS} = 0
+, {\bfseries ONE\+\_\+\+SOLUTION} = 1
+, {\bfseries TWO\+\_\+\+SOLUTIONS} = 2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{quadr__equ_8h_a0b4cd2f83b659ff291ad7f0f7c9f5e12}\label{quadr__equ_8h_a0b4cd2f83b659ff291ad7f0f7c9f5e12} 
+int {\bfseries quadr\+\_\+equ\+\_\+solver} (const struct \mbox{\hyperlink{structquadr__coeffs}{quadr\+\_\+coeffs}} coeffs, struct \mbox{\hyperlink{structquadr__roots}{quadr\+\_\+roots}} \texorpdfstring{$\ast$}{*}const roots)
+\item 
+\Hypertarget{quadr__equ_8h_ad3eb10e7c90ade968994807c41fbd047}\label{quadr__equ_8h_ad3eb10e7c90ade968994807c41fbd047} 
+void {\bfseries init\+\_\+quadr\+\_\+coeffs} (struct \mbox{\hyperlink{structquadr__coeffs}{quadr\+\_\+coeffs}} \texorpdfstring{$\ast$}{*}const coeffs)
+\item 
+\Hypertarget{quadr__equ_8h_a137ca5739868d75e9d614a1168308de8}\label{quadr__equ_8h_a137ca5739868d75e9d614a1168308de8} 
+void {\bfseries init\+\_\+quadr\+\_\+roots} (struct \mbox{\hyperlink{structquadr__roots}{quadr\+\_\+roots}} \texorpdfstring{$\ast$}{*}const roots)
+\item 
+\Hypertarget{quadr__equ_8h_ab1ba3361729e62fe539cca88ef421d58}\label{quadr__equ_8h_ab1ba3361729e62fe539cca88ef421d58} 
+int {\bfseries scanf\+\_\+quadr\+\_\+coeffs} (struct \mbox{\hyperlink{structquadr__coeffs}{quadr\+\_\+coeffs}} \texorpdfstring{$\ast$}{*}coeffs)
+\item 
+void \mbox{\hyperlink{quadr__equ_8h_aedc3f47bddeece709f658167b71b88ce}{quadr\+\_\+equ\+\_\+solver\+\_\+testing}} ()
+\item 
+\Hypertarget{quadr__equ_8h_ae53f4e33c368e21d981d304bff5c4cc3}\label{quadr__equ_8h_ae53f4e33c368e21d981d304bff5c4cc3} 
+int {\bfseries quadr\+\_\+equ\+\_\+print\+\_\+solutions} (const int n\+\_\+solutions, const struct \mbox{\hyperlink{structquadr__roots}{quadr\+\_\+roots}}, const bool show\+\_\+roots)
+\item 
+\Hypertarget{quadr__equ_8h_af9b6b6429c15c6e91e7bda05d85c9775}\label{quadr__equ_8h_af9b6b6429c15c6e91e7bda05d85c9775} 
+bool {\bfseries cmp\+\_\+eq} (const double x1, const double x2)
+\item 
+\Hypertarget{quadr__equ_8h_ae953f40c0035ed111631952b7b8e882a}\label{quadr__equ_8h_ae953f40c0035ed111631952b7b8e882a} 
+bool {\bfseries cmp\+\_\+strs} (const char s1\mbox{[}$\,$\mbox{]}, const char s2\mbox{[}$\,$\mbox{]})
+\item 
+\Hypertarget{quadr__equ_8h_a57ee126722a8f994bea8ffd44987b30b}\label{quadr__equ_8h_a57ee126722a8f994bea8ffd44987b30b} 
+bool {\bfseries cmp\+\_\+eq\+\_\+roots} (const struct \mbox{\hyperlink{structquadr__roots}{quadr\+\_\+roots}} r1, const struct \mbox{\hyperlink{structquadr__roots}{quadr\+\_\+roots}} r2)
+\item 
+\Hypertarget{quadr__equ_8h_a7edde9861e1db1bcd1a14cc12abb8ad2}\label{quadr__equ_8h_a7edde9861e1db1bcd1a14cc12abb8ad2} 
+bool {\bfseries in\+\_\+argv} (const char samp\mbox{[}$\,$\mbox{]}, const int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\item 
+\Hypertarget{quadr__equ_8h_a5206fc1d9570ebb70b7b525278399134}\label{quadr__equ_8h_a5206fc1d9570ebb70b7b525278399134} 
+int {\bfseries fscanf\+\_\+quadr\+\_\+equ\+\_\+obj} (FILE \texorpdfstring{$\ast$}{*}stream, struct \mbox{\hyperlink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj}} \texorpdfstring{$\ast$}{*}equ)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Заголовочный файл с описанием классов 
+
+Данный файл содержит в себе определения основных классов, используемых в демонстрационной программе 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{quadr__equ_8h_a597bb1b539c7f889cd4498f31437111e}\label{quadr__equ_8h_a597bb1b539c7f889cd4498f31437111e} 
+\index{quadr\_equ.h@{quadr\_equ.h}!INIT\_QUADR\_EQU\_OBJ@{INIT\_QUADR\_EQU\_OBJ}}
+\index{INIT\_QUADR\_EQU\_OBJ@{INIT\_QUADR\_EQU\_OBJ}!quadr\_equ.h@{quadr\_equ.h}}
+\doxysubsubsection{\texorpdfstring{INIT\_QUADR\_EQU\_OBJ}{INIT\_QUADR\_EQU\_OBJ}}
+{\footnotesize\ttfamily \#define INIT\+\_\+\+QUADR\+\_\+\+EQU\+\_\+\+OBJ(\begin{DoxyParamCaption}\item[{}]{a\+\_\+,  }\item[{}]{b\+\_\+,  }\item[{}]{c\+\_\+,  }\item[{}]{x1\+\_\+,  }\item[{}]{x2\+\_\+,  }\item[{}]{n\+\_\+roots\+\_\+ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ .coeffs\ =\ INIT\_QUADR\_COEFFS(a\_,\ b\_,\ c\_),\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ .roots\ =\ INIT\_QUADR\_ROOTS(x1\_,\ x2\_),\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ .n\_roots\ =\ n\_roots\_\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{quadr__equ_8h_aedc3f47bddeece709f658167b71b88ce}\label{quadr__equ_8h_aedc3f47bddeece709f658167b71b88ce} 
+\index{quadr\_equ.h@{quadr\_equ.h}!quadr\_equ\_solver\_testing@{quadr\_equ\_solver\_testing}}
+\index{quadr\_equ\_solver\_testing@{quadr\_equ\_solver\_testing}!quadr\_equ.h@{quadr\_equ.h}}
+\doxysubsubsection{\texorpdfstring{quadr\_equ\_solver\_testing()}{quadr\_equ\_solver\_testing()}}
+{\footnotesize\ttfamily void quadr\+\_\+equ\+\_\+solver\+\_\+testing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+TODO\+: Проверить, нету ли открытого файла в каком нибудь пространстве памяти

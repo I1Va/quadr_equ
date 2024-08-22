@@ -11,25 +11,40 @@ ctrl shift p -> wsl
 
 учет ошибок: errno, strerror(errno)
 
+Общий совет:
+Заботать latex
+
+
+
 Дела на сейчас
 
 
-V1) добавлю проверку на инф в тестинге. fpclassify Defined in header <math.h>
 V1) // INIT_QUADR_EQU_OBJ(0, 1e100, 1e-100),
-V1) // INIT_QUADR_EQU_OBJ(0, 1e-100, 1e100), Имеется проблемся. 1e-100 < EPS
+V1) // INIT_QUADR_EQU_OBJ(0, 1e-100, 1e100). Предупредить о возмодных ошибках Имеется проблемся. 1e-100 < EPS
 
-2) Прочитать argc, argv, env в керниган ритчи
-
-3) Придумать опции. Прочитать getopt в man7
+1) oxygen
+2) Придумать опции. Прочитать getopt в man7
 --help, --testing, --example (генерация квадартных)
 начать отказывать от #define Testing, 
 6) Добавить define на pr_gr, pr_red и тд + доавбить все define color в новы header
-
+7) argc, argv, ENV <- прочитать
 
 
 2)Указать файле название цвета вывода, define цвет ascii code 
 
-3) doxygen. Добавить в хедер, разобраться
+
+4) restrict погуглить
+
+5) погуглить про сравнение Nan, INF, 
+
+
+
+
+
+
+
+
+
 
 10) написать readme
 

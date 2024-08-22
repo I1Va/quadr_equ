@@ -69,6 +69,20 @@ int scanf_quadr_coeffs(struct quadr_coeffs *coeffs) {
     return -1;
 }
 
+void fscanf_quadr_equ_obj(FILE *stream, struct quadr_equ_obj *equ) {
+    double a = NAN, b = NAN, c = NAN, x1 = NAN, x2 = NAN;
+    int n_roots = 0;
+    
+    fscanf(stream, "%s %s %s %s %s %s", &a, &b, &c, &x1, &x2, &n_roots);
+    equ->coeffs.a = a;
+    equ->coeffs.b = b;
+    equ->coeffs.c = c;
+    equ->roots.x1 = x1;
+    equ->roots.x2 = x2;
+    equ->n_roots = n_roots;
+    
+}
+
 int quadr_equ_print_solutions(const int n_solutions, const struct quadr_roots roots, const bool show_roots) {
     switch (n_solutions)
     {
@@ -106,11 +120,13 @@ bool cmp_strs(const char s1[], const char s2[]) {
     return true;
 }
 
-bool in_argv(const char samp[], const size_t argc, char *argv[]) {
-    for (size_t i = 1; i < argc; i++) {
+bool in_argv(const char samp[], const int argc, char *argv[]) {
+    for (int i = 1; i < argc; i++) {
         if (cmp_strs(samp, argv[i])) {
             return true;
         }
     }
     return false;
 }
+
+

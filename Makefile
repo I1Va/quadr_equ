@@ -9,7 +9,7 @@ CC_FLAGS = -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-e
 	-Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -Werror=vla
 INCLUDE_FLAGS = -Iinc
 
-BUILD_DIR = build_files
+BUILD_DIR = build
 
 SRC_DIR = src
 SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
@@ -21,22 +21,29 @@ TM_FILES = $(wildcard $(TM_DIR)/*.cpp)
 TM_OUTPUTFILE = $(BUILD_DIR)tests_manager.out
 DEFINES = -testing# -D_DEBUG
 
-
+#experiment_files <=> exp
+EXP_DIR = experiment_files
+EXP_FILES = $(wildcard $(EXP_DIR)/*.cpp)
+EXP_OUTPUTFILE = $(BUILD_DIR)test.out
 
 # LD_FLAGS = 
 
+.PHONY: build
+
+
 all: build
-	
+
 build:
 	$(CC) $(SRC_FILES) -O0 -o $(SRC_OUTPUTFILE) $(INCLUDE_FLAGS) $(CC_FLAGS)
 	$(CC) $(TM_FILES) -O0 -o $(TM_OUTPUTFILE) $(INCLUDE_FLAGS) $(CC_FLAGS)
+	$(CC) $(EXP_FILES) -O0 -o $(EXP_OUTPUTFILE) $(CC_FLAGS)
 launch:
 	./$(SRC_OUTPUTFILE)
 clean:
 	rm -f $(SRC_OUTPUTFILE) $(TM_OUTPUTFILE)
-TM:
-	$(CC) $(TM_FILES) -O0 -o $(TM_OUTPUTFILE) $(INCLUDE_FLAGS) $(CC_FLAGS)
+tm:
 	./$(TM_OUTPUTFILE)
 testing:
-	$(CC) $(SRC_FILES) -O0 -o $(SRC_OUTPUTFILE) $(INCLUDE_FLAGS) $(CC_FLAGS)
-	./$(SRC_OUTPUTFILE) -testing
+	./$(SRC_OUTPUTFILE) --testing
+exp:
+	./$(EXP_OUTPUTFILE)

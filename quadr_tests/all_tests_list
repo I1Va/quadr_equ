@@ -1,0 +1,13 @@
+1
+1 -3 1 -1 2 2
+
+0 0 0 nan nan -1
+0 0 1 nan nan 0
+0 1 0 0 nan 1
+0 1 1 -1 nan 1
+1 0 0 0 nan 1
+1 0 1 nan nan 0
+1 1 0 -1 0 2
+1 1 1 nan nan 0
+0 DBL_MAX DBL_MIN 0 nan 1
+0 DBL_MIN DBL_MAX -INFINITY nan 1
