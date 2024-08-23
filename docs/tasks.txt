@@ -69,4 +69,3 @@ fixme, todo подсветка
 https://github.com/Vokerlee/How-to-create-EXE-file почитать
 
 
-little/big endian. Зачем нужен little endian?
