@@ -20,7 +20,7 @@
 @ такая же логика применима к функциям
 
 
-2)done: погуглить про сравнение Nan, INF:
+2) done: погуглить про сравнение Nan, INF:
 #https://www.gnu.org/software/libc/manual/html_node/Infinity-and-NaN.html
 @ Nan is unordered and cant be compare with any other value,
 @ result of any NaN compare is false. Also result of any
@@ -28,4 +28,8 @@
 @ +inf - the biggest value in compare with others except NaN.
 @ (inf cmp NaN is false)
 @ simulary compare situation with -inf except that -inf is the smalles value
+
+3) done: little/big endian. Зачем нужен little endian?:
+#https://ru.m.wikipedia.org/wiki/%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA_%D0%B1%D0%B0%D0%B9%D1%82%D0%BE%D0%B2
+@
 
