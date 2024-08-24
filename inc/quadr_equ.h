@@ -12,7 +12,7 @@
 #include <stdint.h>
 
 #ifdef _DEBUG
-#define debug(f_, ...) fprintf(stderr, f_, __VA_ARGS__) // stderr,
+#define debug(f_, ...) fprintf(stderr, f_, ##__VA_ARGS__) // stderr,
 #else
 #define debug(f_, ...)
 #endif // _DEBUG
