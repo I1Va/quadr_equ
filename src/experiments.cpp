@@ -14,7 +14,5 @@ int main() {
     struct quadr_equ_obj data[MAX_N_TESTS];
     generate_tests_to_file(PATH_AUTO_TESTS, 12);
     get_tests_from_file(PATH_AUTO_TESTS, data);
-    fprintf_quadr_equ_obj(stdout, data[0]);
-
-    
+    fprintf_quadr_equ_obj(stdout, data[0]);    
 }

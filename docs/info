@@ -1,0 +1,11 @@
+Обновить конфиг файл clangd: compiledb make
+
+include <stdint.h> - подключение имен типов (size_t)
+2> text.txt вывод в text.txt потока stderr
+NAN +-* val = NAN
+isnormal - проверка на нормальное число
+gitlog - история комитов
+git checkout <хэш комита>
+git ammend - 
+man7
+ctrl shift p -> wsl

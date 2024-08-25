@@ -6,26 +6,12 @@
 #include <limits.h>
 #include <string.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <errno.h>
+#include <errno.h> // TODO: Добавить обработку ошибок errno
 
 #include "quadr_equ.h"
 #include "file_path.h"
 #include "colors.h"
 #include "test_funcs.h"
-
-
-// // int quadr_equ_check_solver(const struct quadr_coeffs coeffs, struct quadr_coeffs *roots) {
-// //     return 
-// // }
-
-// const size_t N_TESTS = ARR_SIZE(QUADR_TESTS);
-
-// void quadr_equ_obj_filler(struct quadr_equ_obj QUADR_TESTS[]) {
-//     for (size_t i = 0; i < N_TESTS; i++) {
-//         QUADR_TESTS[i].n_roots = quadr_equ_solver(QUADR_TESTS[i].coeffs, &QUADR_TESTS[i].roots);
-//     }
-// }
 
 int simple_quadr_solve(const quadr_coeffs coeffs, quadr_roots *roots) {
     double a = coeffs.a, b = coeffs.b, c = coeffs.c;

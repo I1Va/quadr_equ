@@ -9,81 +9,112 @@
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
 \DoxyCodeLine{00013\ }
 \DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifdef\ \_DEBUG}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ debug(f\_,\ ...)\ fprintf(stderr,\ f\_,\ \_\_VA\_ARGS\_\_)\ }\textcolor{comment}{//\ stderr,}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ debug(f\_,\ ...)\ fprintf(stderr,\ f\_,\ \#\#\_\_VA\_ARGS\_\_)\ }\textcolor{comment}{//\ stderr,}}
 \DoxyCodeLine{00016\ \textcolor{preprocessor}{\#else}}
 \DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ debug(f\_,\ ...)}}
 \DoxyCodeLine{00018\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_DEBUG}}
 \DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ GRN\ "{}\(\backslash\)e[0;32m"{}}}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ WHT\ "{}\(\backslash\)e[0;37m"{}}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ RED\ "{}\(\backslash\)e[0;31m"{}}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ YEL\ "{}\(\backslash\)e[0;33m"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ ARR\_SIZE(arr)\ (sizeof(arr)\ /\ sizeof(arr[0]))}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ INIT\_QUADR\_COEFFS(a\_,\ b\_,\ c\_)\ \{.a\ =\ a\_,\ .b\ =\ b\_,\ .c\ =\ c\_\}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ INIT\_QUADR\_ROOTS(x1\_,\ x2\_)\ \{.x1\ =\ x1\_,\ .x2\ =\ x2\_\}}}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ ARR\_SIZE(arr)\ (sizeof(arr)\ /\ sizeof(arr[0]))}}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ INIT\_QUADR\_COEFFS(a\_,\ b\_,\ c\_)\ \{.a\ =\ a\_,\ .b\ =\ b\_,\ .c\ =\ c\_\}}}
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ INIT\_QUADR\_ROOTS(x1\_,\ x2\_)\ \{.x1\ =\ x1\_,\ .x2\ =\ x2\_\}}}
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ INIT\_QUADR\_EQU\_OBJ(a\_,\ b\_,\ c\_,\ x1\_,\ x2\_,\ n\_roots\_)\ \(\backslash\)}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\ \ \ \ .coeffs\ =\ INIT\_QUADR\_COEFFS(a\_,\ b\_,\ c\_),\ \(\backslash\)}}
-\DoxyCodeLine{00032\ \textcolor{preprocessor}{\ \ \ \ .roots\ =\ INIT\_QUADR\_ROOTS(x1\_,\ x2\_),\ \(\backslash\)}}
-\DoxyCodeLine{00033\ \textcolor{preprocessor}{\ \ \ \ .n\_roots\ =\ n\_roots\_\}}}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{enum}\ roots\_num}
-\DoxyCodeLine{00036\ \{}
-\DoxyCodeLine{00037\ \ \ \ \ INF\_SOLUTIONS\ =\ -\/1,\ }
-\DoxyCodeLine{00038\ \ \ \ \ NO\_SOLUTIONS\ \ =\ 0,}
-\DoxyCodeLine{00039\ \ \ \ \ ONE\_SOLUTION\ \ =\ 1,}
-\DoxyCodeLine{00040\ \ \ \ \ TWO\_SOLUTIONS\ =\ 2,}
-\DoxyCodeLine{00041\ \};}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ EPS\ =\ 1e-\/6;}
-\DoxyCodeLine{00044\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ N\_ATTEMPTS\ =\ 5;}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ TESING\_ARG[]\ =\ \textcolor{stringliteral}{"{}-\/-\/testing"{}};}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00049\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ INIT\_QUADR\_EQU\_OBJ(a\_,\ b\_,\ c\_,\ x1\_,\ x2\_,\ n\_roots\_)\ \(\backslash\)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \ \ .coeffs\ =\ INIT\_QUADR\_COEFFS(a\_,\ b\_,\ c\_),\ \(\backslash\)}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ .roots\ =\ INIT\_QUADR\_ROOTS(x1\_,\ x2\_),\ \(\backslash\)}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \ \ .n\_roots\ =\ n\_roots\_\ \(\backslash\)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ INIT\_QUADR\_EQU\_OBJ\_STRUCTS(coeffs\_,\ roots\_,\ n\_roots\_)\ \(\backslash\)}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\ \ \ \ .coeffs\ =\ coeffs\_,\ \(\backslash\)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\ \ \ \ .roots\ =\ roots\_,\ \(\backslash\)}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\ \ \ \ .n\_roots\ =\ n\_roots\_\ \(\backslash\)}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ print\_border\ fprintf(stream,\ WHT\ "{}\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\(\backslash\)n"{})}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{enum}\ roots\_num}
+\DoxyCodeLine{00042\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ INF\_SOLUTIONS\ =\ -\/1,\ }
+\DoxyCodeLine{00044\ \ \ \ \ NO\_SOLUTIONS\ \ =\ 0,}
+\DoxyCodeLine{00045\ \ \ \ \ ONE\_SOLUTION\ \ =\ 1,}
+\DoxyCodeLine{00046\ \ \ \ \ TWO\_SOLUTIONS\ =\ 2,}
+\DoxyCodeLine{00047\ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{enum}\ modes}
 \DoxyCodeLine{00050\ \{}
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__coeffs_a67346e9b5446e8ece7bcf071c260a82b}{a}};\ }
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{double}\ b;}
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{double}\ c;}
+\DoxyCodeLine{00051\ \ \ \ \ USER\_MODE\ =\ 0,}
+\DoxyCodeLine{00052\ \ \ \ \ TESTING\_MODE\ =\ 1,}
+\DoxyCodeLine{00053\ \ \ \ \ EXAMPLE\_MODE\ =\ 2,}
 \DoxyCodeLine{00054\ \};}
 \DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__roots}{quadr\_roots}}}
-\DoxyCodeLine{00057\ \{}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{double}\ x1;}
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{double}\ x2;}
-\DoxyCodeLine{00060\ \};}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__equ__obj}{quadr\_equ\_obj}}}
-\DoxyCodeLine{00063\ \{}
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ coeffs;}
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ roots;}
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ n\_roots;}
-\DoxyCodeLine{00067\ \};}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \textcolor{keywordtype}{int}\ quadr\_equ\_solver(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ coeffs,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ *\textcolor{keyword}{const}\ roots);}
-\DoxyCodeLine{00070\ \ \ \ \ }
-\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ init\_quadr\_coeffs(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ *\textcolor{keyword}{const}\ coeffs);}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ init\_quadr\_roots(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ *\textcolor{keyword}{const}\ roots);}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \textcolor{keywordtype}{int}\ scanf\_quadr\_coeffs(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ *coeffs);}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quadr__equ_8h_aedc3f47bddeece709f658167b71b88ce}{quadr\_equ\_solver\_testing}}();}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \textcolor{keywordtype}{int}\ quadr\_equ\_print\_solutions(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ n\_solutions,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ show\_roots);}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \textcolor{keywordtype}{bool}\ cmp\_eq(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x2);}
+\DoxyCodeLine{00056\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ EPS\ =\ 1e-\/4;}
+\DoxyCodeLine{00057\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ N\_ATTEMPTS\ =\ 5;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ TESING\_ARG[]\ =\ \textcolor{stringliteral}{"{}-\/-\/testing"{}};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{/*\ Class\ of\ coe\ */}}
+\DoxyCodeLine{00063\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}}
+\DoxyCodeLine{00064\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__coeffs_a67346e9b5446e8ece7bcf071c260a82b}{a}};\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{double}\ b;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{double}\ c;}
+\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__roots}{quadr\_roots}}}
+\DoxyCodeLine{00071\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{double}\ x1;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{double}\ x2;}
+\DoxyCodeLine{00074\ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__equ__obj}{quadr\_equ\_obj}}}
+\DoxyCodeLine{00077\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ coeffs;}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ roots;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ n\_roots;}
+\DoxyCodeLine{00081\ \};}
 \DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \textcolor{keywordtype}{bool}\ cmp\_strs(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ s1[],\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ s2[]);}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \textcolor{keywordtype}{bool}\ cmp\_eq\_roots(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ r1,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ r2);}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \textcolor{keywordtype}{bool}\ in\_argv(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ samp[],\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ *argv[]);}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \textcolor{keywordtype}{int}\ fscanf\_quadr\_equ\_obj(FILE\ *stream,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__equ__obj}{quadr\_equ\_obj}}\ *equ);}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ QUADR\_EQU\_H}}
+\DoxyCodeLine{00095\ \textcolor{comment}{//\ TODO:\ написать\ документацию\ на\ функции}}
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{int}\ quadr\_equ\_solver(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ coeffs,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ *\textcolor{keyword}{const}\ roots);}
+\DoxyCodeLine{00097\ \ \ \ \ }
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ init\_quadr\_coeffs(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ *\textcolor{keyword}{const}\ coeffs);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ init\_quadr\_roots(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ *\textcolor{keyword}{const}\ roots);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{int}\ scanf\_quadr\_coeffs(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ *coeffs);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ quadr\_equ\_solver\_testing();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{keywordtype}{int}\ quadr\_equ\_print\_solutions(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ n\_solutions,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ show\_roots);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{keywordtype}{bool}\ cmp\_eq(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x2);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keywordtype}{bool}\ cmp\_strs(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ s1[],\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ s2[]);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{bool}\ cmp\_eq\_roots(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ r1,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ r2);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{keywordtype}{bool}\ in\_argv(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ samp[],\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ *argv[]);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{void}\ fscanf\_quadr\_equ\_obj(FILE\ *stream,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__equ__obj}{quadr\_equ\_obj}}\ *equ);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{keywordtype}{void}\ fprintf\_num\_solutions(FILE*\ stream,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ n\_roots);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{keywordtype}{void}\ fprintf\_quadr\_equ\_obj(FILE*\ stream,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__equ__obj}{quadr\_equ\_obj}}\ equ);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ my\_rand();}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keywordtype}{double}\ my\_frand();}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{void}\ example\_mode\_launch();}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ mode\_manager(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{keywordtype}{void}\ user\_mode\_launch();}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ testing\_mode\_launch();}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ QUADR\_EQU\_H}}
 
 \end{DoxyCode}
