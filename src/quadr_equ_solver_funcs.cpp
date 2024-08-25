@@ -5,6 +5,7 @@
 #include <assert.h>
 
 #include "quadr_equ.h"
+#include "colors.h"
 
 void init_quadr_coeffs(struct quadr_coeffs *coeffs) {
     coeffs->a = NAN;
@@ -73,7 +74,7 @@ void fscanf_quadr_equ_obj(FILE *stream, struct quadr_equ_obj *equ) {
     double a = NAN, b = NAN, c = NAN, x1 = NAN, x2 = NAN;
     int n_roots = 0;
     
-    fscanf(stream, "%s %s %s %s %s %s", &a, &b, &c, &x1, &x2, &n_roots);
+    fscanf(stream, "%lg %lg %lg %lg %lg %d", &a, &b, &c, &x1, &x2, &n_roots);
     equ->coeffs.a = a;
     equ->coeffs.b = b;
     equ->coeffs.c = c;
@@ -83,30 +84,50 @@ void fscanf_quadr_equ_obj(FILE *stream, struct quadr_equ_obj *equ) {
     
 }
 
-int quadr_equ_print_solutions(const int n_solutions, const struct quadr_roots roots, const bool show_roots) {
-    switch (n_solutions)
+void fprintf_num_solutions(FILE* stream, const int n_roots) {
+    switch (n_roots)
     {
     case NO_SOLUTIONS: 
-        printf("quadratic equation hasn't solutions\n");
+        fprintf(stream, "quadratic equation hasn't solutions\n");
         break;
     case ONE_SOLUTION: 
-        printf("x = %lg\n", roots.x1);
+        fprintf(stream, "quadratic equation has one solution\n");
         break;
     case TWO_SOLUTIONS : 
-        printf("x1 = %0.3lg, x2 = %lg\n", roots.x1, roots.x2);
+        fprintf(stream, "quadratic equation has two solutions\n");
         break;
     case INF_SOLUTIONS: 
-        printf("quadratic equation has infinity solutions\n");
+        fprintf(stream, "quadratic equation has infinity solutions\n");
         break;
     default:
-        return -1;
         break;
     }
-    if (show_roots) {
-        printf("x1 = %lg, x2 = %lg\n", roots.x1, roots.x2);
-    }
-    return 0;
+    return;
 }
+
+void fprintf_quadr_equ_obj(FILE* stream, const struct quadr_equ_obj equ) {
+    fprintf(stream, WHT "########################################################################\n");
+
+    fprintf(stream, YEL "%lgx²", equ.coeffs.a);
+
+    if (equ.coeffs.b > 0) {
+        printf(YEL " + ");
+    }    
+    fprintf(stream, YEL "%lgx", equ.coeffs.b);
+
+    if (equ.coeffs.c > 0) {
+        printf(YEL " + ");
+    }
+    fprintf(stream, YEL "%lg\n", equ.coeffs.c);
+    fprintf(stream, "x1 = %lg\n", equ.roots.x1);
+    fprintf(stream, "x2 = %lg\n", equ.roots.x2);
+    fprintf_num_solutions(stream, equ.n_roots);
+    fprintf(stream, WHT "########################################################################\n");
+}
+
+
+
+
 
 bool cmp_strs(const char s1[], const char s2[]) {
     for (size_t i = 0; i > 0; i++) {
@@ -130,3 +151,16 @@ bool in_argv(const char samp[], const int argc, char *argv[]) {
 }
 
 
+bool cmp_eq(const double x1, const double x2) {
+    if (fpclassify(x1) != fpclassify(x2)) {
+        return false;
+    }
+    if (isnormal(x1) && isnormal(x2) && fabs(x1 - x2) > EPS) {
+        return false;
+    }
+    return true;
+}
+
+bool cmp_eq_roots(const struct quadr_roots r1, const struct quadr_roots r2) {
+    return cmp_eq(r1.x1, r2.x1) && cmp_eq(r1.x2, r2.x2);
+}

@@ -7,12 +7,20 @@ CC_FLAGS = -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-e
 	-Wignored-qualifiers -Wlogical-op -Wno-missing-field-initializers -Wnon-virtual-dtor \
 	-Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing \
 	-Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -Werror=vla
+
 INCLUDE_FLAGS = -Iinc
 
 BUILD_DIR = build
 
+EXCEPT_MAIN_FILES = $(EXP_DIR)/experiments.cpp $(EXP_DIR)/quadr_equ_solver_funcs.cpp \
+	$(EXP_DIR)/random_func.cpp $(EXP_DIR)/test_funcs.cpp  
+
+EXCEPT_EXP = $(EXP_DIR)/main.cpp $(EXP_DIR)/quadr_equ_solver_funcs.cpp \
+	$(EXP_DIR)/random_func.cpp $(EXP_DIR)/test_funcs.cpp  
+
+
 SRC_DIR = src
-SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
+SRC_FILES = $(EXCEPT_EXP) #$(wildcard $(SRC_DIR)/*.cpp)
 SRC_OUTPUTFILE = $(BUILD_DIR)/quadr_eq.out
 
 # tests_manager <=> TM
@@ -21,10 +29,12 @@ TM_FILES = $(wildcard $(TM_DIR)/*.cpp)
 TM_OUTPUTFILE = $(BUILD_DIR)tests_manager.out
 DEFINES = -testing# -D_DEBUG
 
-#experiment_files <=> exp
-EXP_DIR = experiment_files
-EXP_FILES = $(wildcard $(EXP_DIR)/*.cpp)
-EXP_OUTPUTFILE = $(BUILD_DIR)test.out
+#experiments <=> exp
+
+
+EXP_DIR = $(SRC_DIR)
+EXP_FILES = $(EXCEPT_MAIN_FILES)
+EXP_OUTPUTFILE = $(BUILD_DIR)exp.out
 
 # LD_FLAGS = 
 
@@ -35,7 +45,6 @@ all: build
 
 build:
 	$(CC) $(SRC_FILES) -O0 -o $(SRC_OUTPUTFILE) $(INCLUDE_FLAGS) $(CC_FLAGS)
-	$(CC) $(TM_FILES) -O0 -o $(TM_OUTPUTFILE) $(INCLUDE_FLAGS) $(CC_FLAGS)
 	$(CC) $(EXP_FILES) -O0 -o $(EXP_OUTPUTFILE) $(CC_FLAGS)
 launch:
 	./$(SRC_OUTPUTFILE)
@@ -46,4 +55,8 @@ tm:
 testing:
 	./$(SRC_OUTPUTFILE) --testing
 exp:
+	$(CC) $(EXP_FILES) -O0 -o $(EXP_OUTPUTFILE) $(INCLUDE_FLAGS) $(CC_FLAGS)
 	./$(EXP_OUTPUTFILE)
+random:
+	$(CC) src/random_func.cpp -O0 -o $(BUILD_DIR)/random_func.out $(INCLUDE_FLAGS) $(CC_FLAGS)
+	./build/random_func.out

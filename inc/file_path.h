@@ -1,1 +1,3 @@
-const char PATH_ALL_TESTS[] = "quadr_tests/all_tests_list";
+const char PATH_AUTO_TESTS[] = "/home/ivana/projects/quadr_equ/src/test_data/auto_tests.txt";
+const char PATH_CUR_SEED[] = "/home/ivana/projects/quadr_equ/src/random/cur_seed.txt";
+

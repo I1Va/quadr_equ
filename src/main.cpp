@@ -4,7 +4,7 @@
 #include <assert.h>
 
 #include "quadr_equ.h"
-
+#include "colors.h"
 int main(int argc, char **argv) {
     if (in_argv(TESING_ARG, argc, argv)) { /// FIXME: заменить на getopt
         quadr_equ_solver_testing();

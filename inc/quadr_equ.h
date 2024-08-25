@@ -17,11 +17,6 @@
 #define debug(f_, ...)
 #endif // _DEBUG
 
-#define GRN "\e[0;32m"
-#define WHT "\e[0;37m"
-#define RED "\e[0;31m"
-#define YEL "\e[0;33m"
-
 #define ARR_SIZE(arr) (sizeof(arr) / sizeof(arr[0]))
 
 #define INIT_QUADR_COEFFS(a_, b_, c_) {.a = a_, .b = b_, .c = c_}
@@ -100,6 +95,14 @@ bool cmp_eq_roots(const struct quadr_roots r1, const struct quadr_roots r2);
 
 bool in_argv(const char samp[], const int argc, char *argv[]);
 
-int fscanf_quadr_equ_obj(FILE *stream, struct quadr_equ_obj *equ);
+void fscanf_quadr_equ_obj(FILE *stream, struct quadr_equ_obj *equ);
+
+void fprintf_num_solutions(FILE* stream, const int n_roots);
+
+void fprintf_quadr_equ_obj(FILE* stream, const struct quadr_equ_obj equ);
+
+unsigned long long my_rand();
+
+double my_frand();
 
 #endif // QUADR_EQU_H
