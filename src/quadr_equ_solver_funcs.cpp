@@ -1,11 +1,15 @@
 #include <assert.h>
+#include <cstddef>
 #include <math.h>
 #include <stdio.h>
 #include <limits.h>
 #include <assert.h>
+#include <getopt.h>
 
 #include "quadr_equ.h"
 #include "colors.h"
+#include "file_path.h"
+#include "test_funcs.h"
 
 void init_quadr_coeffs(struct quadr_coeffs *coeffs) {
     coeffs->a = NAN;
@@ -28,7 +32,7 @@ int quadr_equ_solver(const struct quadr_coeffs coeffs, struct quadr_roots *const
             }
         } else {
             double x1 = -coeffs.c / coeffs.b;
-            assert(!isnan(x1) && !isinf(x1));
+            assert(!isnan(x1));
             roots->x1 = x1;
             return ONE_SOLUTION;
         }
@@ -106,8 +110,7 @@ void fprintf_num_solutions(FILE* stream, const int n_roots) {
 }
 
 void fprintf_quadr_equ_obj(FILE* stream, const struct quadr_equ_obj equ) {
-    fprintf(stream, WHT "########################################################################\n");
-
+    print_border;
     fprintf(stream, YEL "%lgx²", equ.coeffs.a);
 
     if (equ.coeffs.b > 0) {
@@ -122,7 +125,7 @@ void fprintf_quadr_equ_obj(FILE* stream, const struct quadr_equ_obj equ) {
     fprintf(stream, "x1 = %lg\n", equ.roots.x1);
     fprintf(stream, "x2 = %lg\n", equ.roots.x2);
     fprintf_num_solutions(stream, equ.n_roots);
-    fprintf(stream, WHT "########################################################################\n");
+    print_border;
 }
 
 
@@ -163,4 +166,88 @@ bool cmp_eq(const double x1, const double x2) {
 
 bool cmp_eq_roots(const struct quadr_roots r1, const struct quadr_roots r2) {
     return cmp_eq(r1.x1, r2.x1) && cmp_eq(r1.x2, r2.x2);
+}
+
+void example_mode_launch() {
+    printf(RED "\n----------------------------> EXAMPLE MODE <----------------------------\n");
+    generate_tests_to_file(PATH_EXAMPLE, 1);
+    struct quadr_equ_obj example_data[1];
+    get_tests_from_file(PATH_EXAMPLE, example_data);
+    fprintf_quadr_equ_obj(stdout, example_data[0]);
+}
+
+void user_mode_launch() {
+    printf(RED "\n-----------------------------> USER MODE <------------------------------\n");
+    struct quadr_coeffs coeffs;
+    init_quadr_coeffs(&coeffs);
+    printf(YEL"# Program for quadratic equation solution\n"
+           "# Abryutin I. D. \n\n");
+    printf(WHT"# Enter coefficients(a, b, c): ");
+
+    if (scanf_quadr_coeffs(&coeffs) == -1) {
+        return;
+    }
+
+    debug("a, b, c: %lg, %lg, %lg\n", coeffs.a, coeffs.b, coeffs.c);
+    assert(!isnan(coeffs.b));
+    assert(!isnan(coeffs.b));
+    assert(!isnan(coeffs.c));
+
+    struct quadr_roots roots;
+    init_quadr_roots(&roots);
+    int n_solutions = quadr_equ_solver(coeffs, &roots);
+
+    debug("sols: %d\n", n_solutions);
+    struct quadr_equ_obj equation = INIT_QUADR_EQU_OBJ_STRUCTS(coeffs, roots, n_solutions);
+    fprintf_quadr_equ_obj(stdout,equation);
+}
+
+void testing_mode_launch() {
+    printf(RED "\n----------------------------> TESTING MODE <-----------------------------\n");
+    printf("Launch auto or manual test mode? [A/m] ");
+    int v1 = getchar();
+    if (v1 == '\n' || v1 == 'A' || v1 == 'a') {
+        printf(YEL "Generate new tests? [Y/n]: " WHT);
+        int v2 = getchar();
+        if (v2 == '\n' || v2 == 'Y' || v2 == 'y') {
+            printf(YEL"How many tests? (MAX: %ld): " WHT, MAX_N_TESTS);
+            size_t n_tests = 0;
+            if (!scanf("%ld", &n_tests)) {
+                printf(RED "Invalid data format. Enter positive integer" WHT);
+                return;
+            }
+            generate_tests_to_file(PATH_AUTO_TESTS, n_tests);
+            quadr_equ_solver_file_testing(PATH_AUTO_TESTS);
+        }
+    } else {
+        quadr_equ_solver_manual_testing(ARR_SIZE(MANUAL_TESTS), MANUAL_TESTS);
+    }
+    
+}
+
+void mode_manager(int argc, char **argv) {
+    int user_mode_flag = 0;
+	int testing_mode_flag = 0;
+	int example_mode_flag = 0;
+    const char* short_options = "";
+	const struct option long_options[] = {
+		{ "user", no_argument, &user_mode_flag, 1 },
+		{ "testing", no_argument, &testing_mode_flag, 1 },
+		{ "example", no_argument, &example_mode_flag,  1 },
+		{ NULL, 0, NULL, 0}
+	};
+
+	while (getopt_long(argc, argv, short_options,
+		long_options, NULL)!=-1);
+
+    if (example_mode_flag) {
+        example_mode_launch();
+    }
+    if (user_mode_flag) {
+        user_mode_launch();
+    }
+    if (testing_mode_flag) {
+        testing_mode_launch();
+    }
+	
 }

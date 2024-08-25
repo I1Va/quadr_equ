@@ -11,21 +11,8 @@
 
 #include "quadr_equ.h"
 #include "file_path.h"
+#include "colors.h"
 #include "test_funcs.h"
-
-// struct quadr_equ_obj QUADR_TESTS[] = 
-// {
-//     INIT_QUADR_EQU_OBJ(0, 0, 0, NAN, NAN, INF_SOLUTIONS),
-//     INIT_QUADR_EQU_OBJ(0, 0, 1, NAN, NAN, NO_SOLUTIONS),
-//     INIT_QUADR_EQU_OBJ(0, 1, 0, 0, NAN, ONE_SOLUTION),
-//     INIT_QUADR_EQU_OBJ(0, 1, 1, -1, NAN, ONE_SOLUTION),
-//     INIT_QUADR_EQU_OBJ(1, 0, 0, 0, NAN, ONE_SOLUTION),
-//     INIT_QUADR_EQU_OBJ(1, 0, 1, NAN, NAN, NO_SOLUTIONS),
-//     INIT_QUADR_EQU_OBJ(1, 1, 0, -1, 0, TWO_SOLUTIONS),
-//     INIT_QUADR_EQU_OBJ(1, 1, 1, NAN, NAN, NO_SOLUTIONS),
-//     INIT_QUADR_EQU_OBJ(0, DBL_MAX, DBL_MIN, 0, NAN, ONE_SOLUTION),
-//     INIT_QUADR_EQU_OBJ(0, DBL_MIN, DBL_MAX, -INFINITY, NAN, ONE_SOLUTION),
-// };
 
 
 // // int quadr_equ_check_solver(const struct quadr_coeffs coeffs, struct quadr_coeffs *roots) {
@@ -110,11 +97,11 @@ int simple_quadr_solve(const quadr_coeffs coeffs, quadr_roots *roots) {
     }
 }
 
-void get_tests_from_file(const char path[], quadr_equ_obj test_data[]) {
+size_t get_tests_from_file(const char path[], quadr_equ_obj test_data[]) {
     FILE* f_test_data_read = fopen(path, "r");
     if (f_test_data_read == NULL) {
         fprintf(stderr, "Failed to open %s", path);
-        return;
+        return 0;
     }
     size_t n_tests = 0;
     fscanf(f_test_data_read, "%ld", &n_tests);
@@ -122,6 +109,7 @@ void get_tests_from_file(const char path[], quadr_equ_obj test_data[]) {
         fscanf_quadr_equ_obj(f_test_data_read, &test_data[i]);
     }
     fclose(f_test_data_read);
+    return n_tests;
 }
 
 void generate_tests_to_file(const char path[], const size_t n_tests) {
@@ -141,46 +129,67 @@ void generate_tests_to_file(const char path[], const size_t n_tests) {
         int n_roots = simple_quadr_solve(coeffs, &roots);
         
         
-        fprintf(f_test_data_write, "%lg %lg %lg %lg %lg %d", \
+        fprintf(f_test_data_write, "%lg %lg %lg %lg %lg %d\n", \
             coeffs.a, coeffs.b, coeffs.c, roots.x1, roots.x2, n_roots);
     }
     fclose(f_test_data_write);
     
 }
 
-// void quadr_equ_solver_testing() {
-//     FILE *f_all_tests = fopen(PATH_ALL_TESTS, "r");
-//     if (f_all_tests == NULL) {
-//         fprintf(stderr, RED "error: %s [%s]\n" WHT, strerror(errno), PATH_ALL_TESTS);
-//         return;
-//     }
-//     size_t n_tests = 0;
-//     fscanf(f_all_tests, "%ld", &n_tests);
-//     struct quadr_equ_obj equation;
-//     fscanf_quadr_equ_obj(f_all_tests, &equation);
-//     fclose(f_all_tests); /// TODO: Проверить, нету ли открытого файла в каком нибудь пространстве памяти
-//     for (size_t i = 0; i < n_tests; i++) {
-//         struct quadr_roots roots;
-//         init_quadr_roots(&roots);
+void quadr_equ_solver_file_testing(const char path[]) {
+    struct quadr_equ_obj test_data[MAX_N_TESTS];
+    size_t n_tests = get_tests_from_file(path, test_data);
+    for (size_t i = 0; i < n_tests; i++) {
+        struct quadr_equ_obj equation = test_data[i];
+        struct quadr_roots roots;
+        init_quadr_roots(&roots);
 
-//         int n_solutions = quadr_equ_solver(equation.coeffs, &roots);
+        int n_solutions = quadr_equ_solver(equation.coeffs, &roots);
 
-//         printf("coefs: %lg %lg %lg\n", equation.coeffs.a, equation.coeffs.b, equation.coeffs.c);
+        printf("coefs: %lg %lg %lg\n", equation.coeffs.a, equation.coeffs.b, equation.coeffs.c);
 
-//         quadr_equ_print_solutions(equation.n_roots, equation.roots, 1);
 
-//         if (!cmp_eq_roots(roots, equation.roots) || 
-//                 n_solutions != equation.n_roots) {
-//             printf("\nTEST %ld:" RED "WA" YEL "\n"
-//                    "a, b, c = %lg, %lg, %lg\n" WHT,
-//                    i, equation.coeffs.a, equation.coeffs.b, equation.coeffs.c);
-//             printf(GRN "CORRECT ANSWER:\n");
-//             quadr_equ_print_solutions(equation.n_roots, equation.roots, true);
-//             printf(RED "WRONG ANSWER:\n");
-//             quadr_equ_print_solutions(n_solutions, roots, true);
-//             printf(WHT "\n\n");
-//         } else {
-//             printf("TEST %ld:" GRN "OK" WHT "\n", i);
-//         } 
-//     }
-// }
+        if (!cmp_eq_roots(roots, equation.roots) || 
+                n_solutions != equation.n_roots) {
+            printf("\nTEST %ld:" RED "WA" YEL "\n"
+                   "a, b, c = %lg, %lg, %lg\n" WHT,
+                   i, equation.coeffs.a, equation.coeffs.b, equation.coeffs.c);
+            printf(GRN "CORRECT ANSWER:\n");
+            fprintf_quadr_equ_obj(stdout, equation);
+            printf(RED "WRONG ANSWER:\n");
+            struct quadr_equ_obj wrong_equation = INIT_QUADR_EQU_OBJ_STRUCTS(equation.coeffs, roots, n_solutions);
+            fprintf_quadr_equ_obj(stdout, wrong_equation);
+            printf(WHT "\n\n");
+        } else {
+            printf("TEST %ld:" GRN "OK" WHT "\n", i);
+        } 
+    }
+}
+
+void quadr_equ_solver_manual_testing(size_t n_tests, const quadr_equ_obj test_data[]) {
+    for (size_t i = 0; i < n_tests; i++) {
+        struct quadr_equ_obj equation = test_data[i];
+        struct quadr_roots roots;
+        init_quadr_roots(&roots);
+
+        int n_solutions = quadr_equ_solver(equation.coeffs, &roots);
+
+        printf("coefs: %lg %lg %lg\n", equation.coeffs.a, equation.coeffs.b, equation.coeffs.c);
+
+
+        if (!cmp_eq_roots(roots, equation.roots) || 
+                n_solutions != equation.n_roots) {
+            printf("\nTEST %ld:" RED "WA" YEL "\n"
+                   "a, b, c = %lg, %lg, %lg\n" WHT,
+                   i, equation.coeffs.a, equation.coeffs.b, equation.coeffs.c);
+            printf(GRN "CORRECT ANSWER:\n");
+            fprintf_quadr_equ_obj(stdout, equation);
+            printf(RED "WRONG ANSWER:\n");
+            struct quadr_equ_obj wrong_equation = INIT_QUADR_EQU_OBJ_STRUCTS(equation.coeffs, roots, n_solutions);
+            fprintf_quadr_equ_obj(stdout, wrong_equation);
+            printf(WHT "\n\n");
+        } else {
+            printf("TEST %ld:" GRN "OK" WHT "\n", i);
+        } 
+    }
+}

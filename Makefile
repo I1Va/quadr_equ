@@ -45,18 +45,21 @@ all: build
 
 build:
 	$(CC) $(SRC_FILES) -O0 -o $(SRC_OUTPUTFILE) $(INCLUDE_FLAGS) $(CC_FLAGS)
-	$(CC) $(EXP_FILES) -O0 -o $(EXP_OUTPUTFILE) $(CC_FLAGS)
+	$(CC) $(EXP_FILES) -O0 -o $(EXP_OUTPUTFILE) $(INCLUDE_FLAGS) $(CC_FLAGS)
 launch:
-	./$(SRC_OUTPUTFILE)
+	$(CC) $(SRC_FILES) -O0 -o $(SRC_OUTPUTFILE) $(INCLUDE_FLAGS) $(CC_FLAGS)
+	$(CC) $(EXP_FILES) -O0 -o $(EXP_OUTPUTFILE) $(INCLUDE_FLAGS) $(CC_FLAGS)
+	./$(SRC_OUTPUTFILE) --user
 clean:
 	rm -f $(SRC_OUTPUTFILE) $(TM_OUTPUTFILE)
 tm:
 	./$(TM_OUTPUTFILE)
 testing:
+	$(CC) $(SRC_FILES) -O0 -o $(SRC_OUTPUTFILE) $(INCLUDE_FLAGS) $(CC_FLAGS)
 	./$(SRC_OUTPUTFILE) --testing
 exp:
-	$(CC) $(EXP_FILES) -O0 -o $(EXP_OUTPUTFILE) $(INCLUDE_FLAGS) $(CC_FLAGS)
-	./$(EXP_OUTPUTFILE)
+	$(CC) $(SRC_FILES) -O0 -o $(SRC_OUTPUTFILE) $(INCLUDE_FLAGS) $(CC_FLAGS)
+	./$(SRC_OUTPUTFILE) --example
 random:
 	$(CC) src/random_func.cpp -O0 -o $(BUILD_DIR)/random_func.out $(INCLUDE_FLAGS) $(CC_FLAGS)
 	./build/random_func.out

@@ -21,11 +21,22 @@
 
 #define INIT_QUADR_COEFFS(a_, b_, c_) {.a = a_, .b = b_, .c = c_}
 #define INIT_QUADR_ROOTS(x1_, x2_) {.x1 = x1_, .x2 = x2_}
+
 #define INIT_QUADR_EQU_OBJ(a_, b_, c_, x1_, x2_, n_roots_) \
     { \
     .coeffs = INIT_QUADR_COEFFS(a_, b_, c_), \
     .roots = INIT_QUADR_ROOTS(x1_, x2_), \
-    .n_roots = n_roots_}
+    .n_roots = n_roots_ \
+    }
+
+#define INIT_QUADR_EQU_OBJ_STRUCTS(coeffs_, roots_, n_roots_) \
+    { \
+    .coeffs = coeffs_, \
+    .roots = roots_, \
+    .n_roots = n_roots_ \
+    }
+
+#define print_border fprintf(stream, WHT "########################################################################\n")
 
 enum roots_num
 {
@@ -35,7 +46,14 @@ enum roots_num
     TWO_SOLUTIONS = 2,
 };
 
-static const double EPS = 1e-6;
+enum modes
+{
+    USER_MODE = 0,
+    TESTING_MODE = 1,
+    EXAMPLE_MODE = 2,
+};
+
+static const double EPS = 1e-4;
 static const size_t N_ATTEMPTS = 5;
 
 static const char TESING_ARG[] = "--testing";
@@ -104,5 +122,13 @@ void fprintf_quadr_equ_obj(FILE* stream, const struct quadr_equ_obj equ);
 unsigned long long my_rand();
 
 double my_frand();
+
+void example_mode_launch();
+
+void mode_manager(int argc, char **argv);
+
+void user_mode_launch();
+
+void testing_mode_launch();
 
 #endif // QUADR_EQU_H
