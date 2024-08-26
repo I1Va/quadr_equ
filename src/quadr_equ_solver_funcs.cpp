@@ -1,6 +1,7 @@
 #include <assert.h>
 #include <cerrno>
 #include <cstddef>
+#include <cstdlib>
 #include <cstring>
 #include <math.h>
 #include <stdio.h>
@@ -11,7 +12,7 @@
 
 #include "quadr_equ.h"
 #include "colors.h"
-#include "file_path.h"
+#include "quadr_config.h"
 #include "test_funcs.h"
 
 static struct quadr_equ_obj MANUAL_TESTS[] = 
@@ -78,13 +79,13 @@ int scanf_quadr_coeffs(struct quadr_coeffs *coeffs) {
         int n_suc_args = scanf("%lg %lg %lg", &(coeffs->a), &(coeffs->b), &(coeffs->c));
         debug("n_suc_args: %d\n", n_suc_args);
 
-        if (n_suc_args != 3) {
+        if (n_suc_args < 3) {
             fprintf(stdout, "Invalid data format. Repeat input: \n");
-            fprintf(stderr, "%s", strerror(errno));
+            // fprintf(stderr, "%s", strerror(errno));
             int c = EOF;
             while ((c = getchar()) != EOF && c != '\n');
         } else {
-            fprintf(stderr, "%s", strerror(errno));
+            // fprintf(stderr, "%s", strerror(errno));
             return EXIT_SUCCESS;
         }
     }
@@ -133,7 +134,7 @@ int fprintf_num_solutions(FILE* stream, const int n_roots) {
 }
 
 int fprintf_quadr_equ_obj(FILE* stream, const struct quadr_equ_obj equ) {
-    print_border;
+    print_border();
     if (fprintf(stream, YEL "%lgx²", equ.coeffs.a) < 0) {
         fprintf(stderr, "%s", strerror(errno));
         return EXIT_FAILURE;
@@ -141,24 +142,28 @@ int fprintf_quadr_equ_obj(FILE* stream, const struct quadr_equ_obj equ) {
     
     if (equ.coeffs.b > 0) {
         printf(YEL " + ");
-    }    
-    if (fprintf(stream, YEL "%lgx", equ.coeffs.b) < 0) {
+    } else {
+        printf(YEL " - ");
+    }
+    if (fprintf(stream, YEL "%lgx", fabs(equ.coeffs.b)) < 0) {
         fprintf(stderr, "%s", strerror(errno));
         return EXIT_FAILURE;
     }
     if (equ.coeffs.c > 0) {
         printf(YEL " + ");
+    } else {
+        printf(YEL " - ");
     }
     if (\
-        fprintf(stream, YEL "%lg\n", equ.coeffs.c) < 0  || \
-        fprintf(stream, "x1 = %lg\n", equ.roots.x1) < 0 || \
-        fprintf(stream, "x2 = %lg\n", equ.roots.x2) < 0 || \
+        fprintf(stream, YEL "%lg\n", fabs(equ.coeffs.c)) <= 0  || \
+        fprintf(stream, "x1 = %lg\n", equ.roots.x1) <= 0 || \
+        fprintf(stream, "x2 = %lg\n", equ.roots.x2) <= 0 || \
         fprintf_num_solutions(stream, equ.n_roots) == EXIT_FAILURE
     ) { \
         fprintf(stderr, "%s", strerror(errno));
         return EXIT_FAILURE;
     }
-    print_border;
+    print_border();
     return EXIT_SUCCESS;
 }
 
@@ -190,13 +195,17 @@ bool cmp_eq_roots(const struct quadr_roots r1, const struct quadr_roots r2) {
 
 int example_mode_launch() {
     printf(RED "\n----------------------------> EXAMPLE MODE <----------------------------\n");
+
     generate_tests_to_file(PATH_EXAMPLE, 1);
+
     struct quadr_equ_obj example_data[1];
     get_tests_from_file(PATH_EXAMPLE, example_data);
+
     if (fprintf_quadr_equ_obj(stdout, example_data[0])) {
-        fprintf(stderr, "example_mode_launch(): FAILED TO: fprintf_quadr_equ_obj()\n");
+        fprintf(stderr, "%s: FAILED TO: fprintf_quadr_equ_obj()\n", __FUNCTION__);
         return EXIT_FAILURE;
     }
+
     return EXIT_SUCCESS;
 }
 
@@ -211,7 +220,7 @@ int user_mode_launch() {
     printf(WHT"# Enter coefficients(a, b, c): ");
 
     if (scanf_quadr_coeffs(&coeffs) == EXIT_FAILURE) {
-        fprintf(stderr, "user_mode_launch(): FAILED TO: fprintf_quadr_equ_obj()\n");
+        fprintf(stderr, "user_mode_launch(): FAILED TO: scanf_quadr_coeffs()\n");
         return EXIT_FAILURE;
     }
 
@@ -222,7 +231,7 @@ int user_mode_launch() {
 
     struct quadr_roots roots;
     init_quadr_roots(&roots);
-    int n_solutions = quadr_equ_solver(coeffs, &roots);
+    const int n_solutions = quadr_equ_solver(coeffs, &roots);
 
     debug("sols: %d\n", n_solutions);
     struct quadr_equ_obj equation = INIT_QUADR_EQU_OBJ_STRUCTS(coeffs, roots, n_solutions);
@@ -249,7 +258,7 @@ int testing_mode_launch() {
                 printf(YEL"How many tests? (MAX: %ld): " WHT, MAX_N_TESTS);
 
                 if (!scanf("%ld", &n_tests)) {
-                    printf(RED "Invalid data format. enter positive integer: " WHT);
+                    fprintf(stderr, RED "Invalid data format. enter positive integer: " WHT);
                 } else {
                     input_state = true;
                     break;
@@ -265,29 +274,55 @@ int testing_mode_launch() {
             fprintf(stderr, "testing_mode_launch(): FAILED TO: generate_tests_to_file()\n");
             return EXIT_FAILURE;
         }
+
         if (quadr_equ_solver_file_testing(PATH_AUTO_TESTS)) {
             fprintf(stderr, "testing_mode_launch(): FAILED TO: quadr_equ_solver_file_testing()\n");
             return EXIT_FAILURE;
         }
+
     } else {
         if (quadr_equ_solver_manual_testing(ARR_SIZE(MANUAL_TESTS), MANUAL_TESTS) == EXIT_FAILURE) {
             fprintf(stderr, "testing_mode_launch(): FAILED TO: quadr_equ_solver_manual_testing()\n");
             return EXIT_FAILURE;
         }
     }
+
     return EXIT_SUCCESS;
 }
+
+// int parsing_mode_launch() {
+//     printf(RED "\n----------------------------> PARSING MODE <-----------------------------\n");
+//     print_border;
+//     printf(YEL "Enter your quadratic equation: ");
+//     char com[MAX_STRING_SIZE];
+//     scanf("%s", com);
+    
+
+//     char number[MAX_STRING_SIZE];
+//     bool first_num = false;
+//     bool separator = false;
+//     size_t number_idx = 0;
+
+//     char *v = com;
+//     while (*v != '\n') {
+//         if (v.is)
+//         if (!first_num)
+//     }
+//     return EXIT_FAILURE;
+// }
 
 void mode_manager(int argc, char **argv) {
     int user_mode_flag = 0;
 	int testing_mode_flag = 0;
 	int example_mode_flag = 0;
+    int parsing_mode_flag = 0;
 
     const char* short_options = "";
 	const struct option long_options[] = {
 		{ "user", no_argument, &user_mode_flag, 1 },
 		{ "testing", no_argument, &testing_mode_flag, 1 },
 		{ "example", no_argument, &example_mode_flag,  1 },
+        { "parsing", no_argument, &parsing_mode_flag,  1 },
 		{ NULL, 0, NULL, 0}
 	};
 
@@ -309,4 +344,9 @@ void mode_manager(int argc, char **argv) {
             fprintf(stderr, "mode_manager: FAILED TO: testing_mode_flag()\n");
         }
     }
+    // if (parsing_mode_flag) {
+    //     if (parsing_mode_launch() == EXIT_FAILURE) {
+    //         fprintf(stderr, "mode_manager: FAILED TO: parsing_mode_launch()\n");
+    //     }
+    // }
 }

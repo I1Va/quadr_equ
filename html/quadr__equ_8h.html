@@ -84,15 +84,21 @@ $(function() {
 
 <p>Header file with basic classes, funtions declaration.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for quadr_equ.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="quadr__equ_8h__incl.png" border="0" usemap="#ainc_2quadr__equ_8h" alt=""/></div>
 <map name="ainc_2quadr__equ_8h" id="ainc_2quadr__equ_8h">
-<area shape="rect" title="Header file with basic classes, funtions declaration." alt="" coords="5,5,131,31"/>
-<area shape="rect" title=" " alt="" coords="33,79,103,104"/>
-<area shape="poly" title=" " alt="" coords="71,31,71,65,65,65,65,31"/>
+<area shape="rect" title="Header file with basic classes, funtions declaration." alt="" coords="67,5,193,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,71,104"/>
+<area shape="poly" title=" " alt="" coords="117,33,65,72,62,68,114,29"/>
+<area shape="rect" title=" " alt="" coords="95,79,165,104"/>
+<area shape="poly" title=" " alt="" coords="133,31,133,65,127,65,127,31"/>
+<area shape="rect" title=" " alt="" coords="190,79,257,104"/>
+<area shape="poly" title=" " alt="" coords="147,29,199,68,196,72,143,33"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -170,9 +176,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ab1ba3361729e62fe539cca88ef421d58" id="r_ab1ba3361729e62fe539cca88ef421d58"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#ab1ba3361729e62fe539cca88ef421d58">scanf_quadr_coeffs</a> (struct <a class="el" href="structquadr__coeffs.html">quadr_coeffs</a> *coeffs)</td></tr>
 <tr class="memdesc:ab1ba3361729e62fe539cca88ef421d58"><td class="mdescLeft">&#160;</td><td class="mdescRight">function of input quadratic equation coeffs from stdin  <br /></td></tr>
 <tr class="separator:ab1ba3361729e62fe539cca88ef421d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0ec582c8f263163dfe8a8d056803350" id="r_ac0ec582c8f263163dfe8a8d056803350"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#ac0ec582c8f263163dfe8a8d056803350">fscanf_quadr_equ_obj</a> (FILE *stream, struct <a class="el" href="structquadr__equ__obj.html">quadr_equ_obj</a> *equ)</td></tr>
-<tr class="memdesc:ac0ec582c8f263163dfe8a8d056803350"><td class="mdescLeft">&#160;</td><td class="mdescRight">function of input quadratic equation coeffs from stream  <br /></td></tr>
-<tr class="separator:ac0ec582c8f263163dfe8a8d056803350"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5206fc1d9570ebb70b7b525278399134" id="r_a5206fc1d9570ebb70b7b525278399134"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a5206fc1d9570ebb70b7b525278399134">fscanf_quadr_equ_obj</a> (FILE *stream, struct <a class="el" href="structquadr__equ__obj.html">quadr_equ_obj</a> *equ)</td></tr>
+<tr class="memdesc:a5206fc1d9570ebb70b7b525278399134"><td class="mdescLeft">&#160;</td><td class="mdescRight">function of input quadratic equation coeffs from stream  <br /></td></tr>
+<tr class="separator:a5206fc1d9570ebb70b7b525278399134"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9b6b6429c15c6e91e7bda05d85c9775" id="r_af9b6b6429c15c6e91e7bda05d85c9775"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#af9b6b6429c15c6e91e7bda05d85c9775">cmp_eq</a> (const double x1, const double x2)</td></tr>
 <tr class="memdesc:af9b6b6429c15c6e91e7bda05d85c9775"><td class="mdescLeft">&#160;</td><td class="mdescRight">check equality of quadratic equation roots with some error  <br /></td></tr>
 <tr class="separator:af9b6b6429c15c6e91e7bda05d85c9775"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -182,30 +188,30 @@ Functions</h2></td></tr>
 <tr class="memitem:a57ee126722a8f994bea8ffd44987b30b" id="r_a57ee126722a8f994bea8ffd44987b30b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a57ee126722a8f994bea8ffd44987b30b">cmp_eq_roots</a> (const struct <a class="el" href="structquadr__roots.html">quadr_roots</a> r1, const struct <a class="el" href="structquadr__roots.html">quadr_roots</a> r2)</td></tr>
 <tr class="memdesc:a57ee126722a8f994bea8ffd44987b30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">check equality of quad_roots equation with some error  <br /></td></tr>
 <tr class="separator:a57ee126722a8f994bea8ffd44987b30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b9bd0cfdcd479b986741eec4bd3ddf5" id="r_a4b9bd0cfdcd479b986741eec4bd3ddf5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a4b9bd0cfdcd479b986741eec4bd3ddf5">fprintf_num_solutions</a> (FILE *stream, const int n_roots)</td></tr>
-<tr class="memdesc:a4b9bd0cfdcd479b986741eec4bd3ddf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">function of root number of quadratic equation output to stream  <br /></td></tr>
-<tr class="separator:a4b9bd0cfdcd479b986741eec4bd3ddf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d808dafac0f04f771b0f57cb0c4407e" id="r_a2d808dafac0f04f771b0f57cb0c4407e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a2d808dafac0f04f771b0f57cb0c4407e">fprintf_quadr_equ_obj</a> (FILE *stream, const struct <a class="el" href="structquadr__equ__obj.html">quadr_equ_obj</a> equ)</td></tr>
-<tr class="memdesc:a2d808dafac0f04f771b0f57cb0c4407e"><td class="mdescLeft">&#160;</td><td class="mdescRight">function of <a class="el" href="structquadr__equ__obj.html" title="Class of quadratic equation: coeffs, roots, number os solutions.">quadr_equ_obj</a> output to stream  <br /></td></tr>
-<tr class="separator:a2d808dafac0f04f771b0f57cb0c4407e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98fadae212e0ca64f9a8f03b96f554f9" id="r_a98fadae212e0ca64f9a8f03b96f554f9"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a98fadae212e0ca64f9a8f03b96f554f9">my_rand</a> ()</td></tr>
-<tr class="memdesc:a98fadae212e0ca64f9a8f03b96f554f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear congruential generator of random unsigned int numbers.  <br /></td></tr>
-<tr class="separator:a98fadae212e0ca64f9a8f03b96f554f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e3b96bc90c608309307562cad6db2dd" id="r_a5e3b96bc90c608309307562cad6db2dd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a5e3b96bc90c608309307562cad6db2dd">my_frand</a> ()</td></tr>
-<tr class="memdesc:a5e3b96bc90c608309307562cad6db2dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates random double number.  <br /></td></tr>
-<tr class="separator:a5e3b96bc90c608309307562cad6db2dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6cabc3f1d18dcdfddac01fcddc8e9d4" id="r_aa6cabc3f1d18dcdfddac01fcddc8e9d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#aa6cabc3f1d18dcdfddac01fcddc8e9d4">fprintf_num_solutions</a> (FILE *stream, const int n_roots)</td></tr>
+<tr class="memdesc:aa6cabc3f1d18dcdfddac01fcddc8e9d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">function of root number of quadratic equation output to stream  <br /></td></tr>
+<tr class="separator:aa6cabc3f1d18dcdfddac01fcddc8e9d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d035a5f1ab32531de92736e9f0b9e9a" id="r_a2d035a5f1ab32531de92736e9f0b9e9a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a2d035a5f1ab32531de92736e9f0b9e9a">fprintf_quadr_equ_obj</a> (FILE *stream, const struct <a class="el" href="structquadr__equ__obj.html">quadr_equ_obj</a> equ)</td></tr>
+<tr class="memdesc:a2d035a5f1ab32531de92736e9f0b9e9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">function of <a class="el" href="structquadr__equ__obj.html" title="Class of quadratic equation: coeffs, roots, number os solutions.">quadr_equ_obj</a> output to stream  <br /></td></tr>
+<tr class="separator:a2d035a5f1ab32531de92736e9f0b9e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abff7a5a3bfc3bb1fbb81ba3cd840d9e7" id="r_abff7a5a3bfc3bb1fbb81ba3cd840d9e7"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#abff7a5a3bfc3bb1fbb81ba3cd840d9e7">cong_rand</a> ()</td></tr>
+<tr class="memdesc:abff7a5a3bfc3bb1fbb81ba3cd840d9e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear congruential generator of random unsigned int numbers.  <br /></td></tr>
+<tr class="separator:abff7a5a3bfc3bb1fbb81ba3cd840d9e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41c622d4b20dc3317104ab3ea3f5d426" id="r_a41c622d4b20dc3317104ab3ea3f5d426"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a41c622d4b20dc3317104ab3ea3f5d426">cong_frand</a> ()</td></tr>
+<tr class="memdesc:a41c622d4b20dc3317104ab3ea3f5d426"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates random double number.  <br /></td></tr>
+<tr class="separator:a41c622d4b20dc3317104ab3ea3f5d426"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8483a17f6cca4ed82bb463e845b95da" id="r_ab8483a17f6cca4ed82bb463e845b95da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#ab8483a17f6cca4ed82bb463e845b95da">mode_manager</a> (int argc, char **argv)</td></tr>
 <tr class="memdesc:ab8483a17f6cca4ed82bb463e845b95da"><td class="mdescLeft">&#160;</td><td class="mdescRight">processes comand line arguments and manages mode launhes  <br /></td></tr>
 <tr class="separator:ab8483a17f6cca4ed82bb463e845b95da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71c5d560ce2852e74ede0baf227a980e" id="r_a71c5d560ce2852e74ede0baf227a980e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a71c5d560ce2852e74ede0baf227a980e">example_mode_launch</a> ()</td></tr>
-<tr class="memdesc:a71c5d560ce2852e74ede0baf227a980e"><td class="mdescLeft">&#160;</td><td class="mdescRight">launch example mode  <br /></td></tr>
-<tr class="separator:a71c5d560ce2852e74ede0baf227a980e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69762af8349f77a7d82385e7f3c1d71a" id="r_a69762af8349f77a7d82385e7f3c1d71a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a69762af8349f77a7d82385e7f3c1d71a">user_mode_launch</a> ()</td></tr>
-<tr class="memdesc:a69762af8349f77a7d82385e7f3c1d71a"><td class="mdescLeft">&#160;</td><td class="mdescRight">launch user mode  <br /></td></tr>
-<tr class="separator:a69762af8349f77a7d82385e7f3c1d71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8cd9d4a6d956da7e82131a71bb823bd" id="r_af8cd9d4a6d956da7e82131a71bb823bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#af8cd9d4a6d956da7e82131a71bb823bd">testing_mode_launch</a> ()</td></tr>
-<tr class="memdesc:af8cd9d4a6d956da7e82131a71bb823bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">launch testing mode  <br /></td></tr>
-<tr class="separator:af8cd9d4a6d956da7e82131a71bb823bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbf15d56862f3691a98f4e7603189fb0" id="r_afbf15d56862f3691a98f4e7603189fb0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#afbf15d56862f3691a98f4e7603189fb0">example_mode_launch</a> ()</td></tr>
+<tr class="memdesc:afbf15d56862f3691a98f4e7603189fb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">launch example mode  <br /></td></tr>
+<tr class="separator:afbf15d56862f3691a98f4e7603189fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32a9d32f8c6f13cfa02f407c107a2933" id="r_a32a9d32f8c6f13cfa02f407c107a2933"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a32a9d32f8c6f13cfa02f407c107a2933">user_mode_launch</a> ()</td></tr>
+<tr class="memdesc:a32a9d32f8c6f13cfa02f407c107a2933"><td class="mdescLeft">&#160;</td><td class="mdescRight">launch user mode  <br /></td></tr>
+<tr class="separator:a32a9d32f8c6f13cfa02f407c107a2933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb6ba4ef16ad5cde4d16a7c6fb366e3e" id="r_afb6ba4ef16ad5cde4d16a7c6fb366e3e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#afb6ba4ef16ad5cde4d16a7c6fb366e3e">testing_mode_launch</a> ()</td></tr>
+<tr class="memdesc:afb6ba4ef16ad5cde4d16a7c6fb366e3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">launch testing mode  <br /></td></tr>
+<tr class="separator:afb6ba4ef16ad5cde4d16a7c6fb366e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header file with basic classes, funtions declaration. </p>
@@ -418,14 +424,64 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a71c5d560ce2852e74ede0baf227a980e" name="a71c5d560ce2852e74ede0baf227a980e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71c5d560ce2852e74ede0baf227a980e">&#9670;&#160;</a></span>example_mode_launch()</h2>
+<a id="a41c622d4b20dc3317104ab3ea3f5d426" name="a41c622d4b20dc3317104ab3ea3f5d426"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41c622d4b20dc3317104ab3ea3f5d426">&#9670;&#160;</a></span>cong_frand()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void example_mode_launch </td>
+          <td class="memname">double cong_frand </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates random double number. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">random_number</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abff7a5a3bfc3bb1fbb81ba3cd840d9e7" name="abff7a5a3bfc3bb1fbb81ba3cd840d9e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abff7a5a3bfc3bb1fbb81ba3cd840d9e7">&#9670;&#160;</a></span>cong_rand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long long cong_rand </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Linear congruential generator of random unsigned int numbers. </p>
+<p>writes current seed into cur_seed.txt uses Borland C/C++ random constants </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">random_number</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afbf15d56862f3691a98f4e7603189fb0" name="afbf15d56862f3691a98f4e7603189fb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbf15d56862f3691a98f4e7603189fb0">&#9670;&#160;</a></span>example_mode_launch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int example_mode_launch </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -438,14 +494,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4b9bd0cfdcd479b986741eec4bd3ddf5" name="a4b9bd0cfdcd479b986741eec4bd3ddf5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b9bd0cfdcd479b986741eec4bd3ddf5">&#9670;&#160;</a></span>fprintf_num_solutions()</h2>
+<a id="aa6cabc3f1d18dcdfddac01fcddc8e9d4" name="aa6cabc3f1d18dcdfddac01fcddc8e9d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6cabc3f1d18dcdfddac01fcddc8e9d4">&#9670;&#160;</a></span>fprintf_num_solutions()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void fprintf_num_solutions </td>
+          <td class="memname">int fprintf_num_solutions </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
           <td class="paramname"><em>stream</em>, </td>
@@ -475,14 +531,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2d808dafac0f04f771b0f57cb0c4407e" name="a2d808dafac0f04f771b0f57cb0c4407e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d808dafac0f04f771b0f57cb0c4407e">&#9670;&#160;</a></span>fprintf_quadr_equ_obj()</h2>
+<a id="a2d035a5f1ab32531de92736e9f0b9e9a" name="a2d035a5f1ab32531de92736e9f0b9e9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d035a5f1ab32531de92736e9f0b9e9a">&#9670;&#160;</a></span>fprintf_quadr_equ_obj()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void fprintf_quadr_equ_obj </td>
+          <td class="memname">int fprintf_quadr_equ_obj </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
           <td class="paramname"><em>stream</em>, </td>
@@ -512,14 +568,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac0ec582c8f263163dfe8a8d056803350" name="ac0ec582c8f263163dfe8a8d056803350"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0ec582c8f263163dfe8a8d056803350">&#9670;&#160;</a></span>fscanf_quadr_equ_obj()</h2>
+<a id="a5206fc1d9570ebb70b7b525278399134" name="a5206fc1d9570ebb70b7b525278399134"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5206fc1d9570ebb70b7b525278399134">&#9670;&#160;</a></span>fscanf_quadr_equ_obj()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void fscanf_quadr_equ_obj </td>
+          <td class="memname">int fscanf_quadr_equ_obj </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
           <td class="paramname"><em>stream</em>, </td>
@@ -546,6 +602,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>exit_code </dd></dl>
 
 </div>
 </div>
@@ -638,56 +695,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5e3b96bc90c608309307562cad6db2dd" name="a5e3b96bc90c608309307562cad6db2dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e3b96bc90c608309307562cad6db2dd">&#9670;&#160;</a></span>my_frand()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double my_frand </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Generates random double number. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">random_number</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a98fadae212e0ca64f9a8f03b96f554f9" name="a98fadae212e0ca64f9a8f03b96f554f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98fadae212e0ca64f9a8f03b96f554f9">&#9670;&#160;</a></span>my_rand()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned long long my_rand </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Linear congruential generator of random unsigned int numbers. </p>
-<p>writes current seed into cur_seed.txt uses Borland C/C++ random constants </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">random_number</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a0b4cd2f83b659ff291ad7f0f7c9f5e12" name="a0b4cd2f83b659ff291ad7f0f7c9f5e12"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0b4cd2f83b659ff291ad7f0f7c9f5e12">&#9670;&#160;</a></span>quadr_equ_solver()</h2>
 
@@ -754,14 +761,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af8cd9d4a6d956da7e82131a71bb823bd" name="af8cd9d4a6d956da7e82131a71bb823bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8cd9d4a6d956da7e82131a71bb823bd">&#9670;&#160;</a></span>testing_mode_launch()</h2>
+<a id="afb6ba4ef16ad5cde4d16a7c6fb366e3e" name="afb6ba4ef16ad5cde4d16a7c6fb366e3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb6ba4ef16ad5cde4d16a7c6fb366e3e">&#9670;&#160;</a></span>testing_mode_launch()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void testing_mode_launch </td>
+          <td class="memname">int testing_mode_launch </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -774,14 +781,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a69762af8349f77a7d82385e7f3c1d71a" name="a69762af8349f77a7d82385e7f3c1d71a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69762af8349f77a7d82385e7f3c1d71a">&#9670;&#160;</a></span>user_mode_launch()</h2>
+<a id="a32a9d32f8c6f13cfa02f407c107a2933" name="a32a9d32f8c6f13cfa02f407c107a2933"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32a9d32f8c6f13cfa02f407c107a2933">&#9670;&#160;</a></span>user_mode_launch()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void user_mode_launch </td>
+          <td class="memname">int user_mode_launch </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>

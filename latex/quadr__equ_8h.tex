@@ -5,12 +5,15 @@
 Header file with basic classes, funtions declaration.  
 
 
+{\ttfamily \#include $<$cstdlib$>$}\newline
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
-Include dependency graph for quadr\+\_\+equ.\+h\+:\nopagebreak
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for quadr\+\_\+equ.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=174pt]{quadr__equ_8h__incl}
+\includegraphics[width=269pt]{quadr__equ_8h__incl}
 \end{center}
 \end{figure}
 This graph shows which files directly or indirectly include this file\+:\nopagebreak
@@ -78,7 +81,7 @@ int \mbox{\hyperlink{quadr__equ_8h_a0b4cd2f83b659ff291ad7f0f7c9f5e12}{quadr\+\_\
 \begin{DoxyCompactList}\small\item\em function solving quadratic equation \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{quadr__equ_8h_ab1ba3361729e62fe539cca88ef421d58}{scanf\+\_\+quadr\+\_\+coeffs}} (struct \mbox{\hyperlink{structquadr__coeffs}{quadr\+\_\+coeffs}} \texorpdfstring{$\ast$}{*}coeffs)
 \begin{DoxyCompactList}\small\item\em function of input quadratic equation coeffs from stdin \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{quadr__equ_8h_ac0ec582c8f263163dfe8a8d056803350}{fscanf\+\_\+quadr\+\_\+equ\+\_\+obj}} (FILE \texorpdfstring{$\ast$}{*}stream, struct \mbox{\hyperlink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj}} \texorpdfstring{$\ast$}{*}equ)
+int \mbox{\hyperlink{quadr__equ_8h_a5206fc1d9570ebb70b7b525278399134}{fscanf\+\_\+quadr\+\_\+equ\+\_\+obj}} (FILE \texorpdfstring{$\ast$}{*}stream, struct \mbox{\hyperlink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj}} \texorpdfstring{$\ast$}{*}equ)
 \begin{DoxyCompactList}\small\item\em function of input quadratic equation coeffs from stream \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{quadr__equ_8h_af9b6b6429c15c6e91e7bda05d85c9775}{cmp\+\_\+eq}} (const double x1, const double x2)
 \begin{DoxyCompactList}\small\item\em check equality of quadratic equation roots with some error \end{DoxyCompactList}\item 
@@ -86,21 +89,21 @@ bool \mbox{\hyperlink{quadr__equ_8h_ae953f40c0035ed111631952b7b8e882a}{cmp\+\_\+
 \begin{DoxyCompactList}\small\item\em check equality of strings \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{quadr__equ_8h_a57ee126722a8f994bea8ffd44987b30b}{cmp\+\_\+eq\+\_\+roots}} (const struct \mbox{\hyperlink{structquadr__roots}{quadr\+\_\+roots}} r1, const struct \mbox{\hyperlink{structquadr__roots}{quadr\+\_\+roots}} r2)
 \begin{DoxyCompactList}\small\item\em check equality of quad\+\_\+roots equation with some error \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{quadr__equ_8h_a4b9bd0cfdcd479b986741eec4bd3ddf5}{fprintf\+\_\+num\+\_\+solutions}} (FILE \texorpdfstring{$\ast$}{*}stream, const int n\+\_\+roots)
+int \mbox{\hyperlink{quadr__equ_8h_aa6cabc3f1d18dcdfddac01fcddc8e9d4}{fprintf\+\_\+num\+\_\+solutions}} (FILE \texorpdfstring{$\ast$}{*}stream, const int n\+\_\+roots)
 \begin{DoxyCompactList}\small\item\em function of root number of quadratic equation output to stream \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{quadr__equ_8h_a2d808dafac0f04f771b0f57cb0c4407e}{fprintf\+\_\+quadr\+\_\+equ\+\_\+obj}} (FILE \texorpdfstring{$\ast$}{*}stream, const struct \mbox{\hyperlink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj}} equ)
+int \mbox{\hyperlink{quadr__equ_8h_a2d035a5f1ab32531de92736e9f0b9e9a}{fprintf\+\_\+quadr\+\_\+equ\+\_\+obj}} (FILE \texorpdfstring{$\ast$}{*}stream, const struct \mbox{\hyperlink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj}} equ)
 \begin{DoxyCompactList}\small\item\em function of \doxylink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj} output to stream \end{DoxyCompactList}\item 
-unsigned long long \mbox{\hyperlink{quadr__equ_8h_a98fadae212e0ca64f9a8f03b96f554f9}{my\+\_\+rand}} ()
+unsigned long long \mbox{\hyperlink{quadr__equ_8h_abff7a5a3bfc3bb1fbb81ba3cd840d9e7}{cong\+\_\+rand}} ()
 \begin{DoxyCompactList}\small\item\em Linear congruential generator of random unsigned int numbers. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{quadr__equ_8h_a5e3b96bc90c608309307562cad6db2dd}{my\+\_\+frand}} ()
+double \mbox{\hyperlink{quadr__equ_8h_a41c622d4b20dc3317104ab3ea3f5d426}{cong\+\_\+frand}} ()
 \begin{DoxyCompactList}\small\item\em Generates random double number. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{quadr__equ_8h_ab8483a17f6cca4ed82bb463e845b95da}{mode\+\_\+manager}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
 \begin{DoxyCompactList}\small\item\em processes comand line arguments and manages mode launhes \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{quadr__equ_8h_a71c5d560ce2852e74ede0baf227a980e}{example\+\_\+mode\+\_\+launch}} ()
+int \mbox{\hyperlink{quadr__equ_8h_afbf15d56862f3691a98f4e7603189fb0}{example\+\_\+mode\+\_\+launch}} ()
 \begin{DoxyCompactList}\small\item\em launch example mode \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{quadr__equ_8h_a69762af8349f77a7d82385e7f3c1d71a}{user\+\_\+mode\+\_\+launch}} ()
+int \mbox{\hyperlink{quadr__equ_8h_a32a9d32f8c6f13cfa02f407c107a2933}{user\+\_\+mode\+\_\+launch}} ()
 \begin{DoxyCompactList}\small\item\em launch user mode \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{quadr__equ_8h_af8cd9d4a6d956da7e82131a71bb823bd}{testing\+\_\+mode\+\_\+launch}} ()
+int \mbox{\hyperlink{quadr__equ_8h_afb6ba4ef16ad5cde4d16a7c6fb366e3e}{testing\+\_\+mode\+\_\+launch}} ()
 \begin{DoxyCompactList}\small\item\em launch testing mode \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -197,21 +200,51 @@ check equality of strings
 \begin{DoxyReturn}{Returns}
 equality 
 \end{DoxyReturn}
-\Hypertarget{quadr__equ_8h_a71c5d560ce2852e74ede0baf227a980e}\label{quadr__equ_8h_a71c5d560ce2852e74ede0baf227a980e} 
+\Hypertarget{quadr__equ_8h_a41c622d4b20dc3317104ab3ea3f5d426}\label{quadr__equ_8h_a41c622d4b20dc3317104ab3ea3f5d426} 
+\index{quadr\_equ.h@{quadr\_equ.h}!cong\_frand@{cong\_frand}}
+\index{cong\_frand@{cong\_frand}!quadr\_equ.h@{quadr\_equ.h}}
+\doxysubsubsection{\texorpdfstring{cong\_frand()}{cong\_frand()}}
+{\footnotesize\ttfamily double cong\+\_\+frand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generates random double number. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em random\+\_\+number} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{quadr__equ_8h_abff7a5a3bfc3bb1fbb81ba3cd840d9e7}\label{quadr__equ_8h_abff7a5a3bfc3bb1fbb81ba3cd840d9e7} 
+\index{quadr\_equ.h@{quadr\_equ.h}!cong\_rand@{cong\_rand}}
+\index{cong\_rand@{cong\_rand}!quadr\_equ.h@{quadr\_equ.h}}
+\doxysubsubsection{\texorpdfstring{cong\_rand()}{cong\_rand()}}
+{\footnotesize\ttfamily unsigned long long cong\+\_\+rand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Linear congruential generator of random unsigned int numbers. 
+
+writes current seed into cur\+\_\+seed.\+txt uses Borland C/\+C++ random constants 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em random\+\_\+number} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{quadr__equ_8h_afbf15d56862f3691a98f4e7603189fb0}\label{quadr__equ_8h_afbf15d56862f3691a98f4e7603189fb0} 
 \index{quadr\_equ.h@{quadr\_equ.h}!example\_mode\_launch@{example\_mode\_launch}}
 \index{example\_mode\_launch@{example\_mode\_launch}!quadr\_equ.h@{quadr\_equ.h}}
 \doxysubsubsection{\texorpdfstring{example\_mode\_launch()}{example\_mode\_launch()}}
-{\footnotesize\ttfamily void example\+\_\+mode\+\_\+launch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int example\+\_\+mode\+\_\+launch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 launch example mode 
 
-generate random quadratic equation and solve it \Hypertarget{quadr__equ_8h_a4b9bd0cfdcd479b986741eec4bd3ddf5}\label{quadr__equ_8h_a4b9bd0cfdcd479b986741eec4bd3ddf5} 
+generate random quadratic equation and solve it \Hypertarget{quadr__equ_8h_aa6cabc3f1d18dcdfddac01fcddc8e9d4}\label{quadr__equ_8h_aa6cabc3f1d18dcdfddac01fcddc8e9d4} 
 \index{quadr\_equ.h@{quadr\_equ.h}!fprintf\_num\_solutions@{fprintf\_num\_solutions}}
 \index{fprintf\_num\_solutions@{fprintf\_num\_solutions}!quadr\_equ.h@{quadr\_equ.h}}
 \doxysubsubsection{\texorpdfstring{fprintf\_num\_solutions()}{fprintf\_num\_solutions()}}
-{\footnotesize\ttfamily void fprintf\+\_\+num\+\_\+solutions (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{stream,  }\item[{const int}]{n\+\_\+roots }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int fprintf\+\_\+num\+\_\+solutions (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{stream,  }\item[{const int}]{n\+\_\+roots }\end{DoxyParamCaption})}
 
 
 
@@ -224,11 +257,11 @@ function of root number of quadratic equation output to stream
 \mbox{\texttt{ in}}  & {\em n\+\_\+roots} & \\
 \hline
 \end{DoxyParams}
-\Hypertarget{quadr__equ_8h_a2d808dafac0f04f771b0f57cb0c4407e}\label{quadr__equ_8h_a2d808dafac0f04f771b0f57cb0c4407e} 
+\Hypertarget{quadr__equ_8h_a2d035a5f1ab32531de92736e9f0b9e9a}\label{quadr__equ_8h_a2d035a5f1ab32531de92736e9f0b9e9a} 
 \index{quadr\_equ.h@{quadr\_equ.h}!fprintf\_quadr\_equ\_obj@{fprintf\_quadr\_equ\_obj}}
 \index{fprintf\_quadr\_equ\_obj@{fprintf\_quadr\_equ\_obj}!quadr\_equ.h@{quadr\_equ.h}}
 \doxysubsubsection{\texorpdfstring{fprintf\_quadr\_equ\_obj()}{fprintf\_quadr\_equ\_obj()}}
-{\footnotesize\ttfamily void fprintf\+\_\+quadr\+\_\+equ\+\_\+obj (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{stream,  }\item[{const struct \mbox{\hyperlink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj}}}]{equ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int fprintf\+\_\+quadr\+\_\+equ\+\_\+obj (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{stream,  }\item[{const struct \mbox{\hyperlink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj}}}]{equ }\end{DoxyParamCaption})}
 
 
 
@@ -241,11 +274,11 @@ function of \doxylink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj} output to 
 \mbox{\texttt{ in}}  & {\em equ} & \\
 \hline
 \end{DoxyParams}
-\Hypertarget{quadr__equ_8h_ac0ec582c8f263163dfe8a8d056803350}\label{quadr__equ_8h_ac0ec582c8f263163dfe8a8d056803350} 
+\Hypertarget{quadr__equ_8h_a5206fc1d9570ebb70b7b525278399134}\label{quadr__equ_8h_a5206fc1d9570ebb70b7b525278399134} 
 \index{quadr\_equ.h@{quadr\_equ.h}!fscanf\_quadr\_equ\_obj@{fscanf\_quadr\_equ\_obj}}
 \index{fscanf\_quadr\_equ\_obj@{fscanf\_quadr\_equ\_obj}!quadr\_equ.h@{quadr\_equ.h}}
 \doxysubsubsection{\texorpdfstring{fscanf\_quadr\_equ\_obj()}{fscanf\_quadr\_equ\_obj()}}
-{\footnotesize\ttfamily void fscanf\+\_\+quadr\+\_\+equ\+\_\+obj (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{stream,  }\item[{struct \mbox{\hyperlink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj}} \texorpdfstring{$\ast$}{*}}]{equ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int fscanf\+\_\+quadr\+\_\+equ\+\_\+obj (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{stream,  }\item[{struct \mbox{\hyperlink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj}} \texorpdfstring{$\ast$}{*}}]{equ }\end{DoxyParamCaption})}
 
 
 
@@ -258,6 +291,9 @@ function of input quadratic equation coeffs from stream
 \mbox{\texttt{ out}}  & {\em equ} & \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+exit\+\_\+code 
+\end{DoxyReturn}
 \Hypertarget{quadr__equ_8h_ad3eb10e7c90ade968994807c41fbd047}\label{quadr__equ_8h_ad3eb10e7c90ade968994807c41fbd047} 
 \index{quadr\_equ.h@{quadr\_equ.h}!init\_quadr\_coeffs@{init\_quadr\_coeffs}}
 \index{init\_quadr\_coeffs@{init\_quadr\_coeffs}!quadr\_equ.h@{quadr\_equ.h}}
@@ -305,36 +341,6 @@ processes comand line arguments and manages mode launhes
 \mbox{\texttt{ in}}  & {\em argv} & \\
 \hline
 \end{DoxyParams}
-\Hypertarget{quadr__equ_8h_a5e3b96bc90c608309307562cad6db2dd}\label{quadr__equ_8h_a5e3b96bc90c608309307562cad6db2dd} 
-\index{quadr\_equ.h@{quadr\_equ.h}!my\_frand@{my\_frand}}
-\index{my\_frand@{my\_frand}!quadr\_equ.h@{quadr\_equ.h}}
-\doxysubsubsection{\texorpdfstring{my\_frand()}{my\_frand()}}
-{\footnotesize\ttfamily double my\+\_\+frand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Generates random double number. 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ out}}  & {\em random\+\_\+number} & \\
-\hline
-\end{DoxyParams}
-\Hypertarget{quadr__equ_8h_a98fadae212e0ca64f9a8f03b96f554f9}\label{quadr__equ_8h_a98fadae212e0ca64f9a8f03b96f554f9} 
-\index{quadr\_equ.h@{quadr\_equ.h}!my\_rand@{my\_rand}}
-\index{my\_rand@{my\_rand}!quadr\_equ.h@{quadr\_equ.h}}
-\doxysubsubsection{\texorpdfstring{my\_rand()}{my\_rand()}}
-{\footnotesize\ttfamily unsigned long long my\+\_\+rand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Linear congruential generator of random unsigned int numbers. 
-
-writes current seed into cur\+\_\+seed.\+txt uses Borland C/\+C++ random constants 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ out}}  & {\em random\+\_\+number} & \\
-\hline
-\end{DoxyParams}
 \Hypertarget{quadr__equ_8h_a0b4cd2f83b659ff291ad7f0f7c9f5e12}\label{quadr__equ_8h_a0b4cd2f83b659ff291ad7f0f7c9f5e12} 
 \index{quadr\_equ.h@{quadr\_equ.h}!quadr\_equ\_solver@{quadr\_equ\_solver}}
 \index{quadr\_equ\_solver@{quadr\_equ\_solver}!quadr\_equ.h@{quadr\_equ.h}}
@@ -376,21 +382,21 @@ function of input quadratic equation coeffs from stdin
 \begin{DoxyReturn}{Returns}
 exit\+\_\+code 
 \end{DoxyReturn}
-\Hypertarget{quadr__equ_8h_af8cd9d4a6d956da7e82131a71bb823bd}\label{quadr__equ_8h_af8cd9d4a6d956da7e82131a71bb823bd} 
+\Hypertarget{quadr__equ_8h_afb6ba4ef16ad5cde4d16a7c6fb366e3e}\label{quadr__equ_8h_afb6ba4ef16ad5cde4d16a7c6fb366e3e} 
 \index{quadr\_equ.h@{quadr\_equ.h}!testing\_mode\_launch@{testing\_mode\_launch}}
 \index{testing\_mode\_launch@{testing\_mode\_launch}!quadr\_equ.h@{quadr\_equ.h}}
 \doxysubsubsection{\texorpdfstring{testing\_mode\_launch()}{testing\_mode\_launch()}}
-{\footnotesize\ttfamily void testing\+\_\+mode\+\_\+launch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int testing\+\_\+mode\+\_\+launch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 launch testing mode 
 
-loading tests from file/array testing \Hypertarget{quadr__equ_8h_a69762af8349f77a7d82385e7f3c1d71a}\label{quadr__equ_8h_a69762af8349f77a7d82385e7f3c1d71a} 
+loading tests from file/array testing \Hypertarget{quadr__equ_8h_a32a9d32f8c6f13cfa02f407c107a2933}\label{quadr__equ_8h_a32a9d32f8c6f13cfa02f407c107a2933} 
 \index{quadr\_equ.h@{quadr\_equ.h}!user\_mode\_launch@{user\_mode\_launch}}
 \index{user\_mode\_launch@{user\_mode\_launch}!quadr\_equ.h@{quadr\_equ.h}}
 \doxysubsubsection{\texorpdfstring{user\_mode\_launch()}{user\_mode\_launch()}}
-{\footnotesize\ttfamily void user\+\_\+mode\+\_\+launch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int user\+\_\+mode\+\_\+launch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 

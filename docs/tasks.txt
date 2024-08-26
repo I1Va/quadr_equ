@@ -10,10 +10,23 @@ save creditionals = store
 
 
 Дела на сейчас
-0) Привести codestyle, отступы, makefile, cppшники в порядок
-1) Написать документацию doxygen
-2) Написать read.me
+
 3) Попросить новый проект
+4) ##__VA_ARGS__ Разобраться
+5) PRETTY_FUNCTION Разобраться
+6) Добавить в readme ```shell
+7) alt text заменить на нормальный 
+8) замнеить на ссылки
+    equ->coeffs.a = a;
+    equ->coeffs.b = b;
+    equ->coeffs.c = c;
+    equ->roots.x1 = x1;
+    equ->roots.x2 = x2;
+    equ->n_roots = n_roots;
+9) Применить  fprintf(stderr, "%s: FAILED TO: fprintf_quadr_equ_obj()\n", __FUNCTION__);
+10) сделать короткие опции -u, -t, -
+
+
 
 Идеи на ближайшее время
 

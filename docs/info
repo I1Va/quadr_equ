@@ -9,7 +9,9 @@ git checkout <хэш комита>
 git ammend - 
 man7
 ctrl shift p -> wsl
+$(filter-out $(SRC_DIR)/experiments.cpp, $(wildcard $(SRC_DIR)/*.cpp))
 
+numpad: alt 0151 - срднее тире
 strerror, perror
 
 doxygen

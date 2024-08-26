@@ -8,11 +8,12 @@
 
 #include <cstdlib>
 #include <stdint.h>
+#include <stdio.h>
 
 #ifdef _DEBUG
-#define debug(f_, ...) fprintf(stderr, f_, ##__VA_ARGS__) // stderr,
+#define debug(str_, ...) fprintf(stderr, RED "[%s: %d] " str_, __FUNCTION__, __LINE__, ##__VA_ARGS__)
 #else
-#define debug(f_, ...)
+#define debug(str_, ...)
 #endif // _DEBUG
 
 #define ARR_SIZE(arr) (sizeof(arr) / sizeof(arr[0]))
@@ -34,7 +35,7 @@
     .n_roots = n_roots_ \
     }
 
-#define print_border fprintf(stream, WHT "########################################################################\n")
+#define print_border() fprintf(stdout, WHT "########################################################################\n")
 
 enum roots_num
 {
@@ -53,8 +54,7 @@ enum modes
 
 static const double EPS = 1e-4;
 static const size_t N_ATTEMPTS = 5;
-
-static const char TESING_ARG[] = "--testing";
+static const size_t MAX_STRING_SIZE = 100;
 
 /*! \brief Class of quadratic equation coefficients */
 struct quadr_coeffs
@@ -237,13 +237,13 @@ RANDOM FUNCTIONS
     uses Borland C/C++ random constants
     \param[out] random_number
 */
-unsigned long long my_rand();
+unsigned long long cong_rand();
 
 /*! 
     \brief Generates random double number
     \param[out] random_number
 */
-double my_frand();
+double cong_frand();
 
 
 

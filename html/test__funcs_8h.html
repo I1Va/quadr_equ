@@ -85,23 +85,29 @@ $(function() {
 <div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;float.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="quadr__equ_8h_source.html">quadr_equ.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for test_funcs.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="test__funcs_8h__incl.png" border="0" usemap="#ainc_2test__funcs_8h" alt=""/></div>
 <map name="ainc_2test__funcs_8h" id="ainc_2test__funcs_8h">
-<area shape="rect" title="Header file with testing funtions declaration." alt="" coords="117,5,241,31"/>
+<area shape="rect" title="Header file with testing funtions declaration." alt="" coords="161,5,285,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,80,104"/>
-<area shape="poly" title=" " alt="" coords="158,33,78,75,76,70,156,28"/>
+<area shape="poly" title=" " alt="" coords="195,33,86,76,84,71,193,28"/>
 <area shape="rect" title=" " alt="" coords="105,79,167,104"/>
-<area shape="poly" title=" " alt="" coords="174,32,152,68,148,66,169,30"/>
+<area shape="poly" title=" " alt="" coords="210,33,162,72,159,68,207,29"/>
 <area shape="rect" title=" " alt="" coords="191,79,254,104"/>
-<area shape="poly" title=" " alt="" coords="188,30,211,66,206,68,184,32"/>
-<area shape="rect" href="quadr__equ_8h.html" title="Header file with basic classes, funtions declaration." alt="" coords="278,79,381,104"/>
-<area shape="poly" title=" " alt="" coords="204,28,293,70,291,75,202,33"/>
-<area shape="rect" title=" " alt="" coords="294,152,365,177"/>
-<area shape="poly" title=" " alt="" coords="332,104,332,138,327,138,327,104"/>
+<area shape="poly" title=" " alt="" coords="225,31,225,65,220,65,220,31"/>
+<area shape="rect" title=" " alt="" coords="257,152,324,177"/>
+<area shape="poly" title=" " alt="" coords="235,29,252,51,268,77,280,108,288,138,283,139,275,110,263,80,247,54,231,32"/>
+<area shape="rect" href="quadr__equ_8h.html" title="Header file with basic classes, funtions declaration." alt="" coords="330,79,433,104"/>
+<area shape="poly" title=" " alt="" coords="249,28,344,71,342,75,247,33"/>
+<area shape="poly" title=" " alt="" coords="368,106,318,145,315,141,365,102"/>
+<area shape="rect" title=" " alt="" coords="349,152,414,177"/>
+<area shape="poly" title=" " alt="" coords="384,104,384,138,379,138,379,104"/>
+<area shape="rect" title=" " alt="" coords="438,152,509,177"/>
+<area shape="poly" title=" " alt="" coords="398,102,449,141,446,146,394,106"/>
 </map>
 </div>
 </div>
@@ -112,18 +118,18 @@ Functions</h2></td></tr>
 <tr class="memitem:ad1226898ed76613b872f6cdbf96daee7" id="r_ad1226898ed76613b872f6cdbf96daee7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__funcs_8h.html#ad1226898ed76613b872f6cdbf96daee7">simple_quadr_solve</a> (const <a class="el" href="structquadr__coeffs.html">quadr_coeffs</a> coeffs, <a class="el" href="structquadr__roots.html">quadr_roots</a> *roots)</td></tr>
 <tr class="memdesc:ad1226898ed76613b872f6cdbf96daee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">correct quadratic equation solver function  <br /></td></tr>
 <tr class="separator:ad1226898ed76613b872f6cdbf96daee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6816a9fb8ee4e2bcffe9107db6aecd2e" id="r_a6816a9fb8ee4e2bcffe9107db6aecd2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__funcs_8h.html#a6816a9fb8ee4e2bcffe9107db6aecd2e">generate_tests_to_file</a> (const char path[], const size_t n_tests)</td></tr>
-<tr class="memdesc:a6816a9fb8ee4e2bcffe9107db6aecd2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">generate random tests into file  <br /></td></tr>
-<tr class="separator:a6816a9fb8ee4e2bcffe9107db6aecd2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ce974af8e2aaa46c12a637de0ead089" id="r_a6ce974af8e2aaa46c12a637de0ead089"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__funcs_8h.html#a6ce974af8e2aaa46c12a637de0ead089">generate_tests_to_file</a> (const char path[], const size_t n_tests)</td></tr>
+<tr class="memdesc:a6ce974af8e2aaa46c12a637de0ead089"><td class="mdescLeft">&#160;</td><td class="mdescRight">generate random tests into file  <br /></td></tr>
+<tr class="separator:a6ce974af8e2aaa46c12a637de0ead089"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43cdce0744eaabf6ceed55949762e5d3" id="r_a43cdce0744eaabf6ceed55949762e5d3"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__funcs_8h.html#a43cdce0744eaabf6ceed55949762e5d3">get_tests_from_file</a> (const char path[], <a class="el" href="structquadr__equ__obj.html">quadr_equ_obj</a> test_data[])</td></tr>
 <tr class="memdesc:a43cdce0744eaabf6ceed55949762e5d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">get tests from file into array of <a class="el" href="structquadr__equ__obj.html" title="Class of quadratic equation: coeffs, roots, number os solutions.">quadr_equ_obj</a>  <br /></td></tr>
 <tr class="separator:a43cdce0744eaabf6ceed55949762e5d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ca6aa85d5bdc7c229c7dee52c0871ee" id="r_a0ca6aa85d5bdc7c229c7dee52c0871ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__funcs_8h.html#a0ca6aa85d5bdc7c229c7dee52c0871ee">quadr_equ_solver_manual_testing</a> (size_t n_tests, const <a class="el" href="structquadr__equ__obj.html">quadr_equ_obj</a> test_data[])</td></tr>
-<tr class="memdesc:a0ca6aa85d5bdc7c229c7dee52c0871ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">testing with test_data from manual array of <a class="el" href="structquadr__equ__obj.html" title="Class of quadratic equation: coeffs, roots, number os solutions.">quadr_equ_obj</a>  <br /></td></tr>
-<tr class="separator:a0ca6aa85d5bdc7c229c7dee52c0871ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade3ddccf5673e48f4e63c4ce2f0b58aa" id="r_ade3ddccf5673e48f4e63c4ce2f0b58aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__funcs_8h.html#ade3ddccf5673e48f4e63c4ce2f0b58aa">quadr_equ_solver_file_testing</a> (const char path[])</td></tr>
-<tr class="memdesc:ade3ddccf5673e48f4e63c4ce2f0b58aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">testing with test_data from file  <br /></td></tr>
-<tr class="separator:ade3ddccf5673e48f4e63c4ce2f0b58aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa91f75037a02dd57c78999dd950f6c8c" id="r_aa91f75037a02dd57c78999dd950f6c8c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__funcs_8h.html#aa91f75037a02dd57c78999dd950f6c8c">quadr_equ_solver_manual_testing</a> (size_t n_tests, const <a class="el" href="structquadr__equ__obj.html">quadr_equ_obj</a> test_data[])</td></tr>
+<tr class="memdesc:aa91f75037a02dd57c78999dd950f6c8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">testing with test_data from manual array of <a class="el" href="structquadr__equ__obj.html" title="Class of quadratic equation: coeffs, roots, number os solutions.">quadr_equ_obj</a>  <br /></td></tr>
+<tr class="separator:aa91f75037a02dd57c78999dd950f6c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b85cbd4c6df337429638b84e5e9c58b" id="r_a9b85cbd4c6df337429638b84e5e9c58b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__funcs_8h.html#a9b85cbd4c6df337429638b84e5e9c58b">quadr_equ_solver_file_testing</a> (const char path[])</td></tr>
+<tr class="memdesc:a9b85cbd4c6df337429638b84e5e9c58b"><td class="mdescLeft">&#160;</td><td class="mdescRight">testing with test_data from file  <br /></td></tr>
+<tr class="separator:a9b85cbd4c6df337429638b84e5e9c58b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -134,14 +140,14 @@ const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_N_TESTS</
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header file with testing funtions declaration. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a6816a9fb8ee4e2bcffe9107db6aecd2e" name="a6816a9fb8ee4e2bcffe9107db6aecd2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6816a9fb8ee4e2bcffe9107db6aecd2e">&#9670;&#160;</a></span>generate_tests_to_file()</h2>
+<a id="a6ce974af8e2aaa46c12a637de0ead089" name="a6ce974af8e2aaa46c12a637de0ead089"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ce974af8e2aaa46c12a637de0ead089">&#9670;&#160;</a></span>generate_tests_to_file()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void generate_tests_to_file </td>
+          <td class="memname">int generate_tests_to_file </td>
           <td>(</td>
           <td class="paramtype">const char&#160;</td>
           <td class="paramname"><em>path</em>[], </td>
@@ -208,14 +214,14 @@ const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_N_TESTS</
 
 </div>
 </div>
-<a id="ade3ddccf5673e48f4e63c4ce2f0b58aa" name="ade3ddccf5673e48f4e63c4ce2f0b58aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade3ddccf5673e48f4e63c4ce2f0b58aa">&#9670;&#160;</a></span>quadr_equ_solver_file_testing()</h2>
+<a id="a9b85cbd4c6df337429638b84e5e9c58b" name="a9b85cbd4c6df337429638b84e5e9c58b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b85cbd4c6df337429638b84e5e9c58b">&#9670;&#160;</a></span>quadr_equ_solver_file_testing()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void quadr_equ_solver_file_testing </td>
+          <td class="memname">int quadr_equ_solver_file_testing </td>
           <td>(</td>
           <td class="paramtype">const char&#160;</td>
           <td class="paramname"><em>path</em>[]</td><td>)</td>
@@ -234,14 +240,14 @@ const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_N_TESTS</
 
 </div>
 </div>
-<a id="a0ca6aa85d5bdc7c229c7dee52c0871ee" name="a0ca6aa85d5bdc7c229c7dee52c0871ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ca6aa85d5bdc7c229c7dee52c0871ee">&#9670;&#160;</a></span>quadr_equ_solver_manual_testing()</h2>
+<a id="aa91f75037a02dd57c78999dd950f6c8c" name="aa91f75037a02dd57c78999dd950f6c8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa91f75037a02dd57c78999dd950f6c8c">&#9670;&#160;</a></span>quadr_equ_solver_manual_testing()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void quadr_equ_solver_manual_testing </td>
+          <td class="memname">int quadr_equ_solver_manual_testing </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>n_tests</em>, </td>

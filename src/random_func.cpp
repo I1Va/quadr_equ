@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "file_path.h"
+#include "quadr_config.h"
 #include "quadr_equ.h"
 
 // Borland C/C++ random constants
@@ -9,7 +9,7 @@ static const unsigned long long seed_mult = 22695477;
 static const unsigned long long seed_add = 1;
 
 
-unsigned long long my_rand() {
+unsigned long long cong_rand() {
     FILE* f_seed_read = fopen(PATH_CUR_SEED, "r");
     if (f_seed_read == NULL) {
         fprintf(stderr, "Failed to open %s", PATH_CUR_SEED);
@@ -33,7 +33,7 @@ unsigned long long my_rand() {
     return seed;
 }
 
-double my_frand() {
-    unsigned long long seed = my_rand();
+double cong_frand() {
+    unsigned long long seed = cong_rand();
     return (double) seed / seed_mod;
 }

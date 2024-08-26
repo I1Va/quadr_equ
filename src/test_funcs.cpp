@@ -6,10 +6,10 @@
 #include <limits.h>
 #include <string.h>
 #include <stdlib.h>
-#include <errno.h> // TODO: Добавить обработку ошибок errno
+#include <errno.h>
 
 #include "quadr_equ.h"
-#include "file_path.h"
+#include "quadr_config.h"
 #include "colors.h"
 #include "test_funcs.h"
 
@@ -110,9 +110,9 @@ int generate_tests_to_file(const char path[], const size_t n_tests) {
 
     for (size_t i = 0; i < n_tests; i++) {
         struct quadr_coeffs coeffs = INIT_QUADR_COEFFS( \
-        my_frand() * ((double) (my_rand() % 100)), \
-        my_frand() * ((double) (my_rand() % 100)), \
-        my_frand() * ((double) (my_rand() % 100)));
+        cong_frand() * ((double) (cong_rand() % 100)), \
+        cong_frand() * ((double) (cong_rand() % 100)), \
+        cong_frand() * ((double) (cong_rand() % 100)));
 
         struct quadr_roots roots;
         int n_roots = simple_quadr_solve(coeffs, &roots);

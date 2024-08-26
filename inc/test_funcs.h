@@ -6,6 +6,7 @@
 #include <stddef.h>
 #include <cmath>
 #include <float.h>
+#include <stdio.h>
 
 #include "quadr_equ.h"
 
