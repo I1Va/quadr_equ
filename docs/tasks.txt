@@ -1,41 +1,48 @@
 Справка:
-#include <stdint.h> - подключение имен типов (size_t)
-2> text.txt вывод в text.txt потока stderr
-NAN +-* val = NAN
-isnormal - проверка на нормальное число
-gitlog - история комитов
-git checkout <хэш комита>
-git ammend - 
+
+
+
+Общий совет:
+Заботать latex
+
+expression date = inf
+save creditionals = store
+
 
 Дела на сейчас
-2)как работать с файлами в C. FILE*.
-2)Указать файле название цвета вывода, define цвет ascii code 
-2)// INIT_QUADR_EQU_OBJ(0, 1e100, 1e-100),
-2)// INIT_QUADR_EQU_OBJ(0, 1e-100, 1e100),
-1) добавлю проверку на инф в тестинге
+1) Реализовать функции: 
+    puts
+    strchr
+    strlen
+    strcpy
+    strncpy
+    strcat
+    strncat
+    fgets
+    strdup
+    getline
 
-**1) doxygen. Добавить в хедер, разобраться
+
+3) Попросить новый проект
+4) ##__VA_ARGS__ Разобраться. Примечание: __VA_ARGS__ содержит в себе аргументы, которые попали в ...
+#https://learn.microsoft.com/ru-ru/cpp/preprocessor/token-pasting-operator-hash-hash?view=msvc-170
 
 
+Идеи на ближайшее время
+
+Реализаовать опцию --help
+Разобраться как обрабатывать опциональные аргументы после длинных getopt_long
+Написать парсер введенных квадартных уравнений
+Настроить github SSH
 
 
-Дела на потом
-поставить на комп nmake
-
+Почитать:
 
 24) прочитать про кучу, стек в виртуальной памяти (*доп)
 25) погуглить про -G и флаги дебага (*доп)
-18) ieee 754 стандарт хранения дробных чисел
 19) логический и арифметический сдвиги. Почитатать
 11) __func__, __line__, посмотреть такие штуки __VA_ARGS__
-
-
-как вернуться к версии прошлого комита?
-
-
+7) argc, argv, ENV <- прочитать
 
 
 https://github.com/Vokerlee/How-to-create-EXE-file почитать
-
-
-little/big endian. Зачем нужен little endian?

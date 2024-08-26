@@ -1,1 +1,8 @@
 codestyle
+
+latex
+
+doxygen
+
+?учет ошибок: errno, strerror(errno)
+
