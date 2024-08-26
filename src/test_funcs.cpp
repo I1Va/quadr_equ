@@ -89,11 +89,11 @@ size_t get_tests_from_file(const char path[], quadr_equ_obj test_data[]) {
         fprintf(stderr, "Failed to open %s", path);
         return 0;
     }
-
     size_t n_tests = 0;
     fscanf(f_test_data_read, "%ld", &n_tests);
     for (size_t i = 0; i < n_tests; i++) {
         fscanf_quadr_equ_obj(f_test_data_read, &test_data[i]);
+        printf("%lg\n", test_data[i].coeffs.a);
     }
     fclose(f_test_data_read);
 

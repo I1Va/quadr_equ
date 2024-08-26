@@ -10,22 +10,22 @@ save creditionals = store
 
 
 Дела на сейчас
+1) Реализовать функции: 
+    puts
+    strchr
+    strlen
+    strcpy
+    strncpy
+    strcat
+    strncat
+    fgets
+    strdup
+    getline
+
 
 3) Попросить новый проект
-4) ##__VA_ARGS__ Разобраться
-5) PRETTY_FUNCTION Разобраться
-6) Добавить в readme ```shell
-7) alt text заменить на нормальный 
-8) замнеить на ссылки
-    equ->coeffs.a = a;
-    equ->coeffs.b = b;
-    equ->coeffs.c = c;
-    equ->roots.x1 = x1;
-    equ->roots.x2 = x2;
-    equ->n_roots = n_roots;
-9) Применить  fprintf(stderr, "%s: FAILED TO: fprintf_quadr_equ_obj()\n", __FUNCTION__);
-10) сделать короткие опции -u, -t, -
-
+4) ##__VA_ARGS__ Разобраться. Примечание: __VA_ARGS__ содержит в себе аргументы, которые попали в ...
+#https://learn.microsoft.com/ru-ru/cpp/preprocessor/token-pasting-operator-hash-hash?view=msvc-170
 
 
 Идеи на ближайшее время

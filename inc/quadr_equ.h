@@ -9,7 +9,7 @@
 #include <cstdlib>
 #include <stdint.h>
 #include <stdio.h>
-
+#include <math.h>
 #ifdef _DEBUG
 #define debug(str_, ...) fprintf(stderr, RED "[%s: %d] " str_, __FUNCTION__, __LINE__, ##__VA_ARGS__)
 #else
@@ -52,6 +52,12 @@ enum modes
     EXAMPLE_MODE = 2,
 };
 
+enum return_states
+{
+    RETURN_SUCCES = 0,
+    RETURN_FAILURE = -1,
+};
+
 static const double EPS = 1e-4;
 static const size_t N_ATTEMPTS = 5;
 static const size_t MAX_STRING_SIZE = 100;
@@ -81,8 +87,6 @@ struct quadr_equ_obj
     int n_roots; ///< number of roots
 };
 
-
-
 /* 
 #########################################################################
 INITIALIZATION FUNCTIONS
@@ -97,7 +101,6 @@ INITIALIZATION FUNCTIONS
     \param[out] coeffs;
 */
 void init_quadr_coeffs(struct quadr_coeffs *const coeffs);
-
 
 /*! 
     \brief initialization variables to Nan of quadratic equation roots class 
@@ -287,7 +290,15 @@ int user_mode_launch();
     loading tests from file/array
     testing
 */
+
 int testing_mode_launch();
 
+int parsing_mode_launch();
+
+
+
+char* check_x_2(char *s1);
+
+char* get_num(double *val, char* ptr);
 
 #endif // QUADR_EQU_H

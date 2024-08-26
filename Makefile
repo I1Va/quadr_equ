@@ -6,7 +6,7 @@ CC_FLAGS = -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-e
 	-Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 \
 	-Wignored-qualifiers -Wlogical-op -Wno-missing-field-initializers -Wnon-virtual-dtor \
 	-Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing \
-	-Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -Werror=vla
+	-Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -Werror
 
 INCLUDE_FLAGS = -Iinc
 
@@ -19,11 +19,6 @@ TEST_DIR = test_data
 SRC_DIR = src
 SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
 SRC_OUTPUTFILE = $(BUILD_DIR)/quadr_eq.out
-
-# tests_manager <=> TM
-TM_DIR = quadr_tests
-TM_FILES = $(wildcard $(TM_DIR)/*.cpp)
-TM_OUTPUTFILE = $(BUILD_DIR)tests_manager.out
 
 # LD_FLAGS = 
 
@@ -42,11 +37,14 @@ example: build
 	./$(SRC_OUTPUTFILE) --example
 
 testing: build
-	./$(BUILD_DIR)/$(SRC_OUTPUTFILE) --testing
+	./$(SRC_OUTPUTFILE) -t
+
+parsing: build
+	./$(SRC_OUTPUTFILE) -p
 
 debug: copy_to_build
 	$(CC) $(SRC_FILES) -O0 -o $(SRC_OUTPUTFILE) -D_DEBUG $(INCLUDE_FLAGS) $(CC_FLAGS)
-	./$(SRC_OUTPUTFILE) --user
+	./$(SRC_OUTPUTFILE) --testing
 
 launch:
 	./$(SRC_OUTPUTFILE) --user

@@ -4,6 +4,8 @@
 #include <assert.h>
 
 #include "quadr_equ.h"
+#include "quadr_config.h"
+#include "test_funcs.h"
 #include "colors.h"
 
 int main(int argc, char **argv) {
