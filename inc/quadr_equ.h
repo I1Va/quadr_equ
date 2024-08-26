@@ -6,6 +6,7 @@
 #ifndef QUADR_EQU_H
 #define QUADR_EQU_H
 
+#include <cstdlib>
 #include <stdint.h>
 
 #ifdef _DEBUG
@@ -150,8 +151,9 @@ int scanf_quadr_coeffs(struct quadr_coeffs *coeffs);
 
     \param[in] stream 
     \param[out] equ
+    \return exit_code
 */
-void fscanf_quadr_equ_obj(FILE *stream, struct quadr_equ_obj *equ);
+int fscanf_quadr_equ_obj(FILE *stream, struct quadr_equ_obj *equ);
 
 
 
@@ -207,7 +209,7 @@ OUTPUT FUNCTIONS
     \param[in] stream 
     \param[in] n_roots
 */
-void fprintf_num_solutions(FILE* stream, const int n_roots);
+int fprintf_num_solutions(FILE* stream, const int n_roots);
 
 
 /*! 
@@ -216,7 +218,7 @@ void fprintf_num_solutions(FILE* stream, const int n_roots);
     \param[in] stream 
     \param[in] equ
 */
-void fprintf_quadr_equ_obj(FILE* stream, const struct quadr_equ_obj equ);
+int fprintf_quadr_equ_obj(FILE* stream, const struct quadr_equ_obj equ);
 
 
 
@@ -267,7 +269,7 @@ void mode_manager(int argc, char **argv);
 
     generate random quadratic equation and solve it
 */
-void example_mode_launch();
+int example_mode_launch();
 
 
 /*! 
@@ -276,7 +278,7 @@ void example_mode_launch();
     user input of quadratic equation coefficients 
     it solution and output
 */
-void user_mode_launch();
+int user_mode_launch();
 
 
 /*! 
@@ -285,7 +287,7 @@ void user_mode_launch();
     loading tests from file/array
     testing
 */
-void testing_mode_launch();
+int testing_mode_launch();
 
 
 #endif // QUADR_EQU_H

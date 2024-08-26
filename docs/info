@@ -10,6 +10,7 @@ git ammend -
 man7
 ctrl shift p -> wsl
 
+strerror, perror
 
 doxygen
 /*

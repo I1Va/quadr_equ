@@ -29,7 +29,7 @@ int simple_quadr_solve(const quadr_coeffs coeffs, quadr_roots *roots);
     \param[in] path_to_file
     \param[in] n_tests 
 */
-void generate_tests_to_file(const char path[], const size_t n_tests);
+int generate_tests_to_file(const char path[], const size_t n_tests);
 
 
 /*!
@@ -47,7 +47,7 @@ size_t get_tests_from_file(const char path[], quadr_equ_obj test_data[]);
     \param[in] n_tests
     \param[in] test_data 
 */
-void quadr_equ_solver_manual_testing(size_t n_tests, const quadr_equ_obj test_data[]);
+int quadr_equ_solver_manual_testing(size_t n_tests, const quadr_equ_obj test_data[]);
 
 
 /*!
@@ -55,4 +55,4 @@ void quadr_equ_solver_manual_testing(size_t n_tests, const quadr_equ_obj test_da
 
     \param[in] path_to_file
 */
-void quadr_equ_solver_file_testing(const char path[]);
+int quadr_equ_solver_file_testing(const char path[]);

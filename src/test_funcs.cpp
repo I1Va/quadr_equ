@@ -100,11 +100,11 @@ size_t get_tests_from_file(const char path[], quadr_equ_obj test_data[]) {
     return n_tests;
 }
 
-void generate_tests_to_file(const char path[], const size_t n_tests) {
+int generate_tests_to_file(const char path[], const size_t n_tests) {
     FILE* f_test_data_write = fopen(path, "w");
     if (f_test_data_write == NULL) {
         fprintf(stderr, "Failed to open %s", path);
-        return;
+        return EXIT_FAILURE;
     }
     fprintf(f_test_data_write, "%ld\n", n_tests);
 
@@ -121,9 +121,11 @@ void generate_tests_to_file(const char path[], const size_t n_tests) {
             coeffs.a, coeffs.b, coeffs.c, roots.x1, roots.x2, n_roots);
     }
     fclose(f_test_data_write);
+
+    return EXIT_SUCCESS;
 }
 
-void quadr_equ_solver_file_testing(const char path[]) {
+int quadr_equ_solver_file_testing(const char path[]) {
     struct quadr_equ_obj test_data[MAX_N_TESTS];
     size_t n_tests = get_tests_from_file(path, test_data);
 
@@ -135,7 +137,6 @@ void quadr_equ_solver_file_testing(const char path[]) {
         int n_solutions = quadr_equ_solver(equation.coeffs, &roots);
 
         printf("coefs: %lg %lg %lg\n", equation.coeffs.a, equation.coeffs.b, equation.coeffs.c);
-
         if (!cmp_eq_roots(roots, equation.roots) || 
                 n_solutions != equation.n_roots) {
             printf("\nTEST %ld:" RED "WA" YEL "\n"
@@ -152,9 +153,11 @@ void quadr_equ_solver_file_testing(const char path[]) {
             printf("TEST %ld:" GRN "OK" WHT "\n", i);
         } 
     }
+
+    return EXIT_SUCCESS;
 }
 
-void quadr_equ_solver_manual_testing(size_t n_tests, const quadr_equ_obj test_data[]) {
+int quadr_equ_solver_manual_testing(size_t n_tests, const quadr_equ_obj test_data[]) {
     for (size_t i = 0; i < n_tests; i++) {
         struct quadr_equ_obj equation = test_data[i];
         struct quadr_roots roots;
@@ -180,4 +183,6 @@ void quadr_equ_solver_manual_testing(size_t n_tests, const quadr_equ_obj test_da
             printf("TEST %ld:" GRN "OK" WHT "\n", i);
         }
     }
+
+    return EXIT_SUCCESS;
 }
