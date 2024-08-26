@@ -15,6 +15,7 @@ unsigned long long my_rand() {
         fprintf(stderr, "Failed to open %s", PATH_CUR_SEED);
         return 0;
     }
+
     unsigned long long seed = 0;
     fscanf(f_seed_read, "%lld", &seed);
     fclose(f_seed_read);

@@ -1,0 +1,128 @@
+\doxysection{inc/test\+\_\+funcs.h File Reference}
+\hypertarget{test__funcs_8h}{}\label{test__funcs_8h}\index{inc/test\_funcs.h@{inc/test\_funcs.h}}
+
+
+Header file with testing funtions declaration.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$float.\+h$>$}\newline
+{\ttfamily \#include "{}quadr\+\_\+equ.\+h"{}}\newline
+Include dependency graph for test\+\_\+funcs.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test__funcs_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{test__funcs_8h_ad1226898ed76613b872f6cdbf96daee7}{simple\+\_\+quadr\+\_\+solve}} (const \mbox{\hyperlink{structquadr__coeffs}{quadr\+\_\+coeffs}} coeffs, \mbox{\hyperlink{structquadr__roots}{quadr\+\_\+roots}} \texorpdfstring{$\ast$}{*}roots)
+\begin{DoxyCompactList}\small\item\em correct quadratic equation solver function \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{test__funcs_8h_a6816a9fb8ee4e2bcffe9107db6aecd2e}{generate\+\_\+tests\+\_\+to\+\_\+file}} (const char path\mbox{[}$\,$\mbox{]}, const size\+\_\+t n\+\_\+tests)
+\begin{DoxyCompactList}\small\item\em generate random tests into file \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{test__funcs_8h_a43cdce0744eaabf6ceed55949762e5d3}{get\+\_\+tests\+\_\+from\+\_\+file}} (const char path\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj}} test\+\_\+data\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em get tests from file into array of \doxylink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{test__funcs_8h_a0ca6aa85d5bdc7c229c7dee52c0871ee}{quadr\+\_\+equ\+\_\+solver\+\_\+manual\+\_\+testing}} (size\+\_\+t n\+\_\+tests, const \mbox{\hyperlink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj}} test\+\_\+data\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em testing with test\+\_\+data from manual array of \doxylink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{test__funcs_8h_ade3ddccf5673e48f4e63c4ce2f0b58aa}{quadr\+\_\+equ\+\_\+solver\+\_\+file\+\_\+testing}} (const char path\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em testing with test\+\_\+data from file \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{test__funcs_8h_a1d4a1547901f612ba5c699ce5c700298}\label{test__funcs_8h_a1d4a1547901f612ba5c699ce5c700298} 
+const size\+\_\+t {\bfseries MAX\+\_\+\+N\+\_\+\+TESTS} = 100
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file with testing funtions declaration. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{test__funcs_8h_a6816a9fb8ee4e2bcffe9107db6aecd2e}\label{test__funcs_8h_a6816a9fb8ee4e2bcffe9107db6aecd2e} 
+\index{test\_funcs.h@{test\_funcs.h}!generate\_tests\_to\_file@{generate\_tests\_to\_file}}
+\index{generate\_tests\_to\_file@{generate\_tests\_to\_file}!test\_funcs.h@{test\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{generate\_tests\_to\_file()}{generate\_tests\_to\_file()}}
+{\footnotesize\ttfamily void generate\+\_\+tests\+\_\+to\+\_\+file (\begin{DoxyParamCaption}\item[{const char}]{path\mbox{[}$\,$\mbox{]},  }\item[{const size\+\_\+t}]{n\+\_\+tests }\end{DoxyParamCaption})}
+
+
+
+generate random tests into file 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path\+\_\+to\+\_\+file} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em n\+\_\+tests} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{test__funcs_8h_a43cdce0744eaabf6ceed55949762e5d3}\label{test__funcs_8h_a43cdce0744eaabf6ceed55949762e5d3} 
+\index{test\_funcs.h@{test\_funcs.h}!get\_tests\_from\_file@{get\_tests\_from\_file}}
+\index{get\_tests\_from\_file@{get\_tests\_from\_file}!test\_funcs.h@{test\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{get\_tests\_from\_file()}{get\_tests\_from\_file()}}
+{\footnotesize\ttfamily size\+\_\+t get\+\_\+tests\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{const char}]{path\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj}}}]{test\+\_\+data\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+get tests from file into array of \doxylink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path\+\_\+to\+\_\+file} & \\
+\hline
+\mbox{\texttt{ out}}  & {\em test\+\_\+data} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{test__funcs_8h_ade3ddccf5673e48f4e63c4ce2f0b58aa}\label{test__funcs_8h_ade3ddccf5673e48f4e63c4ce2f0b58aa} 
+\index{test\_funcs.h@{test\_funcs.h}!quadr\_equ\_solver\_file\_testing@{quadr\_equ\_solver\_file\_testing}}
+\index{quadr\_equ\_solver\_file\_testing@{quadr\_equ\_solver\_file\_testing}!test\_funcs.h@{test\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{quadr\_equ\_solver\_file\_testing()}{quadr\_equ\_solver\_file\_testing()}}
+{\footnotesize\ttfamily void quadr\+\_\+equ\+\_\+solver\+\_\+file\+\_\+testing (\begin{DoxyParamCaption}\item[{const char}]{path\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+testing with test\+\_\+data from file 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path\+\_\+to\+\_\+file} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{test__funcs_8h_a0ca6aa85d5bdc7c229c7dee52c0871ee}\label{test__funcs_8h_a0ca6aa85d5bdc7c229c7dee52c0871ee} 
+\index{test\_funcs.h@{test\_funcs.h}!quadr\_equ\_solver\_manual\_testing@{quadr\_equ\_solver\_manual\_testing}}
+\index{quadr\_equ\_solver\_manual\_testing@{quadr\_equ\_solver\_manual\_testing}!test\_funcs.h@{test\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{quadr\_equ\_solver\_manual\_testing()}{quadr\_equ\_solver\_manual\_testing()}}
+{\footnotesize\ttfamily void quadr\+\_\+equ\+\_\+solver\+\_\+manual\+\_\+testing (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n\+\_\+tests,  }\item[{const \mbox{\hyperlink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj}}}]{test\+\_\+data\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+testing with test\+\_\+data from manual array of \doxylink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n\+\_\+tests} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em test\+\_\+data} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{test__funcs_8h_ad1226898ed76613b872f6cdbf96daee7}\label{test__funcs_8h_ad1226898ed76613b872f6cdbf96daee7} 
+\index{test\_funcs.h@{test\_funcs.h}!simple\_quadr\_solve@{simple\_quadr\_solve}}
+\index{simple\_quadr\_solve@{simple\_quadr\_solve}!test\_funcs.h@{test\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{simple\_quadr\_solve()}{simple\_quadr\_solve()}}
+{\footnotesize\ttfamily int simple\+\_\+quadr\+\_\+solve (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structquadr__coeffs}{quadr\+\_\+coeffs}}}]{coeffs,  }\item[{\mbox{\hyperlink{structquadr__roots}{quadr\+\_\+roots}} \texorpdfstring{$\ast$}{*}}]{roots }\end{DoxyParamCaption})}
+
+
+
+correct quadratic equation solver function 
+
+used in testing 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em coeffs} & \\
+\hline
+\mbox{\texttt{ out}}  & {\em roots} & \\
+\hline
+\end{DoxyParams}

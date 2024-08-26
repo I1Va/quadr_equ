@@ -89,12 +89,14 @@ size_t get_tests_from_file(const char path[], quadr_equ_obj test_data[]) {
         fprintf(stderr, "Failed to open %s", path);
         return 0;
     }
+
     size_t n_tests = 0;
     fscanf(f_test_data_read, "%ld", &n_tests);
     for (size_t i = 0; i < n_tests; i++) {
         fscanf_quadr_equ_obj(f_test_data_read, &test_data[i]);
     }
     fclose(f_test_data_read);
+
     return n_tests;
 }
 
@@ -105,6 +107,7 @@ void generate_tests_to_file(const char path[], const size_t n_tests) {
         return;
     }
     fprintf(f_test_data_write, "%ld\n", n_tests);
+
     for (size_t i = 0; i < n_tests; i++) {
         struct quadr_coeffs coeffs = INIT_QUADR_COEFFS( \
         my_frand() * ((double) (my_rand() % 100)), \
@@ -114,17 +117,16 @@ void generate_tests_to_file(const char path[], const size_t n_tests) {
         struct quadr_roots roots;
         int n_roots = simple_quadr_solve(coeffs, &roots);
         
-        
         fprintf(f_test_data_write, "%lg %lg %lg %lg %lg %d\n", \
             coeffs.a, coeffs.b, coeffs.c, roots.x1, roots.x2, n_roots);
     }
     fclose(f_test_data_write);
-    
 }
 
 void quadr_equ_solver_file_testing(const char path[]) {
     struct quadr_equ_obj test_data[MAX_N_TESTS];
     size_t n_tests = get_tests_from_file(path, test_data);
+
     for (size_t i = 0; i < n_tests; i++) {
         struct quadr_equ_obj equation = test_data[i];
         struct quadr_roots roots;
@@ -134,7 +136,6 @@ void quadr_equ_solver_file_testing(const char path[]) {
 
         printf("coefs: %lg %lg %lg\n", equation.coeffs.a, equation.coeffs.b, equation.coeffs.c);
 
-
         if (!cmp_eq_roots(roots, equation.roots) || 
                 n_solutions != equation.n_roots) {
             printf("\nTEST %ld:" RED "WA" YEL "\n"
@@ -143,6 +144,7 @@ void quadr_equ_solver_file_testing(const char path[]) {
             printf(GRN "CORRECT ANSWER:\n");
             fprintf_quadr_equ_obj(stdout, equation);
             printf(RED "WRONG ANSWER:\n");
+
             struct quadr_equ_obj wrong_equation = INIT_QUADR_EQU_OBJ_STRUCTS(equation.coeffs, roots, n_solutions);
             fprintf_quadr_equ_obj(stdout, wrong_equation);
             printf(WHT "\n\n");
@@ -162,7 +164,6 @@ void quadr_equ_solver_manual_testing(size_t n_tests, const quadr_equ_obj test_da
 
         printf("coefs: %lg %lg %lg\n", equation.coeffs.a, equation.coeffs.b, equation.coeffs.c);
 
-
         if (!cmp_eq_roots(roots, equation.roots) || 
                 n_solutions != equation.n_roots) {
             printf("\nTEST %ld:" RED "WA" YEL "\n"
@@ -171,11 +172,12 @@ void quadr_equ_solver_manual_testing(size_t n_tests, const quadr_equ_obj test_da
             printf(GRN "CORRECT ANSWER:\n");
             fprintf_quadr_equ_obj(stdout, equation);
             printf(RED "WRONG ANSWER:\n");
+
             struct quadr_equ_obj wrong_equation = INIT_QUADR_EQU_OBJ_STRUCTS(equation.coeffs, roots, n_solutions);
             fprintf_quadr_equ_obj(stdout, wrong_equation);
             printf(WHT "\n\n");
         } else {
             printf("TEST %ld:" GRN "OK" WHT "\n", i);
-        } 
+        }
     }
 }

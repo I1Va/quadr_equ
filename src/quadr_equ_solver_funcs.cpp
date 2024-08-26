@@ -77,6 +77,7 @@ int scanf_quadr_coeffs(struct quadr_coeffs *coeffs) {
 
         if (n_suc_args != 3) {
             fprintf(stderr, "Invalid data format. Repeat input\n");
+
             int c = EOF;
             while ((c = getchar()) != EOF && c != '\n');
         } else {
@@ -91,7 +92,7 @@ int scanf_quadr_coeffs(struct quadr_coeffs *coeffs) {
 void fscanf_quadr_equ_obj(FILE *stream, struct quadr_equ_obj *equ) {
     double a = NAN, b = NAN, c = NAN, x1 = NAN, x2 = NAN;
     int n_roots = 0;
-    
+
     fscanf(stream, "%lg %lg %lg %lg %lg %d", &a, &b, &c, &x1, &x2, &n_roots);
     equ->coeffs.a = a;
     equ->coeffs.b = b;
@@ -158,14 +159,6 @@ bool cmp_strs(const char s1[], const char s2[]) {
     return true;
 }
 
-bool in_argv(const char samp[], const int argc, char *argv[]) {
-    for (int i = 1; i < argc; i++) {
-        if (cmp_strs(samp, argv[i])) {
-            return true;
-        }
-    }
-    return false;
-}
 
 
 bool cmp_eq(const double x1, const double x2) {
@@ -192,8 +185,10 @@ void example_mode_launch() {
 
 void user_mode_launch() {
     printf(RED "\n-----------------------------> USER MODE <------------------------------\n");
+
     struct quadr_coeffs coeffs;
     init_quadr_coeffs(&coeffs);
+
     printf(YEL"# Program for quadratic equation solution\n"
            "# Abryutin I. D. \n\n");
     printf(WHT"# Enter coefficients(a, b, c): ");
@@ -219,30 +214,34 @@ void user_mode_launch() {
 void testing_mode_launch() {
     printf(RED "\n----------------------------> TESTING MODE <-----------------------------\n");
     printf("Launch auto or manual test mode? [A/m] ");
+
     int v1 = getchar();
     if (v1 == '\n' || v1 == 'A' || v1 == 'a') {
         printf(YEL "Generate new tests? [Y/n]: " WHT);
+
         int v2 = getchar();
         if (v2 == '\n' || v2 == 'Y' || v2 == 'y') {
             printf(YEL"How many tests? (MAX: %ld): " WHT, MAX_N_TESTS);
+
             size_t n_tests = 0;
             if (!scanf("%ld", &n_tests)) {
                 printf(RED "Invalid data format. Enter positive integer" WHT);
                 return;
             }
+
             generate_tests_to_file(PATH_AUTO_TESTS, n_tests);
             quadr_equ_solver_file_testing(PATH_AUTO_TESTS);
         }
     } else {
         quadr_equ_solver_manual_testing(ARR_SIZE(MANUAL_TESTS), MANUAL_TESTS);
     }
-    
 }
 
 void mode_manager(int argc, char **argv) {
     int user_mode_flag = 0;
 	int testing_mode_flag = 0;
 	int example_mode_flag = 0;
+
     const char* short_options = "";
 	const struct option long_options[] = {
 		{ "user", no_argument, &user_mode_flag, 1 },

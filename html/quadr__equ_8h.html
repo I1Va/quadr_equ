@@ -82,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Header file wi.  
+<p>Header file with basic classes, funtions declaration.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -90,7 +90,7 @@ Include dependency graph for quadr_equ.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="quadr__equ_8h__incl.png" border="0" usemap="#ainc_2quadr__equ_8h" alt=""/></div>
 <map name="ainc_2quadr__equ_8h" id="ainc_2quadr__equ_8h">
-<area shape="rect" title="Header file wi." alt="" coords="5,5,131,31"/>
+<area shape="rect" title="Header file with basic classes, funtions declaration." alt="" coords="5,5,131,31"/>
 <area shape="rect" title=" " alt="" coords="33,79,103,104"/>
 <area shape="poly" title=" " alt="" coords="71,31,71,65,65,65,65,31"/>
 </map>
@@ -100,8 +100,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="quadr__equ_8h__dep__incl.png" border="0" usemap="#ainc_2quadr__equ_8hdep" alt=""/></div>
 <map name="ainc_2quadr__equ_8hdep" id="ainc_2quadr__equ_8hdep">
-<area shape="rect" title="Header file wi." alt="" coords="5,5,131,31"/>
-<area shape="rect" href="test__funcs_8h_source.html" title=" " alt="" coords="6,79,130,104"/>
+<area shape="rect" title="Header file with basic classes, funtions declaration." alt="" coords="5,5,131,31"/>
+<area shape="rect" href="test__funcs_8h.html" title="Header file with testing funtions declaration." alt="" coords="6,79,130,104"/>
 <area shape="poly" title=" " alt="" coords="71,44,71,79,65,79,65,44"/>
 </map>
 </div>
@@ -111,10 +111,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structquadr__coeffs.html">quadr_coeffs</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class of quadratic equation coefficients.  <a href="structquadr__coeffs.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structquadr__roots.html">quadr_roots</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class of quadratic equation roots.  <a href="structquadr__roots.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structquadr__equ__obj.html">quadr_equ_obj</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class of quadratic equation: coeffs, roots, number os solutions.  <a href="structquadr__equ__obj.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -155,67 +158,57 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0b4cd2f83b659ff291ad7f0f7c9f5e12" id="r_a0b4cd2f83b659ff291ad7f0f7c9f5e12"><td class="memItemLeft" align="right" valign="top"><a id="a0b4cd2f83b659ff291ad7f0f7c9f5e12" name="a0b4cd2f83b659ff291ad7f0f7c9f5e12"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>quadr_equ_solver</b> (const struct <a class="el" href="structquadr__coeffs.html">quadr_coeffs</a> coeffs, struct <a class="el" href="structquadr__roots.html">quadr_roots</a> *const roots)</td></tr>
-<tr class="separator:a0b4cd2f83b659ff291ad7f0f7c9f5e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3eb10e7c90ade968994807c41fbd047" id="r_ad3eb10e7c90ade968994807c41fbd047"><td class="memItemLeft" align="right" valign="top"><a id="ad3eb10e7c90ade968994807c41fbd047" name="ad3eb10e7c90ade968994807c41fbd047"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init_quadr_coeffs</b> (struct <a class="el" href="structquadr__coeffs.html">quadr_coeffs</a> *const coeffs)</td></tr>
+<tr class="memitem:ad3eb10e7c90ade968994807c41fbd047" id="r_ad3eb10e7c90ade968994807c41fbd047"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#ad3eb10e7c90ade968994807c41fbd047">init_quadr_coeffs</a> (struct <a class="el" href="structquadr__coeffs.html">quadr_coeffs</a> *const coeffs)</td></tr>
+<tr class="memdesc:ad3eb10e7c90ade968994807c41fbd047"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialization variables to Nan of quadratic equation coefficients class  <br /></td></tr>
 <tr class="separator:ad3eb10e7c90ade968994807c41fbd047"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a137ca5739868d75e9d614a1168308de8" id="r_a137ca5739868d75e9d614a1168308de8"><td class="memItemLeft" align="right" valign="top"><a id="a137ca5739868d75e9d614a1168308de8" name="a137ca5739868d75e9d614a1168308de8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init_quadr_roots</b> (struct <a class="el" href="structquadr__roots.html">quadr_roots</a> *const roots)</td></tr>
+<tr class="memitem:a137ca5739868d75e9d614a1168308de8" id="r_a137ca5739868d75e9d614a1168308de8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a137ca5739868d75e9d614a1168308de8">init_quadr_roots</a> (struct <a class="el" href="structquadr__roots.html">quadr_roots</a> *const roots)</td></tr>
+<tr class="memdesc:a137ca5739868d75e9d614a1168308de8"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialization variables to Nan of quadratic equation roots class  <br /></td></tr>
 <tr class="separator:a137ca5739868d75e9d614a1168308de8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1ba3361729e62fe539cca88ef421d58" id="r_ab1ba3361729e62fe539cca88ef421d58"><td class="memItemLeft" align="right" valign="top"><a id="ab1ba3361729e62fe539cca88ef421d58" name="ab1ba3361729e62fe539cca88ef421d58"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>scanf_quadr_coeffs</b> (struct <a class="el" href="structquadr__coeffs.html">quadr_coeffs</a> *coeffs)</td></tr>
+<tr class="memitem:a0b4cd2f83b659ff291ad7f0f7c9f5e12" id="r_a0b4cd2f83b659ff291ad7f0f7c9f5e12"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a0b4cd2f83b659ff291ad7f0f7c9f5e12">quadr_equ_solver</a> (const struct <a class="el" href="structquadr__coeffs.html">quadr_coeffs</a> coeffs, struct <a class="el" href="structquadr__roots.html">quadr_roots</a> *const roots)</td></tr>
+<tr class="memdesc:a0b4cd2f83b659ff291ad7f0f7c9f5e12"><td class="mdescLeft">&#160;</td><td class="mdescRight">function solving quadratic equation  <br /></td></tr>
+<tr class="separator:a0b4cd2f83b659ff291ad7f0f7c9f5e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1ba3361729e62fe539cca88ef421d58" id="r_ab1ba3361729e62fe539cca88ef421d58"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#ab1ba3361729e62fe539cca88ef421d58">scanf_quadr_coeffs</a> (struct <a class="el" href="structquadr__coeffs.html">quadr_coeffs</a> *coeffs)</td></tr>
+<tr class="memdesc:ab1ba3361729e62fe539cca88ef421d58"><td class="mdescLeft">&#160;</td><td class="mdescRight">function of input quadratic equation coeffs from stdin  <br /></td></tr>
 <tr class="separator:ab1ba3361729e62fe539cca88ef421d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedc3f47bddeece709f658167b71b88ce" id="r_aedc3f47bddeece709f658167b71b88ce"><td class="memItemLeft" align="right" valign="top"><a id="aedc3f47bddeece709f658167b71b88ce" name="aedc3f47bddeece709f658167b71b88ce"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>quadr_equ_solver_testing</b> ()</td></tr>
-<tr class="separator:aedc3f47bddeece709f658167b71b88ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae53f4e33c368e21d981d304bff5c4cc3" id="r_ae53f4e33c368e21d981d304bff5c4cc3"><td class="memItemLeft" align="right" valign="top"><a id="ae53f4e33c368e21d981d304bff5c4cc3" name="ae53f4e33c368e21d981d304bff5c4cc3"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>quadr_equ_print_solutions</b> (const int n_solutions, const struct <a class="el" href="structquadr__roots.html">quadr_roots</a>, const bool show_roots)</td></tr>
-<tr class="separator:ae53f4e33c368e21d981d304bff5c4cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9b6b6429c15c6e91e7bda05d85c9775" id="r_af9b6b6429c15c6e91e7bda05d85c9775"><td class="memItemLeft" align="right" valign="top"><a id="af9b6b6429c15c6e91e7bda05d85c9775" name="af9b6b6429c15c6e91e7bda05d85c9775"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>cmp_eq</b> (const double x1, const double x2)</td></tr>
-<tr class="separator:af9b6b6429c15c6e91e7bda05d85c9775"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae953f40c0035ed111631952b7b8e882a" id="r_ae953f40c0035ed111631952b7b8e882a"><td class="memItemLeft" align="right" valign="top"><a id="ae953f40c0035ed111631952b7b8e882a" name="ae953f40c0035ed111631952b7b8e882a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>cmp_strs</b> (const char s1[], const char s2[])</td></tr>
-<tr class="separator:ae953f40c0035ed111631952b7b8e882a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57ee126722a8f994bea8ffd44987b30b" id="r_a57ee126722a8f994bea8ffd44987b30b"><td class="memItemLeft" align="right" valign="top"><a id="a57ee126722a8f994bea8ffd44987b30b" name="a57ee126722a8f994bea8ffd44987b30b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>cmp_eq_roots</b> (const struct <a class="el" href="structquadr__roots.html">quadr_roots</a> r1, const struct <a class="el" href="structquadr__roots.html">quadr_roots</a> r2)</td></tr>
-<tr class="separator:a57ee126722a8f994bea8ffd44987b30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7edde9861e1db1bcd1a14cc12abb8ad2" id="r_a7edde9861e1db1bcd1a14cc12abb8ad2"><td class="memItemLeft" align="right" valign="top"><a id="a7edde9861e1db1bcd1a14cc12abb8ad2" name="a7edde9861e1db1bcd1a14cc12abb8ad2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>in_argv</b> (const char samp[], const int argc, char *argv[])</td></tr>
-<tr class="separator:a7edde9861e1db1bcd1a14cc12abb8ad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0ec582c8f263163dfe8a8d056803350" id="r_ac0ec582c8f263163dfe8a8d056803350"><td class="memItemLeft" align="right" valign="top"><a id="ac0ec582c8f263163dfe8a8d056803350" name="ac0ec582c8f263163dfe8a8d056803350"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fscanf_quadr_equ_obj</b> (FILE *stream, struct <a class="el" href="structquadr__equ__obj.html">quadr_equ_obj</a> *equ)</td></tr>
+<tr class="memitem:ac0ec582c8f263163dfe8a8d056803350" id="r_ac0ec582c8f263163dfe8a8d056803350"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#ac0ec582c8f263163dfe8a8d056803350">fscanf_quadr_equ_obj</a> (FILE *stream, struct <a class="el" href="structquadr__equ__obj.html">quadr_equ_obj</a> *equ)</td></tr>
+<tr class="memdesc:ac0ec582c8f263163dfe8a8d056803350"><td class="mdescLeft">&#160;</td><td class="mdescRight">function of input quadratic equation coeffs from stream  <br /></td></tr>
 <tr class="separator:ac0ec582c8f263163dfe8a8d056803350"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b9bd0cfdcd479b986741eec4bd3ddf5" id="r_a4b9bd0cfdcd479b986741eec4bd3ddf5"><td class="memItemLeft" align="right" valign="top"><a id="a4b9bd0cfdcd479b986741eec4bd3ddf5" name="a4b9bd0cfdcd479b986741eec4bd3ddf5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fprintf_num_solutions</b> (FILE *stream, const int n_roots)</td></tr>
+<tr class="memitem:af9b6b6429c15c6e91e7bda05d85c9775" id="r_af9b6b6429c15c6e91e7bda05d85c9775"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#af9b6b6429c15c6e91e7bda05d85c9775">cmp_eq</a> (const double x1, const double x2)</td></tr>
+<tr class="memdesc:af9b6b6429c15c6e91e7bda05d85c9775"><td class="mdescLeft">&#160;</td><td class="mdescRight">check equality of quadratic equation roots with some error  <br /></td></tr>
+<tr class="separator:af9b6b6429c15c6e91e7bda05d85c9775"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae953f40c0035ed111631952b7b8e882a" id="r_ae953f40c0035ed111631952b7b8e882a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#ae953f40c0035ed111631952b7b8e882a">cmp_strs</a> (const char s1[], const char s2[])</td></tr>
+<tr class="memdesc:ae953f40c0035ed111631952b7b8e882a"><td class="mdescLeft">&#160;</td><td class="mdescRight">check equality of strings  <br /></td></tr>
+<tr class="separator:ae953f40c0035ed111631952b7b8e882a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57ee126722a8f994bea8ffd44987b30b" id="r_a57ee126722a8f994bea8ffd44987b30b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a57ee126722a8f994bea8ffd44987b30b">cmp_eq_roots</a> (const struct <a class="el" href="structquadr__roots.html">quadr_roots</a> r1, const struct <a class="el" href="structquadr__roots.html">quadr_roots</a> r2)</td></tr>
+<tr class="memdesc:a57ee126722a8f994bea8ffd44987b30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">check equality of quad_roots equation with some error  <br /></td></tr>
+<tr class="separator:a57ee126722a8f994bea8ffd44987b30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b9bd0cfdcd479b986741eec4bd3ddf5" id="r_a4b9bd0cfdcd479b986741eec4bd3ddf5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a4b9bd0cfdcd479b986741eec4bd3ddf5">fprintf_num_solutions</a> (FILE *stream, const int n_roots)</td></tr>
+<tr class="memdesc:a4b9bd0cfdcd479b986741eec4bd3ddf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">function of root number of quadratic equation output to stream  <br /></td></tr>
 <tr class="separator:a4b9bd0cfdcd479b986741eec4bd3ddf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d808dafac0f04f771b0f57cb0c4407e" id="r_a2d808dafac0f04f771b0f57cb0c4407e"><td class="memItemLeft" align="right" valign="top"><a id="a2d808dafac0f04f771b0f57cb0c4407e" name="a2d808dafac0f04f771b0f57cb0c4407e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fprintf_quadr_equ_obj</b> (FILE *stream, const struct <a class="el" href="structquadr__equ__obj.html">quadr_equ_obj</a> equ)</td></tr>
+<tr class="memitem:a2d808dafac0f04f771b0f57cb0c4407e" id="r_a2d808dafac0f04f771b0f57cb0c4407e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a2d808dafac0f04f771b0f57cb0c4407e">fprintf_quadr_equ_obj</a> (FILE *stream, const struct <a class="el" href="structquadr__equ__obj.html">quadr_equ_obj</a> equ)</td></tr>
+<tr class="memdesc:a2d808dafac0f04f771b0f57cb0c4407e"><td class="mdescLeft">&#160;</td><td class="mdescRight">function of <a class="el" href="structquadr__equ__obj.html" title="Class of quadratic equation: coeffs, roots, number os solutions.">quadr_equ_obj</a> output to stream  <br /></td></tr>
 <tr class="separator:a2d808dafac0f04f771b0f57cb0c4407e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98fadae212e0ca64f9a8f03b96f554f9" id="r_a98fadae212e0ca64f9a8f03b96f554f9"><td class="memItemLeft" align="right" valign="top"><a id="a98fadae212e0ca64f9a8f03b96f554f9" name="a98fadae212e0ca64f9a8f03b96f554f9"></a>
-unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><b>my_rand</b> ()</td></tr>
+<tr class="memitem:a98fadae212e0ca64f9a8f03b96f554f9" id="r_a98fadae212e0ca64f9a8f03b96f554f9"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a98fadae212e0ca64f9a8f03b96f554f9">my_rand</a> ()</td></tr>
+<tr class="memdesc:a98fadae212e0ca64f9a8f03b96f554f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear congruential generator of random unsigned int numbers.  <br /></td></tr>
 <tr class="separator:a98fadae212e0ca64f9a8f03b96f554f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e3b96bc90c608309307562cad6db2dd" id="r_a5e3b96bc90c608309307562cad6db2dd"><td class="memItemLeft" align="right" valign="top"><a id="a5e3b96bc90c608309307562cad6db2dd" name="a5e3b96bc90c608309307562cad6db2dd"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>my_frand</b> ()</td></tr>
+<tr class="memitem:a5e3b96bc90c608309307562cad6db2dd" id="r_a5e3b96bc90c608309307562cad6db2dd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a5e3b96bc90c608309307562cad6db2dd">my_frand</a> ()</td></tr>
+<tr class="memdesc:a5e3b96bc90c608309307562cad6db2dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates random double number.  <br /></td></tr>
 <tr class="separator:a5e3b96bc90c608309307562cad6db2dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71c5d560ce2852e74ede0baf227a980e" id="r_a71c5d560ce2852e74ede0baf227a980e"><td class="memItemLeft" align="right" valign="top"><a id="a71c5d560ce2852e74ede0baf227a980e" name="a71c5d560ce2852e74ede0baf227a980e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>example_mode_launch</b> ()</td></tr>
-<tr class="separator:a71c5d560ce2852e74ede0baf227a980e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8483a17f6cca4ed82bb463e845b95da" id="r_ab8483a17f6cca4ed82bb463e845b95da"><td class="memItemLeft" align="right" valign="top"><a id="ab8483a17f6cca4ed82bb463e845b95da" name="ab8483a17f6cca4ed82bb463e845b95da"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>mode_manager</b> (int argc, char **argv)</td></tr>
+<tr class="memitem:ab8483a17f6cca4ed82bb463e845b95da" id="r_ab8483a17f6cca4ed82bb463e845b95da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#ab8483a17f6cca4ed82bb463e845b95da">mode_manager</a> (int argc, char **argv)</td></tr>
+<tr class="memdesc:ab8483a17f6cca4ed82bb463e845b95da"><td class="mdescLeft">&#160;</td><td class="mdescRight">processes comand line arguments and manages mode launhes  <br /></td></tr>
 <tr class="separator:ab8483a17f6cca4ed82bb463e845b95da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69762af8349f77a7d82385e7f3c1d71a" id="r_a69762af8349f77a7d82385e7f3c1d71a"><td class="memItemLeft" align="right" valign="top"><a id="a69762af8349f77a7d82385e7f3c1d71a" name="a69762af8349f77a7d82385e7f3c1d71a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>user_mode_launch</b> ()</td></tr>
+<tr class="memitem:a71c5d560ce2852e74ede0baf227a980e" id="r_a71c5d560ce2852e74ede0baf227a980e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a71c5d560ce2852e74ede0baf227a980e">example_mode_launch</a> ()</td></tr>
+<tr class="memdesc:a71c5d560ce2852e74ede0baf227a980e"><td class="mdescLeft">&#160;</td><td class="mdescRight">launch example mode  <br /></td></tr>
+<tr class="separator:a71c5d560ce2852e74ede0baf227a980e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69762af8349f77a7d82385e7f3c1d71a" id="r_a69762af8349f77a7d82385e7f3c1d71a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a69762af8349f77a7d82385e7f3c1d71a">user_mode_launch</a> ()</td></tr>
+<tr class="memdesc:a69762af8349f77a7d82385e7f3c1d71a"><td class="mdescLeft">&#160;</td><td class="mdescRight">launch user mode  <br /></td></tr>
 <tr class="separator:a69762af8349f77a7d82385e7f3c1d71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8cd9d4a6d956da7e82131a71bb823bd" id="r_af8cd9d4a6d956da7e82131a71bb823bd"><td class="memItemLeft" align="right" valign="top"><a id="af8cd9d4a6d956da7e82131a71bb823bd" name="af8cd9d4a6d956da7e82131a71bb823bd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>testing_mode_launch</b> ()</td></tr>
+<tr class="memitem:af8cd9d4a6d956da7e82131a71bb823bd" id="r_af8cd9d4a6d956da7e82131a71bb823bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#af8cd9d4a6d956da7e82131a71bb823bd">testing_mode_launch</a> ()</td></tr>
+<tr class="memdesc:af8cd9d4a6d956da7e82131a71bb823bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">launch testing mode  <br /></td></tr>
 <tr class="separator:af8cd9d4a6d956da7e82131a71bb823bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file wi. </p>
-<p>Данный файл содержит в себе определения основных классов, используемых в демонстрационной программе </p>
+<div class="textblock"><p>Header file with basic classes, funtions declaration. </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a597bb1b539c7f889cd4498f31437111e" name="a597bb1b539c7f889cd4498f31437111e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a597bb1b539c7f889cd4498f31437111e">&#9670;&#160;</a></span>INIT_QUADR_EQU_OBJ</h2>
@@ -311,6 +304,494 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>testing_mode_launch</
 <div class="line">    .n_roots = n_roots_ \</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="af9b6b6429c15c6e91e7bda05d85c9775" name="af9b6b6429c15c6e91e7bda05d85c9775"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9b6b6429c15c6e91e7bda05d85c9775">&#9670;&#160;</a></span>cmp_eq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cmp_eq </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>x2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>check equality of quadratic equation roots with some error </p>
+<p>takes into account cases of NaN, +inf, -inf </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x1,x2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>equality </dd></dl>
+
+</div>
+</div>
+<a id="a57ee126722a8f994bea8ffd44987b30b" name="a57ee126722a8f994bea8ffd44987b30b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57ee126722a8f994bea8ffd44987b30b">&#9670;&#160;</a></span>cmp_eq_roots()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cmp_eq_roots </td>
+          <td>(</td>
+          <td class="paramtype">const struct <a class="el" href="structquadr__roots.html">quadr_roots</a>&#160;</td>
+          <td class="paramname"><em>r1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="structquadr__roots.html">quadr_roots</a>&#160;</td>
+          <td class="paramname"><em>r2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>check equality of quad_roots equation with some error </p>
+<p>takes into account cases of NaN, +inf, -inf </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">r1,r2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>equality </dd></dl>
+
+</div>
+</div>
+<a id="ae953f40c0035ed111631952b7b8e882a" name="ae953f40c0035ed111631952b7b8e882a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae953f40c0035ed111631952b7b8e882a">&#9670;&#160;</a></span>cmp_strs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cmp_strs </td>
+          <td>(</td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>s1</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>s2</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>check equality of strings </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s1,s2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>equality </dd></dl>
+
+</div>
+</div>
+<a id="a71c5d560ce2852e74ede0baf227a980e" name="a71c5d560ce2852e74ede0baf227a980e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71c5d560ce2852e74ede0baf227a980e">&#9670;&#160;</a></span>example_mode_launch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void example_mode_launch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>launch example mode </p>
+<p>generate random quadratic equation and solve it </p>
+
+</div>
+</div>
+<a id="a4b9bd0cfdcd479b986741eec4bd3ddf5" name="a4b9bd0cfdcd479b986741eec4bd3ddf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b9bd0cfdcd479b986741eec4bd3ddf5">&#9670;&#160;</a></span>fprintf_num_solutions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fprintf_num_solutions </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>n_roots</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function of root number of quadratic equation output to stream </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">stream</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n_roots</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2d808dafac0f04f771b0f57cb0c4407e" name="a2d808dafac0f04f771b0f57cb0c4407e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d808dafac0f04f771b0f57cb0c4407e">&#9670;&#160;</a></span>fprintf_quadr_equ_obj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fprintf_quadr_equ_obj </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="structquadr__equ__obj.html">quadr_equ_obj</a>&#160;</td>
+          <td class="paramname"><em>equ</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function of <a class="el" href="structquadr__equ__obj.html" title="Class of quadratic equation: coeffs, roots, number os solutions.">quadr_equ_obj</a> output to stream </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">stream</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">equ</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac0ec582c8f263163dfe8a8d056803350" name="ac0ec582c8f263163dfe8a8d056803350"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0ec582c8f263163dfe8a8d056803350">&#9670;&#160;</a></span>fscanf_quadr_equ_obj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fscanf_quadr_equ_obj </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structquadr__equ__obj.html">quadr_equ_obj</a> *&#160;</td>
+          <td class="paramname"><em>equ</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function of input quadratic equation coeffs from stream </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">stream</td><td></td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">equ</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad3eb10e7c90ade968994807c41fbd047" name="ad3eb10e7c90ade968994807c41fbd047"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3eb10e7c90ade968994807c41fbd047">&#9670;&#160;</a></span>init_quadr_coeffs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_quadr_coeffs </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structquadr__coeffs.html">quadr_coeffs</a> *const&#160;</td>
+          <td class="paramname"><em>coeffs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>initialization variables to Nan of quadratic equation coefficients class </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">coeffs;</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a137ca5739868d75e9d614a1168308de8" name="a137ca5739868d75e9d614a1168308de8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a137ca5739868d75e9d614a1168308de8">&#9670;&#160;</a></span>init_quadr_roots()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_quadr_roots </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structquadr__roots.html">quadr_roots</a> *const&#160;</td>
+          <td class="paramname"><em>roots</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>initialization variables to Nan of quadratic equation roots class </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">roots;</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab8483a17f6cca4ed82bb463e845b95da" name="ab8483a17f6cca4ed82bb463e845b95da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8483a17f6cca4ed82bb463e845b95da">&#9670;&#160;</a></span>mode_manager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mode_manager </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>processes comand line arguments and manages mode launhes </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">argc</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">argv</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5e3b96bc90c608309307562cad6db2dd" name="a5e3b96bc90c608309307562cad6db2dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e3b96bc90c608309307562cad6db2dd">&#9670;&#160;</a></span>my_frand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double my_frand </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates random double number. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">random_number</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a98fadae212e0ca64f9a8f03b96f554f9" name="a98fadae212e0ca64f9a8f03b96f554f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98fadae212e0ca64f9a8f03b96f554f9">&#9670;&#160;</a></span>my_rand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long long my_rand </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Linear congruential generator of random unsigned int numbers. </p>
+<p>writes current seed into cur_seed.txt uses Borland C/C++ random constants </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">random_number</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0b4cd2f83b659ff291ad7f0f7c9f5e12" name="a0b4cd2f83b659ff291ad7f0f7c9f5e12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b4cd2f83b659ff291ad7f0f7c9f5e12">&#9670;&#160;</a></span>quadr_equ_solver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int quadr_equ_solver </td>
+          <td>(</td>
+          <td class="paramtype">const struct <a class="el" href="structquadr__coeffs.html">quadr_coeffs</a>&#160;</td>
+          <td class="paramname"><em>coeffs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structquadr__roots.html">quadr_roots</a> *const&#160;</td>
+          <td class="paramname"><em>roots</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function solving quadratic equation </p>
+<dl class="section warning"><dt>Warning</dt><dd>if input values are close to 0 or inf function behavior can be undefined because of limited accuracy of double values compare </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">coeffs</td><td></td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">roots</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>n_roots </dd></dl>
+
+</div>
+</div>
+<a id="ab1ba3361729e62fe539cca88ef421d58" name="ab1ba3361729e62fe539cca88ef421d58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1ba3361729e62fe539cca88ef421d58">&#9670;&#160;</a></span>scanf_quadr_coeffs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int scanf_quadr_coeffs </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structquadr__coeffs.html">quadr_coeffs</a> *&#160;</td>
+          <td class="paramname"><em>coeffs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function of input quadratic equation coeffs from stdin </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">coeffs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>exit_code </dd></dl>
+
+</div>
+</div>
+<a id="af8cd9d4a6d956da7e82131a71bb823bd" name="af8cd9d4a6d956da7e82131a71bb823bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8cd9d4a6d956da7e82131a71bb823bd">&#9670;&#160;</a></span>testing_mode_launch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void testing_mode_launch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>launch testing mode </p>
+<p>loading tests from file/array testing </p>
+
+</div>
+</div>
+<a id="a69762af8349f77a7d82385e7f3c1d71a" name="a69762af8349f77a7d82385e7f3c1d71a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69762af8349f77a7d82385e7f3c1d71a">&#9670;&#160;</a></span>user_mode_launch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void user_mode_launch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>launch user mode </p>
+<p>user input of quadratic equation coefficients it solution and output </p>
+
 </div>
 </div>
 </div><!-- contents -->
