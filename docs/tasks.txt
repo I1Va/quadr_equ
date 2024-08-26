@@ -46,5 +46,3 @@ save creditionals = store
 
 
 https://github.com/Vokerlee/How-to-create-EXE-file почитать
-
-
