@@ -5,6 +5,8 @@
 Общий совет:
 Заботать latex
 
+expression date = inf
+save creditionals = store
 
 
 Дела на сейчас
