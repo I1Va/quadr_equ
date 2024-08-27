@@ -107,6 +107,9 @@ size_t get_tests_from_file(const char path[], quadr_equ_obj test_data[]) {
 
 int generate_tests_to_file(const char path[], const size_t n_tests) {
     assert(path != NULL);
+    if (n_tests == 0) {
+        return RETURN_SUCCESS;
+    }
 
     FILE* f_test_data_write = fopen(path, "w");
     if (f_test_data_write == NULL) {

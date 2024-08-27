@@ -33,11 +33,13 @@ make parsing
 ![parsing mode](images/Parsing_mode.png)
 
 ## Features
-1.  ***Auto testing***
-    
-  * Generates random quadratic equations into file `PATH_AUTO_TESTS` 
-  * Reading tests from array
-  * Main program testing by file tests
+1.  ***testing mode***
+  * Support manual testing mode:
+    * Write your tests into `MANUAL_TESTS[]` variable of `quadr_equ_solver_funcs.cpp` file
+    * Or write your tests into `PATH_AUTO_TESTS`, launch auto tests mode and enter 0 in tests generate number question. In this case programm won't erase data from your tests file
+  * Support auto testing mode
+    * Generates chosen number of random quadratic equations into file `PATH_AUTO_TESTS`
+  * Suppor reading tests from array and file
 
 2.  ***Self-written random generator***
 
@@ -50,7 +52,12 @@ make parsing
     $m = 2^{32};\ a = 22695477;\ c = 1;$
     Writes current seed into file located by `PATH_CUR_SEED[]` (see section: ([Settings](https://github.com/I1Va/quadr_equ/tree/progress?tab=readme-ov-file#settings)))
 
-4. ***Color output***
+3. ***Color output***
+  
+4. ***Quadratic equation parsing mode***
+  * Parse entered quadratic equation  
+  * Process extra spaces
+  * Maintains x**2 or x^2 records of x² member  
 
 ## Settings
 
