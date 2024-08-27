@@ -3,6 +3,11 @@
     \brief Header file with testing funtions declaration
 */
 
+
+#ifndef TEST_FUNCS_H
+#define TEST_FUNCS_H
+
+
 #include <stddef.h>
 #include <cmath>
 #include <float.h>
@@ -57,3 +62,6 @@ int quadr_equ_solver_manual_testing(size_t n_tests, const quadr_equ_obj test_dat
     \param[in] path_to_file
 */
 int quadr_equ_solver_file_testing(const char path[]);
+
+
+#endif // TEST_FUNCS_H

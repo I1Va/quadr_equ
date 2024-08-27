@@ -47,7 +47,7 @@ make parsing
 
     With *Borland C/C++ constants* ([see other constants](https://en.wikipedia.org/wiki/Linear_congruential_generator))
 
-    $m = 2^{32} \; a = 22695477 \; c = 1;$
+    $m = 2^{32};\ a = 22695477;\ c = 1;$
     Writes current seed into file located by `PATH_CUR_SEED[]` (see section: ([Settings](https://github.com/I1Va/quadr_equ/tree/progress?tab=readme-ov-file#settings)))
 
 4. ***Color output***

@@ -3,8 +3,10 @@
     \brief Header file with basic classes, funtions declaration
 */
 
+
 #ifndef QUADR_EQU_H
 #define QUADR_EQU_H
+
 
 #include <cstdlib>
 #include <stdint.h>
@@ -98,19 +100,26 @@ INITIALIZATION FUNCTIONS
 
 
 /*! 
-    \brief initialization variables to Nan of quadratic equation coefficients class 
+    \brief initialization variables to Nan of quadr_coeffs coefficients class 
 
     \param[out] coeffs;
 */
 void init_quadr_coeffs(struct quadr_coeffs *const coeffs);
 
+
 /*! 
-    \brief initialization variables to Nan of quadratic equation roots class 
+    \brief initialization variables to Nan of quadr_roots class 
 
     \param[out] roots;
 */
 void init_quadr_roots(struct quadr_roots *const roots);
 
+
+/*! 
+    \brief initialization variables of quadr_obj class 
+
+    \param[out] roots;
+*/
 void init_quadr_obj(struct quadr_equ_obj *equation);
 
 
@@ -147,7 +156,7 @@ INPUT FUNCTIONS
     \brief function of input quadratic equation coeffs from stdin
 
     \param[out] coeffs
-    \return exit_code
+    \return return_code
 */
 int scanf_quadr_coeffs(struct quadr_coeffs *coeffs);
 
@@ -157,7 +166,7 @@ int scanf_quadr_coeffs(struct quadr_coeffs *coeffs);
 
     \param[in] stream 
     \param[out] equ
-    \return exit_code
+    \return return_code
 */
 int fscanf_quadr_equ_obj(FILE *stream, struct quadr_equ_obj *equ);
 
@@ -180,16 +189,8 @@ COMPARE FUNCTIONS
 */
 bool eq_doubles(const double x1, const double x2);
 
-
 /*! 
-    \brief check equality of strings 
-
-    \param[in] s1, s2
-    \return equality
-*/
-
-/*! 
-    \brief check equality of quad_roots equation with some error
+    \brief check equality of quad_roots class objects equation with some error
 
     takes into account cases of NaN, +inf, -inf
     \param[in] r1, r2
@@ -212,6 +213,7 @@ OUTPUT FUNCTIONS
 
     \param[in] stream 
     \param[in] n_roots
+    \return return_code
 */
 int fprintf_num_solutions(FILE* stream, const int n_roots);
 
@@ -221,6 +223,7 @@ int fprintf_num_solutions(FILE* stream, const int n_roots);
 
     \param[in] stream 
     \param[in] equ
+    \return return_code
 */
 int fprintf_quadr_equ_obj(FILE* stream, const struct quadr_equ_obj equ);
 
@@ -239,13 +242,13 @@ RANDOM FUNCTIONS
 
     writes current seed into cur_seed.txt
     uses Borland C/C++ random constants
-    \param[out] random_number
+    \return random number
 */
 unsigned long long cong_rand();
 
 /*! 
     \brief Generates random double number
-    \param[out] random_number
+    \return random double number
 */
 double cong_frand();
 
@@ -272,6 +275,7 @@ void mode_manager(int argc, char **argv);
     \brief launch example mode
 
     generate random quadratic equation and solve it
+    \return return_code
 */
 int example_mode_launch();
 
@@ -279,8 +283,8 @@ int example_mode_launch();
 /*! 
     \brief launch user mode
 
-    user input of quadratic equation coefficients 
-    it solution and output
+    user's input of quadratic equation coefficients, it solution and output
+    \return return_code
 */
 int user_mode_launch();
 
@@ -288,22 +292,76 @@ int user_mode_launch();
 /*! 
     \brief launch testing mode
 
-    loading tests from file/array
-    testing
+    loading tests from file/array, testing
+    \return return_code
 */
-
-void remove_spaces(char *start_ptr);
-
 int testing_mode_launch();
 
+
+/*! 
+    \brief remove spaces from string
+    \param[out] string
+*/
 int parsing_mode_launch();
 
+
+
+/* 
+#########################################################################
+STRING PROCESSTING FUNCTIONS
+#########################################################################
+*/
+
+
+
+/*! 
+    \brief remove spaces from string
+    \param[out] string
+*/
+void remove_spaces(char *start_ptr);
+
+
+
+/*! 
+    \brief read line from stdin stream
+    \param[out] string
+*/
 void getline(char *ptr);
 
+
+
+/* 
+#########################################################################
+STRING PROCESSTING FUNCTIONS
+#########################################################################
+*/
+
+
+/*! 
+    \brief check string prefix for the presence of a lexemes: x^2, x**2
+    \return pointer to first symbol after lexeme.
+    
+    \return if lexeme hasn't found return NULL
+*/
 char* check_lexem_x2(char *s1);
 
-char* get_num_lexem(double *val, char* ptr);
 
+/*! 
+    \brief read quadratic equation coefficient lexeme from string prefix
+    \return pointer to first symbol after lexeme
+    
+    \return if lexeme hasn't found return NULL
+*/
+char* get_coeff_lexem(double *val, char* ptr);
+
+
+/*! 
+    \brief check string prefix for the presence of a lexemes: x
+    \return pointer to first symbol after lexeme.
+    
+    \return if lexeme hasn't found return NULL
+*/
 char* check_lexem_x(char *string_ptr);
+
 
 #endif // QUADR_EQU_H

@@ -349,7 +349,7 @@ void getline(char *string_ptr) {
     }
 }
 
-char* get_num_lexem(double *num_ptr, char* string_ptr) {
+char* get_coeff_lexem(double *num_ptr, char* string_ptr) {
     assert(num_ptr != NULL);
     assert(string_ptr != NULL);
 
@@ -382,21 +382,21 @@ int parsing_mode_launch() {
     quadr_equ_obj equation;
     init_quadr_obj(&equation);
 
-    equation_string_ptr = get_num_lexem(&equation.coeffs.a, equation_string_ptr);
+    equation_string_ptr = get_coeff_lexem(&equation.coeffs.a, equation_string_ptr);
 
     if ((equation_string_ptr = check_lexem_x2(equation_string_ptr)) == NULL) {
         printf("Invalid input\n");
         return RETURN_FAILURE;
     }
 
-    equation_string_ptr = get_num_lexem(&equation.coeffs.b, equation_string_ptr);
+    equation_string_ptr = get_coeff_lexem(&equation.coeffs.b, equation_string_ptr);
 
     if ((equation_string_ptr = check_lexem_x(equation_string_ptr)) == NULL) {
         printf("Invalid input\n");
         return RETURN_FAILURE;
     }
 
-    equation_string_ptr = get_num_lexem(&equation.coeffs.c, equation_string_ptr);
+    equation_string_ptr = get_coeff_lexem(&equation.coeffs.c, equation_string_ptr);
 
     int n_roots = simple_quadr_solve(equation.coeffs, &equation.roots);
     equation.n_roots = n_roots;

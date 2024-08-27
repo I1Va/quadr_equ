@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['scanf_5fquadr_5fcoeffs_0',['scanf_quadr_coeffs',['../quadr__equ_8h.html#ab1ba3361729e62fe539cca88ef421d58',1,'quadr_equ_solver_funcs.cpp']]],
-  ['simple_5fquadr_5fsolve_1',['simple_quadr_solve',['../test__funcs_8h.html#ad1226898ed76613b872f6cdbf96daee7',1,'test_funcs.cpp']]]
+  ['remove_5fspaces_0',['remove_spaces',['../quadr__equ_8h.html#afe066fc8396fbf2cf965d11d93dd90de',1,'quadr_equ_solver_funcs.cpp']]],
+  ['roots_1',['roots',['../structquadr__equ__obj.html#acde0ff064b6a80338ba43c9967d291d8',1,'quadr_equ_obj']]]
 ];
