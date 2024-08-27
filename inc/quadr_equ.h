@@ -291,11 +291,13 @@ int user_mode_launch();
     testing
 */
 
+void remove_spaces(char *start_ptr);
+
 int testing_mode_launch();
 
 int parsing_mode_launch();
 
-
+void getline(char *ptr);
 
 char* check_x_2(char *s1);
 
