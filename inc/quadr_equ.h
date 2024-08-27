@@ -10,6 +10,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <math.h>
+
 #ifdef _DEBUG
 #define debug(str_, ...) fprintf(stderr, RED "[%s: %d] " str_, __FUNCTION__, __LINE__, ##__VA_ARGS__)
 #else
@@ -302,5 +303,6 @@ void getline(char *ptr);
 char* check_x_2(char *s1);
 
 char* get_num(double *val, char* ptr);
+
 
 #endif // QUADR_EQU_H
