@@ -3,3 +3,4 @@
 *.json
 experiments.cpp
 .cache
+docs

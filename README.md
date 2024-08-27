@@ -25,12 +25,12 @@ make testing
 ```shell
 make launch
 ```
-![User_mode.png](images/User_mode.png)
+![User_mode.png](images/user_mode.png)
 
 ```shell
 make parsing
 ```
-![parsing mode](images/Parsing_mode.png)
+![parsing mode](images/parsing_mode.png)
 
 ## Features
 1.  ***testing mode***

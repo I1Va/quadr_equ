@@ -11,17 +11,7 @@ save creditionals = store
 
 
 Дела на сейчас
-1) Реализовать функции: 
-    puts
-    strchr
-    strlen
-    strcpy
-    strncpy
-    strcat
-    strncat
-    fgets
-    strdup
-    getline
+0) убрать /build ...
 
 
 3) Попросить новый проект

@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
+#define int long long
+
 int main() {
     long double a, b, c;
     scanf("%lg %lg %lg", &a, &b, &c);

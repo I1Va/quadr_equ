@@ -9,8 +9,7 @@ Header file with basic classes, funtions declaration.
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$math.\+h$>$}\newline
-Include dependency graph for quadr\+\_\+equ.\+h\+:
-\nopagebreak
+Include dependency graph for quadr\+\_\+equ.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -58,27 +57,24 @@ struct \mbox{\hyperlink{structquadr__equ__obj}{quadr\+\_\+equ\+\_\+obj}}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09d}\label{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09d} 
-enum {\bfseries roots\+\_\+num} \{ \newline
-{\bfseries INF\+\_\+\+SOLUTIONS} = -\/1
-, {\bfseries NO\+\_\+\+SOLUTIONS} = 0
-, {\bfseries ONE\+\_\+\+SOLUTION} = 1
-, {\bfseries TWO\+\_\+\+SOLUTIONS} = 2
+enum \mbox{\hyperlink{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09d}{roots\+\_\+num}} \{ \newline
+\mbox{\hyperlink{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09dac4b24b361f6a2739283472501620cedb}{INF\+\_\+\+SOLUTIONS}} = -\/1
+, \mbox{\hyperlink{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da7ba2733ae0b3f049b4fcd4afedd9b980}{NO\+\_\+\+SOLUTIONS}} = 0
+, \mbox{\hyperlink{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da0451cd6d5aa789cdc383e452dd2c0bd7}{ONE\+\_\+\+SOLUTION}} = 1
+, \mbox{\hyperlink{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da7b4b3bca57d544a80aaed928315a1c75}{TWO\+\_\+\+SOLUTIONS}} = 2
 , \newline
-{\bfseries INIT\+\_\+\+SOLUTIONS} = -\/2
+\mbox{\hyperlink{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da7cdaf8b5ded5f7292d5b1f93f8eb4231}{INIT\+\_\+\+SOLUTIONS}} = -\/2
  \}
-\item 
-\Hypertarget{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6}\label{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6} 
-enum {\bfseries modes} \{ {\bfseries USER\+\_\+\+MODE} = 0
-, {\bfseries TESTING\+\_\+\+MODE} = 1
-, {\bfseries EXAMPLE\+\_\+\+MODE} = 2
+\begin{DoxyCompactList}\small\item\em quadr\+\_\+equ\+\_\+solver return values \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6}{modes}} \{ \mbox{\hyperlink{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6a8f1d0f52603058645d563a80d7f589a3}{USER\+\_\+\+MODE}} = 0
+, \mbox{\hyperlink{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6a4645179fb4a4eccbdb21bd9ecbd51858}{TESTING\+\_\+\+MODE}} = 1
+, \mbox{\hyperlink{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6aef9976df38bde5962468fda0dda65daa}{EXAMPLE\+\_\+\+MODE}} = 2
  \}
-\item 
-\Hypertarget{quadr__equ_8h_acff33c9af804c14ba60196d9ef005741}\label{quadr__equ_8h_acff33c9af804c14ba60196d9ef005741} 
-enum {\bfseries return\+\_\+states} \{ {\bfseries RETURN\+\_\+\+SUCCESS} = 0
-, {\bfseries RETURN\+\_\+\+FAILURE} = -\/1
+\begin{DoxyCompactList}\small\item\em mode\+\_\+manager mode flags \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{quadr__equ_8h_acff33c9af804c14ba60196d9ef005741}{return\+\_\+states}} \{ \mbox{\hyperlink{quadr__equ_8h_acff33c9af804c14ba60196d9ef005741ab982cbffafc9ffd71344fa63bb58a21e}{RETURN\+\_\+\+SUCCESS}} = 0
+, \mbox{\hyperlink{quadr__equ_8h_acff33c9af804c14ba60196d9ef005741a8ecde7f6dbf8b9aff141f9ad7f136521}{RETURN\+\_\+\+FAILURE}} = -\/1
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em return states \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -106,7 +102,7 @@ unsigned long long \mbox{\hyperlink{quadr__equ_8h_abff7a5a3bfc3bb1fbb81ba3cd840d
 \begin{DoxyCompactList}\small\item\em Linear congruential generator of random unsigned int numbers. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{quadr__equ_8h_a41c622d4b20dc3317104ab3ea3f5d426}{cong\+\_\+frand}} ()
 \begin{DoxyCompactList}\small\item\em Generates random double number. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{quadr__equ_8h_ab8483a17f6cca4ed82bb463e845b95da}{mode\+\_\+manager}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+void \mbox{\hyperlink{quadr__equ_8h_aff4d3afb3d2ea5a187031a066521be56}{mode\+\_\+manager}} (const int argc, char \texorpdfstring{$\ast$}{*}const argv\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em processes comand line arguments and manages mode launhes \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{quadr__equ_8h_afbf15d56862f3691a98f4e7603189fb0}{example\+\_\+mode\+\_\+launch}} ()
 \begin{DoxyCompactList}\small\item\em launch example mode \end{DoxyCompactList}\item 
@@ -164,6 +160,85 @@ Header file with basic classes, funtions declaration.
 \DoxyCodeLine{\ \ \ \ \}}
 
 \end{DoxyCode}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6}\label{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6} 
+\index{quadr\_equ.h@{quadr\_equ.h}!modes@{modes}}
+\index{modes@{modes}!quadr\_equ.h@{quadr\_equ.h}}
+\doxysubsubsection{\texorpdfstring{modes}{modes}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6}{modes}}}
+
+
+
+mode\+\_\+manager mode flags 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USER\_MODE@{USER\_MODE}!quadr\_equ.h@{quadr\_equ.h}}\index{quadr\_equ.h@{quadr\_equ.h}!USER\_MODE@{USER\_MODE}}}\Hypertarget{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6a8f1d0f52603058645d563a80d7f589a3}\label{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6a8f1d0f52603058645d563a80d7f589a3} 
+USER\+\_\+\+MODE&int \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TESTING\_MODE@{TESTING\_MODE}!quadr\_equ.h@{quadr\_equ.h}}\index{quadr\_equ.h@{quadr\_equ.h}!TESTING\_MODE@{TESTING\_MODE}}}\Hypertarget{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6a4645179fb4a4eccbdb21bd9ecbd51858}\label{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6a4645179fb4a4eccbdb21bd9ecbd51858} 
+TESTING\+\_\+\+MODE&int \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EXAMPLE\_MODE@{EXAMPLE\_MODE}!quadr\_equ.h@{quadr\_equ.h}}\index{quadr\_equ.h@{quadr\_equ.h}!EXAMPLE\_MODE@{EXAMPLE\_MODE}}}\Hypertarget{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6aef9976df38bde5962468fda0dda65daa}\label{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6aef9976df38bde5962468fda0dda65daa} 
+EXAMPLE\+\_\+\+MODE&int \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{quadr__equ_8h_acff33c9af804c14ba60196d9ef005741}\label{quadr__equ_8h_acff33c9af804c14ba60196d9ef005741} 
+\index{quadr\_equ.h@{quadr\_equ.h}!return\_states@{return\_states}}
+\index{return\_states@{return\_states}!quadr\_equ.h@{quadr\_equ.h}}
+\doxysubsubsection{\texorpdfstring{return\_states}{return\_states}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{quadr__equ_8h_acff33c9af804c14ba60196d9ef005741}{return\+\_\+states}}}
+
+
+
+return states 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RETURN\_SUCCESS@{RETURN\_SUCCESS}!quadr\_equ.h@{quadr\_equ.h}}\index{quadr\_equ.h@{quadr\_equ.h}!RETURN\_SUCCESS@{RETURN\_SUCCESS}}}\Hypertarget{quadr__equ_8h_acff33c9af804c14ba60196d9ef005741ab982cbffafc9ffd71344fa63bb58a21e}\label{quadr__equ_8h_acff33c9af804c14ba60196d9ef005741ab982cbffafc9ffd71344fa63bb58a21e} 
+RETURN\+\_\+\+SUCCESS&int \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RETURN\_FAILURE@{RETURN\_FAILURE}!quadr\_equ.h@{quadr\_equ.h}}\index{quadr\_equ.h@{quadr\_equ.h}!RETURN\_FAILURE@{RETURN\_FAILURE}}}\Hypertarget{quadr__equ_8h_acff33c9af804c14ba60196d9ef005741a8ecde7f6dbf8b9aff141f9ad7f136521}\label{quadr__equ_8h_acff33c9af804c14ba60196d9ef005741a8ecde7f6dbf8b9aff141f9ad7f136521} 
+RETURN\+\_\+\+FAILURE&int \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09d}\label{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09d} 
+\index{quadr\_equ.h@{quadr\_equ.h}!roots\_num@{roots\_num}}
+\index{roots\_num@{roots\_num}!quadr\_equ.h@{quadr\_equ.h}}
+\doxysubsubsection{\texorpdfstring{roots\_num}{roots\_num}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09d}{roots\+\_\+num}}}
+
+
+
+quadr\+\_\+equ\+\_\+solver return values 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INF\_SOLUTIONS@{INF\_SOLUTIONS}!quadr\_equ.h@{quadr\_equ.h}}\index{quadr\_equ.h@{quadr\_equ.h}!INF\_SOLUTIONS@{INF\_SOLUTIONS}}}\Hypertarget{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09dac4b24b361f6a2739283472501620cedb}\label{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09dac4b24b361f6a2739283472501620cedb} 
+INF\+\_\+\+SOLUTIONS&int \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NO\_SOLUTIONS@{NO\_SOLUTIONS}!quadr\_equ.h@{quadr\_equ.h}}\index{quadr\_equ.h@{quadr\_equ.h}!NO\_SOLUTIONS@{NO\_SOLUTIONS}}}\Hypertarget{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da7ba2733ae0b3f049b4fcd4afedd9b980}\label{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da7ba2733ae0b3f049b4fcd4afedd9b980} 
+NO\+\_\+\+SOLUTIONS&int \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ONE\_SOLUTION@{ONE\_SOLUTION}!quadr\_equ.h@{quadr\_equ.h}}\index{quadr\_equ.h@{quadr\_equ.h}!ONE\_SOLUTION@{ONE\_SOLUTION}}}\Hypertarget{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da0451cd6d5aa789cdc383e452dd2c0bd7}\label{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da0451cd6d5aa789cdc383e452dd2c0bd7} 
+ONE\+\_\+\+SOLUTION&int \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TWO\_SOLUTIONS@{TWO\_SOLUTIONS}!quadr\_equ.h@{quadr\_equ.h}}\index{quadr\_equ.h@{quadr\_equ.h}!TWO\_SOLUTIONS@{TWO\_SOLUTIONS}}}\Hypertarget{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da7b4b3bca57d544a80aaed928315a1c75}\label{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da7b4b3bca57d544a80aaed928315a1c75} 
+TWO\+\_\+\+SOLUTIONS&int \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INIT\_SOLUTIONS@{INIT\_SOLUTIONS}!quadr\_equ.h@{quadr\_equ.h}}\index{quadr\_equ.h@{quadr\_equ.h}!INIT\_SOLUTIONS@{INIT\_SOLUTIONS}}}\Hypertarget{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da7cdaf8b5ded5f7292d5b1f93f8eb4231}\label{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da7cdaf8b5ded5f7292d5b1f93f8eb4231} 
+INIT\+\_\+\+SOLUTIONS&int \\
+\hline
+
+\end{DoxyEnumFields}
 
 
 \doxysubsection{Function Documentation}
@@ -407,11 +482,11 @@ initialization variables to Nan of \doxylink{structquadr__roots}{quadr\+\_\+root
 \mbox{\texttt{ out}}  & {\em roots;} & \\
 \hline
 \end{DoxyParams}
-\Hypertarget{quadr__equ_8h_ab8483a17f6cca4ed82bb463e845b95da}\label{quadr__equ_8h_ab8483a17f6cca4ed82bb463e845b95da} 
+\Hypertarget{quadr__equ_8h_aff4d3afb3d2ea5a187031a066521be56}\label{quadr__equ_8h_aff4d3afb3d2ea5a187031a066521be56} 
 \index{quadr\_equ.h@{quadr\_equ.h}!mode\_manager@{mode\_manager}}
 \index{mode\_manager@{mode\_manager}!quadr\_equ.h@{quadr\_equ.h}}
 \doxysubsubsection{\texorpdfstring{mode\_manager()}{mode\_manager()}}
-{\footnotesize\ttfamily void mode\+\_\+manager (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void mode\+\_\+manager (\begin{DoxyParamCaption}\item[{const int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}const}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
 
 
 

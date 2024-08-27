@@ -88,9 +88,9 @@ size_t get_tests_from_file(const char path[], quadr_equ_obj test_data[]) {
     assert(path != NULL);
     assert(test_data != NULL);
 
-    FILE* f_test_data_read = fopen(path, "r");
+    FILE *f_test_data_read = fopen(path, "r");
     if (f_test_data_read == NULL) {
-        fprintf(stderr, "Failed to open %s", path);
+        debug("Failed to open : %s", strerror(errno));
         return 0;
     }
 
@@ -111,7 +111,7 @@ int generate_tests_to_file(const char path[], const size_t n_tests) {
         return RETURN_SUCCESS;
     }
 
-    FILE* f_test_data_write = fopen(path, "w");
+    FILE *f_test_data_write = fopen(path, "w");
     if (f_test_data_write == NULL) {
         fprintf(stderr, "Failed to open %s", path);
         return EXIT_FAILURE;
@@ -125,7 +125,7 @@ int generate_tests_to_file(const char path[], const size_t n_tests) {
         cong_frand() * ((double) (cong_rand() % 100)), \
         cong_frand() * ((double) (cong_rand() % 100)));
 
-        struct quadr_roots roots;
+        struct quadr_roots roots = {0, 0};
         init_quadr_roots(&roots);
     
         int n_roots = simple_quadr_solve(coeffs, &roots);
@@ -141,16 +141,16 @@ int generate_tests_to_file(const char path[], const size_t n_tests) {
 int quadr_equ_solver_file_testing(const char path[]) {
     assert(path != NULL);
 
-    struct quadr_equ_obj test_data[MAX_N_TESTS];
-    size_t n_tests = get_tests_from_file(path, test_data);
+    struct quadr_equ_obj test_data[MAX_N_TESTS] = {{{0, 0, 0}, {0, 0}, 0}};
+    const size_t n_tests = get_tests_from_file(path, test_data);
 
     for (size_t i = 0; i < n_tests; i++) {
         struct quadr_equ_obj equation = test_data[i];
 
-        struct quadr_roots roots;
+        struct quadr_roots roots = {0, 0};
         init_quadr_roots(&roots);
 
-        int n_solutions = quadr_equ_solver(equation.coeffs, &roots);
+        const int n_solutions = quadr_equ_solver(equation.coeffs, &roots);
 
         printf("coefs: %lg %lg %lg\n", equation.coeffs.a, equation.coeffs.b, equation.coeffs.c);
         if (!eq_doubles_roots(roots, equation.roots) || n_solutions != equation.n_roots) {
@@ -180,10 +180,10 @@ int quadr_equ_solver_manual_testing(size_t n_tests, const quadr_equ_obj test_dat
     for (size_t i = 0; i < n_tests; i++) {
         struct quadr_equ_obj equation = test_data[i];
 
-        struct quadr_roots roots;
+        struct quadr_roots roots = {0, 0};
         init_quadr_roots(&roots);
 
-        int n_solutions = quadr_equ_solver(equation.coeffs, &roots);
+        const int n_solutions = quadr_equ_solver(equation.coeffs, &roots);
 
         printf("coefs: %lg %lg %lg\n", equation.coeffs.a, equation.coeffs.b, equation.coeffs.c);
 

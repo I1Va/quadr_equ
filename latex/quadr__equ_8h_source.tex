@@ -3,118 +3,110 @@
 \mbox{\hyperlink{quadr__equ_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ QUADR\_EQU\_H}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ QUADR\_EQU\_H}}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <math.h>}}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifdef\ \_DEBUG}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ debug(str\_,\ ...)\ fprintf\_red(stderr,\ "{}[\%s:\ \%d]\ "{}\ str\_,\ \_\_PRETTY\_FUNCTION\_\_,\ \_\_LINE\_\_,\ \#\#\_\_VA\_ARGS\_\_)}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ debug(str\_,\ ...)}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_DEBUG}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ QUADR\_EQU\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ QUADR\_EQU\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifdef\ \_DEBUG}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ debug(str\_,\ ...)\ fprintf\_red(stderr,\ "{}[\%s:\ \%d]\ "{}\ str\_,\ \_\_PRETTY\_FUNCTION\_\_,\ \_\_LINE\_\_,\ \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ debug(str\_,\ ...)}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_DEBUG}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ ARR\_SIZE(arr)\ (sizeof(arr)\ /\ sizeof(arr[0]))}}
 \DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ ARR\_SIZE(arr)\ (sizeof(arr)\ /\ sizeof(arr[0]))}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ INIT\_QUADR\_COEFFS(a\_,\ b\_,\ c\_)\ \{.a\ =\ a\_,\ .b\ =\ b\_,\ .c\ =\ c\_\}}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ INIT\_QUADR\_ROOTS(x1\_,\ x2\_)\ \{.x1\ =\ x1\_,\ .x2\ =\ x2\_\}}}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ INIT\_QUADR\_EQU\_OBJ(a\_,\ b\_,\ c\_,\ x1\_,\ x2\_,\ n\_roots\_)\ \(\backslash\)}}
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \ \ .coeffs\ =\ INIT\_QUADR\_COEFFS(a\_,\ b\_,\ c\_),\ \(\backslash\)}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ \ \ .roots\ =\ INIT\_QUADR\_ROOTS(x1\_,\ x2\_),\ \(\backslash\)}}
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\ \ \ \ .n\_roots\ =\ n\_roots\_\ \(\backslash\)}}
-\DoxyCodeLine{00032\ \textcolor{preprocessor}{\ \ \ \ \}}}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ INIT\_QUADR\_EQU\_OBJ\_STRUCTS(coeffs\_,\ roots\_,\ n\_roots\_)\ \(\backslash\)}}
-\DoxyCodeLine{00035\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
-\DoxyCodeLine{00036\ \textcolor{preprocessor}{\ \ \ \ .coeffs\ =\ coeffs\_,\ \(\backslash\)}}
-\DoxyCodeLine{00037\ \textcolor{preprocessor}{\ \ \ \ .roots\ =\ roots\_,\ \(\backslash\)}}
-\DoxyCodeLine{00038\ \textcolor{preprocessor}{\ \ \ \ .n\_roots\ =\ n\_roots\_\ \(\backslash\)}}
-\DoxyCodeLine{00039\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ INIT\_QUADR\_COEFFS(a\_,\ b\_,\ c\_)\ \{.a\ =\ a\_,\ .b\ =\ b\_,\ .c\ =\ c\_\}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ INIT\_QUADR\_ROOTS(x1\_,\ x2\_)\ \{.x1\ =\ x1\_,\ .x2\ =\ x2\_\}}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ INIT\_QUADR\_EQU\_OBJ(a\_,\ b\_,\ c\_,\ x1\_,\ x2\_,\ n\_roots\_)\ \(\backslash\)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \ \ .coeffs\ =\ INIT\_QUADR\_COEFFS(a\_,\ b\_,\ c\_),\ \(\backslash\)}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ .roots\ =\ INIT\_QUADR\_ROOTS(x1\_,\ x2\_),\ \(\backslash\)}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \ \ .n\_roots\ =\ n\_roots\_\ \(\backslash\)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ INIT\_QUADR\_EQU\_OBJ\_STRUCTS(coeffs\_,\ roots\_,\ n\_roots\_)\ \(\backslash\)}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\ \ \ \ .coeffs\ =\ coeffs\_,\ \(\backslash\)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\ \ \ \ .roots\ =\ roots\_,\ \(\backslash\)}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\ \ \ \ .n\_roots\ =\ n\_roots\_\ \(\backslash\)}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ print\_border()\ fprintf(stdout,\ WHT\ "{}\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\(\backslash\)n"{})}}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ print\_border()\ fprintf(stdout,\ WHT\ "{}\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\(\backslash\)n"{})}}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \textcolor{keyword}{enum}\ roots\_num}
-\DoxyCodeLine{00044\ \{}
-\DoxyCodeLine{00045\ \ \ \ \ INF\_SOLUTIONS\ =\ -\/1,\ }
-\DoxyCodeLine{00046\ \ \ \ \ NO\_SOLUTIONS\ \ =\ 0,}
-\DoxyCodeLine{00047\ \ \ \ \ ONE\_SOLUTION\ \ =\ 1,}
-\DoxyCodeLine{00048\ \ \ \ \ TWO\_SOLUTIONS\ =\ 2,}
-\DoxyCodeLine{00049\ \ \ \ \ INIT\_SOLUTIONS\ =\ -\/2,}
-\DoxyCodeLine{00050\ \};}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \textcolor{keyword}{enum}\ modes}
-\DoxyCodeLine{00053\ \{}
-\DoxyCodeLine{00054\ \ \ \ \ USER\_MODE\ =\ 0,}
-\DoxyCodeLine{00055\ \ \ \ \ TESTING\_MODE\ =\ 1,}
-\DoxyCodeLine{00056\ \ \ \ \ EXAMPLE\_MODE\ =\ 2,}
-\DoxyCodeLine{00057\ \};}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \textcolor{keyword}{enum}\ return\_states}
-\DoxyCodeLine{00060\ \{}
-\DoxyCodeLine{00061\ \ \ \ \ RETURN\_SUCCESS\ =\ 0,}
-\DoxyCodeLine{00062\ \ \ \ \ RETURN\_FAILURE\ =\ -\/1,}
-\DoxyCodeLine{00063\ \};}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ EPS\ =\ 1e-\/4;}
-\DoxyCodeLine{00066\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ N\_ATTEMPTS\ =\ 5;}
-\DoxyCodeLine{00067\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ MAX\_STRING\_SIZE\ =\ 100;}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00070\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}}
-\DoxyCodeLine{00071\ \{}
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__coeffs_a67346e9b5446e8ece7bcf071c260a82b}{a}};\ }
-\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__coeffs_a90f9307ab800513a0ccbb285fab24258}{b}};\ }
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__coeffs_af9afaaffea6996aa31f284a74c189175}{c}};\ }
-\DoxyCodeLine{00075\ \};}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00079\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__roots}{quadr\_roots}}}
-\DoxyCodeLine{00080\ \{}
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__roots_afb5f45adb8bbd67e8629062eee1bd328}{x1}};\ }
-\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__roots_adb4d24e5a36f2d098da31f66d610e3dd}{x2}};\ }
-\DoxyCodeLine{00083\ \};}
+\DoxyCodeLine{00044\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09d}{roots\_num}}}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09dac4b24b361f6a2739283472501620cedb}{INF\_SOLUTIONS}}\ =\ -\/1,\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da7ba2733ae0b3f049b4fcd4afedd9b980}{NO\_SOLUTIONS}}\ \ =\ 0,\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da0451cd6d5aa789cdc383e452dd2c0bd7}{ONE\_SOLUTION}}\ \ =\ 1,\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da7b4b3bca57d544a80aaed928315a1c75}{TWO\_SOLUTIONS}}\ =\ 2,\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{quadr__equ_8h_a4bb452ab79aaa95e2cf7f2453824a09da7cdaf8b5ded5f7292d5b1f93f8eb4231}{INIT\_SOLUTIONS}}\ =\ -\/2,\ }
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6}{modes}}}
+\DoxyCodeLine{00057\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6a8f1d0f52603058645d563a80d7f589a3}{USER\_MODE}}\ =\ 0,\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6a4645179fb4a4eccbdb21bd9ecbd51858}{TESTING\_MODE}}\ =\ 1,\ }
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{quadr__equ_8h_a811fe196a5d9d37857c2f8adeeaac3c6aef9976df38bde5962468fda0dda65daa}{EXAMPLE\_MODE}}\ =\ 2,\ }
+\DoxyCodeLine{00061\ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{quadr__equ_8h_acff33c9af804c14ba60196d9ef005741}{return\_states}}}
+\DoxyCodeLine{00067\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{quadr__equ_8h_acff33c9af804c14ba60196d9ef005741ab982cbffafc9ffd71344fa63bb58a21e}{RETURN\_SUCCESS}}\ =\ 0,\ }
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{quadr__equ_8h_acff33c9af804c14ba60196d9ef005741a8ecde7f6dbf8b9aff141f9ad7f136521}{RETURN\_FAILURE}}\ =\ -\/1,\ }
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ EPS\ =\ 1e-\/4;}
+\DoxyCodeLine{00073\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ N\_ATTEMPTS\ =\ 4;}
+\DoxyCodeLine{00074\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ MAX\_STRING\_SIZE\ =\ 1024;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}}
+\DoxyCodeLine{00078\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__coeffs_a67346e9b5446e8ece7bcf071c260a82b}{a}};\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__coeffs_a90f9307ab800513a0ccbb285fab24258}{b}};\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__coeffs_af9afaaffea6996aa31f284a74c189175}{c}};\ }
+\DoxyCodeLine{00082\ \};}
+\DoxyCodeLine{00083\ }
 \DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00087\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__equ__obj}{quadr\_equ\_obj}}}
-\DoxyCodeLine{00088\ \{}
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ \mbox{\hyperlink{structquadr__equ__obj_ac6a68fe8fdc0a95039d90a8eb0e6c384}{coeffs}};\ }
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ \mbox{\hyperlink{structquadr__equ__obj_acde0ff064b6a80338ba43c9967d291d8}{roots}};\ }
-\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structquadr__equ__obj_a63eaa0739377c244c714ff72f3172228}{n\_roots}};\ }
-\DoxyCodeLine{00092\ \};}
-\DoxyCodeLine{00093\ }
-\DoxyCodeLine{00094\ \textcolor{comment}{/*\ }}
-\DoxyCodeLine{00095\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00096\ \textcolor{comment}{INITIALIZATION\ FUNCTIONS}}
-\DoxyCodeLine{00097\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00098\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__roots}{quadr\_roots}}}
+\DoxyCodeLine{00087\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__roots_afb5f45adb8bbd67e8629062eee1bd328}{x1}};\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__roots_adb4d24e5a36f2d098da31f66d610e3dd}{x2}};\ }
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__equ__obj}{quadr\_equ\_obj}}}
+\DoxyCodeLine{00095\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ \mbox{\hyperlink{structquadr__equ__obj_ac6a68fe8fdc0a95039d90a8eb0e6c384}{coeffs}};\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ \mbox{\hyperlink{structquadr__equ__obj_acde0ff064b6a80338ba43c9967d291d8}{roots}};\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structquadr__equ__obj_a63eaa0739377c244c714ff72f3172228}{n\_roots}};\ }
+\DoxyCodeLine{00099\ \};}
 \DoxyCodeLine{00100\ }
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00107\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quadr__equ_8h_ad3eb10e7c90ade968994807c41fbd047}{init\_quadr\_coeffs}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ *\textcolor{keyword}{const}\ coeffs);}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quadr__equ_8h_a137ca5739868d75e9d614a1168308de8}{init\_quadr\_roots}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ *\textcolor{keyword}{const}\ roots);}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00123\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quadr__equ_8h_a8893d9b8a7b6e4bdfe65c2f4db680e1f}{init\_quadr\_obj}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__equ__obj}{quadr\_equ\_obj}}\ *equation);}
-\DoxyCodeLine{00124\ }
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ \textcolor{comment}{/*\ }}
-\DoxyCodeLine{00127\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00128\ \textcolor{comment}{ALGORITHM\ FUNCTIONS}}
-\DoxyCodeLine{00129\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00130\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00131\ }
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00133\ }
-\DoxyCodeLine{00143\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_a0b4cd2f83b659ff291ad7f0f7c9f5e12}{quadr\_equ\_solver}}(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ coeffs,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ *\textcolor{keyword}{const}\ roots);}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00101\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00102\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00103\ \textcolor{comment}{INITIALIZATION\ FUNCTIONS}}
+\DoxyCodeLine{00104\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00105\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quadr__equ_8h_ad3eb10e7c90ade968994807c41fbd047}{init\_quadr\_coeffs}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ *\textcolor{keyword}{const}\ coeffs);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00120\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quadr__equ_8h_a137ca5739868d75e9d614a1168308de8}{init\_quadr\_roots}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ *\textcolor{keyword}{const}\ roots);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quadr__equ_8h_a8893d9b8a7b6e4bdfe65c2f4db680e1f}{init\_quadr\_obj}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__equ__obj}{quadr\_equ\_obj}}\ *equation);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00131\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00132\ \textcolor{comment}{ALGORITHM\ FUNCTIONS}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00134\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00145\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_a0b4cd2f83b659ff291ad7f0f7c9f5e12}{quadr\_equ\_solver}}(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ coeffs,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ *\textcolor{keyword}{const}\ roots);}
 \DoxyCodeLine{00146\ }
 \DoxyCodeLine{00147\ \textcolor{comment}{/*\ }}
 \DoxyCodeLine{00148\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
@@ -122,81 +114,73 @@
 \DoxyCodeLine{00150\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
 \DoxyCodeLine{00151\ \textcolor{comment}{*/}}
 \DoxyCodeLine{00152\ }
-\DoxyCodeLine{00153\ }
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00161\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_ab1ba3361729e62fe539cca88ef421d58}{scanf\_quadr\_coeffs}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ *coeffs);}
-\DoxyCodeLine{00162\ }
-\DoxyCodeLine{00163\ }
-\DoxyCodeLine{00171\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_a5206fc1d9570ebb70b7b525278399134}{fscanf\_quadr\_equ\_obj}}(FILE\ *stream,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__equ__obj}{quadr\_equ\_obj}}\ *equ);}
-\DoxyCodeLine{00172\ }
-\DoxyCodeLine{00173\ }
-\DoxyCodeLine{00174\ }
-\DoxyCodeLine{00175\ \textcolor{comment}{/*\ }}
-\DoxyCodeLine{00176\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00177\ \textcolor{comment}{COMPARE\ FUNCTIONS}}
-\DoxyCodeLine{00178\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00179\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00180\ }
-\DoxyCodeLine{00181\ }
-\DoxyCodeLine{00182\ }
-\DoxyCodeLine{00190\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{quadr__equ_8h_a63480fbc0ad3dc47a3e64df10709cecc}{eq\_doubles}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__roots_afb5f45adb8bbd67e8629062eee1bd328}{x1}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__roots_adb4d24e5a36f2d098da31f66d610e3dd}{x2}});}
-\DoxyCodeLine{00191\ }
-\DoxyCodeLine{00199\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{quadr__equ_8h_ab052615c20326adec17970522826664e}{eq\_doubles\_roots}}(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ r1,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ r2);}
+\DoxyCodeLine{00159\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_ab1ba3361729e62fe539cca88ef421d58}{scanf\_quadr\_coeffs}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__coeffs}{quadr\_coeffs}}\ *coeffs);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00169\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_a5206fc1d9570ebb70b7b525278399134}{fscanf\_quadr\_equ\_obj}}(FILE\ *stream,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__equ__obj}{quadr\_equ\_obj}}\ *equ);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00172\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00173\ \textcolor{comment}{COMPARE\ FUNCTIONS}}
+\DoxyCodeLine{00174\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00175\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00184\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{quadr__equ_8h_a63480fbc0ad3dc47a3e64df10709cecc}{eq\_doubles}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__roots_afb5f45adb8bbd67e8629062eee1bd328}{x1}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadr__roots_adb4d24e5a36f2d098da31f66d610e3dd}{x2}});}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00193\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{quadr__equ_8h_ab052615c20326adec17970522826664e}{eq\_doubles\_roots}}(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ r1,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__roots}{quadr\_roots}}\ r2);}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00196\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00197\ \textcolor{comment}{OUTPUT\ FUNCTIONS}}
+\DoxyCodeLine{00198\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00199\ \textcolor{comment}{*/}}
 \DoxyCodeLine{00200\ }
-\DoxyCodeLine{00201\ }
-\DoxyCodeLine{00202\ }
-\DoxyCodeLine{00203\ \textcolor{comment}{/*\ }}
-\DoxyCodeLine{00204\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00205\ \textcolor{comment}{OUTPUT\ FUNCTIONS}}
-\DoxyCodeLine{00206\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00207\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00208\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_aa6cabc3f1d18dcdfddac01fcddc8e9d4}{fprintf\_num\_solutions}}(FILE*\ stream,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ n\_roots);}
 \DoxyCodeLine{00209\ }
 \DoxyCodeLine{00210\ }
-\DoxyCodeLine{00218\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_aa6cabc3f1d18dcdfddac01fcddc8e9d4}{fprintf\_num\_solutions}}(FILE*\ stream,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ n\_roots);}
+\DoxyCodeLine{00218\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_a2d035a5f1ab32531de92736e9f0b9e9a}{fprintf\_quadr\_equ\_obj}}(FILE*\ stream,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__equ__obj}{quadr\_equ\_obj}}\ equ);}
 \DoxyCodeLine{00219\ }
-\DoxyCodeLine{00220\ }
-\DoxyCodeLine{00228\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_a2d035a5f1ab32531de92736e9f0b9e9a}{fprintf\_quadr\_equ\_obj}}(FILE*\ stream,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structquadr__equ__obj}{quadr\_equ\_obj}}\ equ);}
-\DoxyCodeLine{00229\ }
-\DoxyCodeLine{00230\ }
-\DoxyCodeLine{00231\ }
-\DoxyCodeLine{00232\ \textcolor{comment}{/*\ }}
-\DoxyCodeLine{00233\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00234\ \textcolor{comment}{RANDOM\ FUNCTIONS}}
-\DoxyCodeLine{00235\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00236\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00237\ }
-\DoxyCodeLine{00238\ }
-\DoxyCodeLine{00239\ }
-\DoxyCodeLine{00247\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{quadr__equ_8h_abff7a5a3bfc3bb1fbb81ba3cd840d9e7}{cong\_rand}}();}
-\DoxyCodeLine{00248\ }
-\DoxyCodeLine{00253\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{quadr__equ_8h_a41c622d4b20dc3317104ab3ea3f5d426}{cong\_frand}}();}
+\DoxyCodeLine{00220\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00221\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00222\ \textcolor{comment}{RANDOM\ FUNCTIONS}}
+\DoxyCodeLine{00223\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00224\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00233\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{quadr__equ_8h_abff7a5a3bfc3bb1fbb81ba3cd840d9e7}{cong\_rand}}();}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00239\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{quadr__equ_8h_a41c622d4b20dc3317104ab3ea3f5d426}{cong\_frand}}();}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00242\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00243\ \textcolor{comment}{MODE\ FUNCTIONS}}
+\DoxyCodeLine{00244\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00245\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00253\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quadr__equ_8h_aff4d3afb3d2ea5a187031a066521be56}{mode\_manager}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ *\textcolor{keyword}{const}\ argv[]);}
 \DoxyCodeLine{00254\ }
 \DoxyCodeLine{00255\ }
-\DoxyCodeLine{00256\ }
-\DoxyCodeLine{00257\ \textcolor{comment}{/*\ }}
-\DoxyCodeLine{00258\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00259\ \textcolor{comment}{MODE\ FUNCTIONS}}
-\DoxyCodeLine{00260\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00261\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00262\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_afbf15d56862f3691a98f4e7603189fb0}{example\_mode\_launch}}();}
 \DoxyCodeLine{00263\ }
 \DoxyCodeLine{00264\ }
-\DoxyCodeLine{00271\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quadr__equ_8h_ab8483a17f6cca4ed82bb463e845b95da}{mode\_manager}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
+\DoxyCodeLine{00271\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_a32a9d32f8c6f13cfa02f407c107a2933}{user\_mode\_launch}}();}
 \DoxyCodeLine{00272\ }
 \DoxyCodeLine{00273\ }
-\DoxyCodeLine{00280\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_afbf15d56862f3691a98f4e7603189fb0}{example\_mode\_launch}}();}
+\DoxyCodeLine{00280\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_afb6ba4ef16ad5cde4d16a7c6fb366e3e}{testing\_mode\_launch}}();}
 \DoxyCodeLine{00281\ }
 \DoxyCodeLine{00282\ }
-\DoxyCodeLine{00289\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_a32a9d32f8c6f13cfa02f407c107a2933}{user\_mode\_launch}}();}
-\DoxyCodeLine{00290\ }
-\DoxyCodeLine{00291\ }
-\DoxyCodeLine{00298\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_afb6ba4ef16ad5cde4d16a7c6fb366e3e}{testing\_mode\_launch}}();}
-\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00287\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_a1cc2acf73e4c8cefbf1eafeeffd7f969}{parsing\_mode\_launch}}();}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00290\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00291\ \textcolor{comment}{STRING\ PROCESSTING\ FUNCTIONS}}
+\DoxyCodeLine{00292\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00293\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00299\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quadr__equ_8h_afe066fc8396fbf2cf965d11d93dd90de}{remove\_spaces}}(\textcolor{keywordtype}{char}\ *start\_ptr);}
 \DoxyCodeLine{00300\ }
-\DoxyCodeLine{00305\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{quadr__equ_8h_a1cc2acf73e4c8cefbf1eafeeffd7f969}{parsing\_mode\_launch}}();}
-\DoxyCodeLine{00306\ }
-\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00307\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quadr__equ_8h_a993619df8404aca9b309fdd1069d305d}{getline}}(\textcolor{keywordtype}{char}\ *ptr);}
 \DoxyCodeLine{00308\ }
 \DoxyCodeLine{00309\ \textcolor{comment}{/*\ }}
 \DoxyCodeLine{00310\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
@@ -204,32 +188,14 @@
 \DoxyCodeLine{00312\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
 \DoxyCodeLine{00313\ \textcolor{comment}{*/}}
 \DoxyCodeLine{00314\ }
-\DoxyCodeLine{00315\ }
-\DoxyCodeLine{00316\ }
-\DoxyCodeLine{00321\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quadr__equ_8h_afe066fc8396fbf2cf965d11d93dd90de}{remove\_spaces}}(\textcolor{keywordtype}{char}\ *start\_ptr);}
+\DoxyCodeLine{00321\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{quadr__equ_8h_a83439d10ac4cb52ea80dad854081847e}{check\_lexem\_x2}}(\textcolor{keywordtype}{char}\ *s1);}
 \DoxyCodeLine{00322\ }
 \DoxyCodeLine{00323\ }
-\DoxyCodeLine{00324\ }
-\DoxyCodeLine{00329\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{quadr__equ_8h_a993619df8404aca9b309fdd1069d305d}{getline}}(\textcolor{keywordtype}{char}\ *ptr);}
-\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00330\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{quadr__equ_8h_afa04cb3eb32efe3e93574c306d915815}{get\_coeff\_lexem}}(\textcolor{keywordtype}{double}\ *val,\ \textcolor{keywordtype}{char}*\ ptr);}
 \DoxyCodeLine{00331\ }
 \DoxyCodeLine{00332\ }
-\DoxyCodeLine{00333\ \textcolor{comment}{/*\ }}
-\DoxyCodeLine{00334\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00335\ \textcolor{comment}{STRING\ PROCESSTING\ FUNCTIONS}}
-\DoxyCodeLine{00336\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00337\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00338\ }
-\DoxyCodeLine{00339\ }
-\DoxyCodeLine{00346\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{quadr__equ_8h_a83439d10ac4cb52ea80dad854081847e}{check\_lexem\_x2}}(\textcolor{keywordtype}{char}\ *s1);}
-\DoxyCodeLine{00347\ }
-\DoxyCodeLine{00348\ }
-\DoxyCodeLine{00355\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{quadr__equ_8h_afa04cb3eb32efe3e93574c306d915815}{get\_coeff\_lexem}}(\textcolor{keywordtype}{double}\ *val,\ \textcolor{keywordtype}{char}*\ ptr);}
-\DoxyCodeLine{00356\ }
-\DoxyCodeLine{00357\ }
-\DoxyCodeLine{00364\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{quadr__equ_8h_ad8ba8c0c4d3bdb5d095841a17ec81e47}{check\_lexem\_x}}(\textcolor{keywordtype}{char}\ *string\_ptr);}
-\DoxyCodeLine{00365\ }
-\DoxyCodeLine{00366\ }
-\DoxyCodeLine{00367\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ QUADR\_EQU\_H}}
+\DoxyCodeLine{00339\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{quadr__equ_8h_ad8ba8c0c4d3bdb5d095841a17ec81e47}{check\_lexem\_x}}(\textcolor{keywordtype}{char}\ *string\_ptr);}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ QUADR\_EQU\_H}}
 
 \end{DoxyCode}

@@ -3,10 +3,8 @@
     \brief Header file with basic classes, funtions declaration
 */
 
-
 #ifndef QUADR_EQU_H
 #define QUADR_EQU_H
-
 
 #include <cstdlib>
 #include <stdint.h>
@@ -40,31 +38,40 @@
 
 #define print_border() fprintf(stdout, WHT "########################################################################\n")
 
+/*!
+    \brief quadr_equ_solver return values 
+*/
 enum roots_num
 {
-    INF_SOLUTIONS = -1, 
-    NO_SOLUTIONS  = 0,
-    ONE_SOLUTION  = 1,
-    TWO_SOLUTIONS = 2,
-    INIT_SOLUTIONS = -2,
+    INF_SOLUTIONS = -1, ///< int
+    NO_SOLUTIONS  = 0, ///< int
+    ONE_SOLUTION  = 1, ///< int
+    TWO_SOLUTIONS = 2, ///< int
+    INIT_SOLUTIONS = -2, ///< int
 };
 
+/*!
+    \brief mode_manager mode flags
+*/
 enum modes
 {
-    USER_MODE = 0,
-    TESTING_MODE = 1,
-    EXAMPLE_MODE = 2,
+    USER_MODE = 0, ///< int
+    TESTING_MODE = 1, ///< int
+    EXAMPLE_MODE = 2, ///< int
 };
 
+/*!
+    \brief return states 
+*/
 enum return_states
 {
-    RETURN_SUCCESS = 0,
-    RETURN_FAILURE = -1,
+    RETURN_SUCCESS = 0, ///< int
+    RETURN_FAILURE = -1, ///< int
 };
 
 static const double EPS = 1e-4;
-static const size_t N_ATTEMPTS = 5;
-static const size_t MAX_STRING_SIZE = 100;
+static const size_t N_ATTEMPTS = 4;
+static const size_t MAX_STRING_SIZE = 1024;
 
 /*! \brief Class of quadratic equation coefficients */
 struct quadr_coeffs
@@ -97,8 +104,6 @@ INITIALIZATION FUNCTIONS
 #########################################################################
 */
 
-
-
 /*! 
     \brief initialization variables to Nan of quadr_coeffs coefficients class 
 
@@ -122,14 +127,11 @@ void init_quadr_roots(struct quadr_roots *const roots);
 */
 void init_quadr_obj(struct quadr_equ_obj *equation);
 
-
 /* 
 #########################################################################
 ALGORITHM FUNCTIONS
 #########################################################################
 */
-
-
 
 /*! 
     \brief function solving quadratic equation
@@ -142,15 +144,11 @@ ALGORITHM FUNCTIONS
 */
 int quadr_equ_solver(const struct quadr_coeffs coeffs, struct quadr_roots *const roots);
 
-
-
 /* 
 #########################################################################
 INPUT FUNCTIONS
 #########################################################################
 */
-
-
 
 /*! 
     \brief function of input quadratic equation coeffs from stdin
@@ -170,15 +168,11 @@ int scanf_quadr_coeffs(struct quadr_coeffs *coeffs);
 */
 int fscanf_quadr_equ_obj(FILE *stream, struct quadr_equ_obj *equ);
 
-
-
 /* 
 #########################################################################
 COMPARE FUNCTIONS
 #########################################################################
 */
-
-
 
 /*! 
     \brief check equality of quadratic equation roots with some error
@@ -198,15 +192,11 @@ bool eq_doubles(const double x1, const double x2);
 */
 bool eq_doubles_roots(const struct quadr_roots r1, const struct quadr_roots r2);
 
-
-
 /* 
 #########################################################################
 OUTPUT FUNCTIONS
 #########################################################################
 */
-
-
 
 /*! 
     \brief function of root number of quadratic equation output to stream
@@ -227,15 +217,11 @@ int fprintf_num_solutions(FILE* stream, const int n_roots);
 */
 int fprintf_quadr_equ_obj(FILE* stream, const struct quadr_equ_obj equ);
 
-
-
 /* 
 #########################################################################
 RANDOM FUNCTIONS
 #########################################################################
 */
-
-
 
 /*! 
     \brief Linear congruential generator of random unsigned int numbers
@@ -252,15 +238,11 @@ unsigned long long cong_rand();
 */
 double cong_frand();
 
-
-
 /* 
 #########################################################################
 MODE FUNCTIONS
 #########################################################################
 */
-
-
 
 /*! 
     \brief processes comand line arguments and manages mode launhes
@@ -268,7 +250,7 @@ MODE FUNCTIONS
     \param[in] argc
     \param[in] argv
 */
-void mode_manager(int argc, char **argv);
+void mode_manager(const int argc, char *const argv[]);
 
 
 /*! 
@@ -304,15 +286,11 @@ int testing_mode_launch();
 */
 int parsing_mode_launch();
 
-
-
 /* 
 #########################################################################
 STRING PROCESSTING FUNCTIONS
 #########################################################################
 */
-
-
 
 /*! 
     \brief remove spaces from string
@@ -328,14 +306,11 @@ void remove_spaces(char *start_ptr);
 */
 void getline(char *ptr);
 
-
-
 /* 
 #########################################################################
 STRING PROCESSTING FUNCTIONS
 #########################################################################
 */
-
 
 /*! 
     \brief check string prefix for the presence of a lexemes: x^2, x**2
@@ -362,6 +337,5 @@ char* get_coeff_lexem(double *val, char* ptr);
     \return if lexeme hasn't found return NULL
 */
 char* check_lexem_x(char *string_ptr);
-
 
 #endif // QUADR_EQU_H
