@@ -353,7 +353,12 @@ void getline(char *string_ptr) {
 
     int cur_char = getchar();
     size_t idx = 0;
-    while (cur_char != '\n' && idx < MAX_STRING_SIZE) {
+    while (cur_char != '\n') {
+        if (idx == MAX_STRING_SIZE) {
+            string_ptr--;
+            *string_ptr = (char) cur_char;
+            return;
+        }
         *string_ptr++ = (char) cur_char;
         cur_char = getchar();
         idx++;
