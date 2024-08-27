@@ -179,13 +179,13 @@ Functions</h2></td></tr>
 <tr class="memitem:a5206fc1d9570ebb70b7b525278399134" id="r_a5206fc1d9570ebb70b7b525278399134"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a5206fc1d9570ebb70b7b525278399134">fscanf_quadr_equ_obj</a> (FILE *stream, struct <a class="el" href="structquadr__equ__obj.html">quadr_equ_obj</a> *equ)</td></tr>
 <tr class="memdesc:a5206fc1d9570ebb70b7b525278399134"><td class="mdescLeft">&#160;</td><td class="mdescRight">function of input quadratic equation coeffs from stream  <br /></td></tr>
 <tr class="separator:a5206fc1d9570ebb70b7b525278399134"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9b6b6429c15c6e91e7bda05d85c9775" id="r_af9b6b6429c15c6e91e7bda05d85c9775"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#af9b6b6429c15c6e91e7bda05d85c9775">cmp_eq</a> (const double x1, const double x2)</td></tr>
+<tr class="memitem:af9b6b6429c15c6e91e7bda05d85c9775" id="r_af9b6b6429c15c6e91e7bda05d85c9775"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#af9b6b6429c15c6e91e7bda05d85c9775">eq_doubles</a> (const double x1, const double x2)</td></tr>
 <tr class="memdesc:af9b6b6429c15c6e91e7bda05d85c9775"><td class="mdescLeft">&#160;</td><td class="mdescRight">check equality of quadratic equation roots with some error  <br /></td></tr>
 <tr class="separator:af9b6b6429c15c6e91e7bda05d85c9775"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae953f40c0035ed111631952b7b8e882a" id="r_ae953f40c0035ed111631952b7b8e882a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#ae953f40c0035ed111631952b7b8e882a">cmp_strs</a> (const char s1[], const char s2[])</td></tr>
 <tr class="memdesc:ae953f40c0035ed111631952b7b8e882a"><td class="mdescLeft">&#160;</td><td class="mdescRight">check equality of strings  <br /></td></tr>
 <tr class="separator:ae953f40c0035ed111631952b7b8e882a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57ee126722a8f994bea8ffd44987b30b" id="r_a57ee126722a8f994bea8ffd44987b30b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a57ee126722a8f994bea8ffd44987b30b">cmp_eq_roots</a> (const struct <a class="el" href="structquadr__roots.html">quadr_roots</a> r1, const struct <a class="el" href="structquadr__roots.html">quadr_roots</a> r2)</td></tr>
+<tr class="memitem:a57ee126722a8f994bea8ffd44987b30b" id="r_a57ee126722a8f994bea8ffd44987b30b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#a57ee126722a8f994bea8ffd44987b30b">eq_doubles_roots</a> (const struct <a class="el" href="structquadr__roots.html">quadr_roots</a> r1, const struct <a class="el" href="structquadr__roots.html">quadr_roots</a> r2)</td></tr>
 <tr class="memdesc:a57ee126722a8f994bea8ffd44987b30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">check equality of quad_roots equation with some error  <br /></td></tr>
 <tr class="separator:a57ee126722a8f994bea8ffd44987b30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6cabc3f1d18dcdfddac01fcddc8e9d4" id="r_aa6cabc3f1d18dcdfddac01fcddc8e9d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quadr__equ_8h.html#aa6cabc3f1d18dcdfddac01fcddc8e9d4">fprintf_num_solutions</a> (FILE *stream, const int n_roots)</td></tr>
@@ -314,13 +314,13 @@ Functions</h2></td></tr>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="af9b6b6429c15c6e91e7bda05d85c9775" name="af9b6b6429c15c6e91e7bda05d85c9775"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9b6b6429c15c6e91e7bda05d85c9775">&#9670;&#160;</a></span>cmp_eq()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af9b6b6429c15c6e91e7bda05d85c9775">&#9670;&#160;</a></span>eq_doubles()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool cmp_eq </td>
+          <td class="memname">bool eq_doubles </td>
           <td>(</td>
           <td class="paramtype">const double&#160;</td>
           <td class="paramname"><em>x1</em>, </td>
@@ -351,13 +351,13 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a57ee126722a8f994bea8ffd44987b30b" name="a57ee126722a8f994bea8ffd44987b30b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57ee126722a8f994bea8ffd44987b30b">&#9670;&#160;</a></span>cmp_eq_roots()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a57ee126722a8f994bea8ffd44987b30b">&#9670;&#160;</a></span>eq_doubles_roots()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool cmp_eq_roots </td>
+          <td class="memname">bool eq_doubles_roots </td>
           <td>(</td>
           <td class="paramtype">const struct <a class="el" href="structquadr__roots.html">quadr_roots</a>&#160;</td>
           <td class="paramname"><em>r1</em>, </td>

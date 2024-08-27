@@ -41,7 +41,14 @@ void init_quadr_roots(struct quadr_roots *roots) {
     roots->x2 = NAN;
 }
 
+void init_quadr_obj(struct quadr_equ_obj *equation) {
+    init_quadr_coeffs(&equation->coeffs);
+    init_quadr_roots(&equation->roots);
+    equation->n_roots = INIT_SOLUTIONS;
+}
+
 int quadr_equ_solver(const struct quadr_coeffs coeffs, struct quadr_roots *const roots) {
+    assert(roots != NULL);
     if (fabs(coeffs.a) < EPS) {
         if (fabs(coeffs.b) < EPS) {
             if (fabs(coeffs.c) < EPS) {
@@ -76,6 +83,7 @@ int quadr_equ_solver(const struct quadr_coeffs coeffs, struct quadr_roots *const
 }
 
 int scanf_quadr_coeffs(struct quadr_coeffs *coeffs) {
+    assert(coeffs != NULL);
     for (size_t i = 0; i < N_ATTEMPTS; i++) {
         int n_suc_args = scanf("%lg %lg %lg", &(coeffs->a), &(coeffs->b), &(coeffs->c));
         debug("n_suc_args: %d\n", n_suc_args);
@@ -87,7 +95,7 @@ int scanf_quadr_coeffs(struct quadr_coeffs *coeffs) {
             while ((c = getchar()) != EOF && c != '\n');
         } else {
             // fprintf(stderr, "%s", strerror(errno));
-            return RETURN_SUCCES;
+            return RETURN_SUCCESS;
         }
     }
     fprintf(stdout, "Invalid data format. Program exit\n");
@@ -95,6 +103,8 @@ int scanf_quadr_coeffs(struct quadr_coeffs *coeffs) {
 }
 
 int fscanf_quadr_equ_obj(FILE *stream, struct quadr_equ_obj *equ) {
+    assert(equ != NULL);
+    assert(stream != NULL);
     if (fscanf(
             stream, "%lg %lg %lg %lg %lg %d", \
             &equ->coeffs.a, &equ->coeffs.b, &equ->coeffs.c, \
@@ -105,10 +115,11 @@ int fscanf_quadr_equ_obj(FILE *stream, struct quadr_equ_obj *equ) {
     }
 
 
-    return RETURN_SUCCES;
+    return RETURN_SUCCESS;
 }
 
 int fprintf_num_solutions(FILE* stream, const int n_roots) {
+    assert(stream != NULL);
     switch (n_roots)
     {
     case NO_SOLUTIONS: 
@@ -123,54 +134,49 @@ int fprintf_num_solutions(FILE* stream, const int n_roots) {
     case INF_SOLUTIONS: 
         fprintf(stream, "quadratic equation has infinity solutions\n");
         break;
+    case INIT_SOLUTIONS:
+        fprintf(stream, "ERROR: quadratic equation roots have INIT_VALUE: %d", INIT_SOLUTIONS);
+        return RETURN_FAILURE;
     default:
         fprintf(stderr, "fprintf_num_solutions hasn't recognise n_roots = %d", n_roots);
+        return RETURN_FAILURE;
     }
-    return RETURN_SUCCES;
+    
+    return RETURN_SUCCESS;
 }
 
 int fprintf_quadr_equ_obj(FILE* stream, const struct quadr_equ_obj equ) {
+    assert(stream != NULL);
     print_border();
-    if (fprintf(stream, YEL "%lgx²", equ.coeffs.a) < 0) {
+    if (fprintf_yel(stream, "%lgx²", equ.coeffs.a) < 0) {
         fprintf(stderr, "%s\n", strerror(errno));
         return RETURN_FAILURE;
     }
     
     if (equ.coeffs.b > 0) {
-        printf(YEL " + ");
+        fprintf_yel(stream, " + ");
     } else {
-        printf(YEL " - ");
+        fprintf_yel(stream, " - ");
     }
-    if (fprintf(stream, YEL "%lgx", fabs(equ.coeffs.b)) < 0) {
+    if (fprintf_yel(stream, "%lgx", fabs(equ.coeffs.b)) < 0) {
         fprintf(stderr, "%s\n", strerror(errno));
         return RETURN_FAILURE;
     }
     if (equ.coeffs.c > 0) {
-        printf(YEL " + ");
+        fprintf_yel(stream, " + ");
     } else {
-        printf(YEL " - ");
+        fprintf_yel(stream, " - ");
     }
-    fprintf(stream, YEL "%lg\n", fabs(equ.coeffs.c));
-    fprintf(stream, "x1 = %lg\n", equ.roots.x1);
-    fprintf(stream, "x2 = %lg\n", equ.roots.x2);
+    fprintf_yel(stream, "%lg = 0\n", fabs(equ.coeffs.c));
+    fprintf_grn(stream, "x1 = %lg\n", equ.roots.x1);
+    fprintf_grn(stream, "x2 = %lg\n", equ.roots.x2);
     fprintf_num_solutions(stream, equ.n_roots);
     print_border();
     return EXIT_SUCCESS;
 }
 
-bool cmp_strs(const char s1[], const char s2[]) {
-    for (size_t i = 0; i > 0; i++) {
-        if (s1[i] == '\0' && s2[i] == '\0') {
-            return true;
-        }
-        if (s1[i] != s2[i]) {
-            return false;
-        }
-    }
-    return true;
-}
 
-bool cmp_eq(const double x1, const double x2) {
+bool eq_doubles(const double x1, const double x2) {
     if (fpclassify(x1) != fpclassify(x2)) {
         return false;
     }
@@ -180,12 +186,12 @@ bool cmp_eq(const double x1, const double x2) {
     return true;
 }
 
-bool cmp_eq_roots(const struct quadr_roots r1, const struct quadr_roots r2) {
-    return cmp_eq(r1.x1, r2.x1) && cmp_eq(r1.x2, r2.x2);
+bool eq_doubles_roots(const struct quadr_roots r1, const struct quadr_roots r2) {
+    return eq_doubles(r1.x1, r2.x1) && eq_doubles(r1.x2, r2.x2);
 }
 
 int example_mode_launch() {
-    printf(RED "\n----------------------------> EXAMPLE MODE <----------------------------\n" WHT);
+    printf_red("\n----------------------------> EXAMPLE MODE <----------------------------\n" WHT);
     generate_tests_to_file(PATH_EXAMPLE, 1);
 
     struct quadr_equ_obj example_data[1];
@@ -196,16 +202,16 @@ int example_mode_launch() {
         return RETURN_FAILURE;
     }
 
-    return RETURN_SUCCES;
+    return RETURN_SUCCESS;
 }
 
 int user_mode_launch() {
-    printf(RED "\n-----------------------------> USER MODE <------------------------------\n");
+    printf_red("\n-----------------------------> USER MODE <------------------------------\n");
 
     struct quadr_coeffs coeffs;
     init_quadr_coeffs(&coeffs);
 
-    printf(YEL"# Program for quadratic equation solution\n"
+    printf_yel("# Program for quadratic equation solution\n"
            "# Abryutin I. D. \n\n");
     printf(WHT"# Enter coefficients(a, b, c): ");
 
@@ -229,152 +235,175 @@ int user_mode_launch() {
         fprintf(stderr, "user_mode_launch(): FAILED TO: fprintf_quadr_equ_obj()\n");
         return RETURN_FAILURE;
     }
-    return RETURN_SUCCES;
+    return RETURN_SUCCESS;
 }
 
 int testing_mode_launch() {
-    printf(RED "\n----------------------------> TESTING MODE <-----------------------------\n");
-    printf("Launch auto or manual test mode? [A/m] ");
-    int v1 = getchar();
-    if (v1 == '\n' || v1 == 'A' || v1 == 'a') {
-        printf(YEL "Generate new tests? [Y/n]: " WHT);
+    printf_red("\n----------------------------> TESTING MODE <-----------------------------\n");
+    printf_yel("Launch auto or manual test mode? [A/m] ");
 
-        int v2 = getchar();
+    int cur_char = getchar();
+    if (!(cur_char == '\n' || cur_char == 'A' || cur_char == 'a')) {
+        if (quadr_equ_solver_manual_testing(ARR_SIZE(MANUAL_TESTS), MANUAL_TESTS) == RETURN_FAILURE) {
+            debug("FAILED TO: quadr_equ_solver_manual_testing()\n");
+            return RETURN_FAILURE;
+        }
 
-        bool input_state = false;
-        size_t n_tests = 0;
-        if (v2 == '\n' || v2 == 'Y' || v2 == 'y') {
-            for (size_t i = 0; i < N_ATTEMPTS; i++) {
-                printf(YEL"How many tests? (MAX: %ld): " WHT, MAX_N_TESTS);
+        return RETURN_SUCCESS;
+    }
 
-                if (!scanf("%ld", &n_tests)) {
-                    fprintf(stderr, RED "Invalid data format. enter positive integer: " WHT);
-                } else {
-                    input_state = true;
-                    break;
-                }
+    printf_yel("Generate new tests? [Y/n]: ");
+    cur_char = getchar();
+
+    bool input_state = false;
+    size_t n_tests = 0;
+
+    if (cur_char == '\n' || cur_char == 'Y' || cur_char == 'y') {
+        for (size_t i = 0; i < N_ATTEMPTS; i++) {
+            printf_yel("How many tests? (MAX: %ld): ", MAX_N_TESTS);
+
+            if (!scanf("%ld", &n_tests)) {
+
+                while(getchar() != '\n');
+            
+                printf_red("Invalid data format. Enter positive integer\n");
+            } else {
+                input_state = true;
+                break;
             }
         }
-        if (!input_state) {
-            fprintf(stdout, "Invalid data format. Mode exit\n");
-            return RETURN_FAILURE;
-        } 
-
-        if (generate_tests_to_file(PATH_AUTO_TESTS, n_tests) == RETURN_FAILURE) {
-            fprintf(stderr, "%s: FAILED TO: generate_tests_to_file()\n", __PRETTY_FUNCTION__);
-            return RETURN_FAILURE;
-        }
-
-        if (quadr_equ_solver_file_testing(PATH_AUTO_TESTS)) {
-            fprintf(stderr, "%s: FAILED TO: quadr_equ_solver_file_testing()\n", __PRETTY_FUNCTION__);
-            return RETURN_FAILURE;
-        }
-
-    } else {
-        if (quadr_equ_solver_manual_testing(ARR_SIZE(MANUAL_TESTS), MANUAL_TESTS) == RETURN_FAILURE) {
-            fprintf(stderr, "%s: FAILED TO: quadr_equ_solver_manual_testing()\n", __PRETTY_FUNCTION__);
-            return RETURN_FAILURE;
-        }
     }
 
-    return RETURN_SUCCES;
+    if (!input_state) {
+        fprintf(stdout, "Invalid data format. Mode exit\n");
+        return RETURN_FAILURE;
+    } 
+
+    if (generate_tests_to_file(PATH_AUTO_TESTS, n_tests) == RETURN_FAILURE) {
+        debug("FAILED TO: generate_tests_to_file()\n");
+        return RETURN_FAILURE;
+    }
+
+    if (quadr_equ_solver_file_testing(PATH_AUTO_TESTS)) {
+        debug("FAILED TO: quadr_equ_solver_file_testing()\n");
+        return RETURN_FAILURE;
+    }
+
+    return RETURN_SUCCESS;
 }
 
-char* check_x_2(char *s1) {
-    if (*s1 != 'x' && *s1 != 'X') {
+char* check_lexem_x2(char *string_ptr) {
+    assert(string_ptr != NULL);
+    if (*string_ptr != 'x' && *string_ptr != 'X') {
         return NULL;
     }
-    s1++;
-    if (*s1 == '^') {
-        s1++;
-    } else if (*s1 == '*' && *(s1 + 1) == '*') {
-        s1 += 2;
+    string_ptr++;
+    if (*string_ptr == '^') {
+        string_ptr++;
+    } else if (*string_ptr == '*' && *(string_ptr + 1) == '*') {
+        string_ptr += 2;
     } else {
         return NULL;
     }
-    if (*s1 != '2') {
+    if (*string_ptr != '2') {
         return NULL;
     }
-    s1++;
-    return s1;
+    string_ptr++;
+    return string_ptr;
 }
 
-void remove_spaces(char *start_ptr) {
-    char buf[MAX_STRING_SIZE];
-    char *buf_ptr = buf;
-    char *ptr = start_ptr;
-    while (*ptr != '\0') {
-        if (*ptr != ' ') {
-            *buf_ptr = *ptr;
-            buf_ptr++;
+char* check_lexem_x(char *string_ptr) {
+    if (*string_ptr == 'x') {
+        string_ptr++;
+        return string_ptr;
+    }
+    return NULL;
+}
+
+void remove_spaces(char *string_ptr) {
+    assert(string_ptr != NULL);
+
+    char bufer_string[MAX_STRING_SIZE];
+
+    char *bufer_string_ptr = bufer_string;
+    char *cur_string_ptr = string_ptr;
+
+    while (*cur_string_ptr != '\0') {
+        if (*cur_string_ptr != ' ') {
+            *bufer_string_ptr = *cur_string_ptr;
+            bufer_string_ptr++;
         }
-        ptr++;
+        cur_string_ptr++;
     }
-    buf_ptr = buf;
-    ptr = start_ptr;
-    while (*ptr != '\0') {
-        *ptr++ = *buf_ptr++; 
+
+    strcpy(string_ptr, bufer_string);
+}
+
+void getline(char *string_ptr) {
+    assert(string_ptr != NULL);
+
+    int cur_char = getchar();
+    while (cur_char != '\n') {
+        *string_ptr++ = (char) cur_char;
+        cur_char = getchar();
     }
 }
 
-void getline(char *ptr) {
-    int v = getchar();
-    while (v != '\n') {
-        *ptr++ = (char) v;
-        v = getchar();
-    }
-}
+char* get_num_lexem(double *num_ptr, char* string_ptr) {
+    assert(num_ptr != NULL);
+    assert(string_ptr != NULL);
 
-char* get_num(double *val, char* ptr) {
-    char *prev = ptr;
-    *val = strtod(ptr, &ptr);
-    if (prev == ptr) {
-        if (*ptr == '-') {
-            *val *= -1.0;
-            ptr++;
-        } else if (*ptr == '+') {
-            *val = 1.0;
-            ptr++;
+    char *start_string_ptr = string_ptr;
+    *num_ptr = strtod(string_ptr, &string_ptr);
+    if (start_string_ptr == string_ptr) {
+        if (*string_ptr == '-') {
+            *num_ptr *= -1.0;
+            string_ptr++;
+        } else if (*string_ptr == '+') {
+            *num_ptr = 1.0;
+            string_ptr++;
         } else {
-            *val = 1.0;
+            *num_ptr = 1.0;
         }
-        
     }
-    return ptr;
+    return string_ptr;
 }
 
 int parsing_mode_launch() {
-    printf(RED "\n----------------------------> PARSING MODE <-----------------------------\n");
+    printf_red("\n----------------------------> PARSING MODE <-----------------------------\n");
     print_border();
-    printf(YEL "Enter your quadratic equation:\n");
+    printf_yel("Enter your quadratic equation:\n");
 
-    char com[MAX_STRING_SIZE] = {0};
-    getline(com);
-    remove_spaces(com);
-    char *com_ptr = com;
+    char equation_string[MAX_STRING_SIZE] = {0};
+    getline(equation_string);
+    remove_spaces(equation_string);
+    char *equation_string_ptr = equation_string;
 
     quadr_equ_obj equation;
-    
-    com_ptr = get_num(&equation.coeffs.a, com_ptr);
-    if ((com_ptr = check_x_2(com_ptr)) == NULL) {
-        printf("Invalid input\n");
-        return RETURN_FAILURE;
-    }
-    com_ptr = get_num(&equation.coeffs.b, com_ptr);
-    if (*com_ptr != 'x') {
-        printf("Invalid input\n");
-        return RETURN_FAILURE;
-    }
-    com_ptr++;
+    init_quadr_obj(&equation);
 
-    com_ptr = get_num(&equation.coeffs.c, com_ptr);
+    equation_string_ptr = get_num_lexem(&equation.coeffs.a, equation_string_ptr);
+
+    if ((equation_string_ptr = check_lexem_x2(equation_string_ptr)) == NULL) {
+        printf("Invalid input\n");
+        return RETURN_FAILURE;
+    }
+
+    equation_string_ptr = get_num_lexem(&equation.coeffs.b, equation_string_ptr);
+
+    if ((equation_string_ptr = check_lexem_x(equation_string_ptr)) == NULL) {
+        printf("Invalid input\n");
+        return RETURN_FAILURE;
+    }
+
+    equation_string_ptr = get_num_lexem(&equation.coeffs.c, equation_string_ptr);
 
     int n_roots = simple_quadr_solve(equation.coeffs, &equation.roots);
     equation.n_roots = n_roots;
 
     fprintf_quadr_equ_obj(stdout, equation);
     
-    return RETURN_SUCCES;
+    return RETURN_SUCCESS;
 }
 
 void mode_manager(int argc, char **argv) {
@@ -384,6 +413,8 @@ void mode_manager(int argc, char **argv) {
     int parsing_mode_flag = 0;
 
     const char* short_options = "utep";
+    int short_option_switch = 0;
+
 	const struct option long_options[] = {
 		{ "user", no_argument, &user_mode_flag, 1 },
 		{ "testing", no_argument, &testing_mode_flag, 1 },
@@ -391,10 +422,11 @@ void mode_manager(int argc, char **argv) {
         { "parsing", no_argument, &parsing_mode_flag,  1 },
 		{ NULL, 0, NULL, 0}
 	};
-    int res;
-	while ((res = getopt_long(argc, argv, short_options,
-		long_options, NULL))!=-1) {
-            switch (res) {
+
+    
+	while ((short_option_switch = getopt_long(argc, argv, short_options,
+		    long_options, NULL)) != -1) {
+            switch (short_option_switch) {
                 case 'u':
                     user_mode_flag = 1;
                     break;
@@ -414,22 +446,25 @@ void mode_manager(int argc, char **argv) {
 
     if (example_mode_flag) {
         if (example_mode_launch() == RETURN_FAILURE) {
-            fprintf(stderr, "%s: FAILED TO: example_mode_launch()\n", __PRETTY_FUNCTION__);
+            debug("FAILED TO: example_mode_launch()\n");
         }
     }
+
     if (user_mode_flag) {
         if (user_mode_launch() == RETURN_FAILURE) {
-            fprintf(stderr, "%s: FAILED TO: user_mode_launch()\n", __PRETTY_FUNCTION__);
+            debug("FAILED TO: user_mode_launch()\n");
         }
     }
+
     if (testing_mode_flag) {
         if (testing_mode_launch() == RETURN_FAILURE) {
-            fprintf(stderr, "%s: FAILED TO: testing_mode_launch()\n", __PRETTY_FUNCTION__);
+            debug("FAILED TO: testing_mode_launch()\n");
         }
     }
+
     if (parsing_mode_flag) {
         if (parsing_mode_launch() == RETURN_FAILURE) {
-            fprintf(stderr, "mode_manager: FAILED TO: parsing_mode_launch()\n");
+            debug("mode_manager: FAILED TO: parsing_mode_launch()\n");
         }
     }
 }

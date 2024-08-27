@@ -9,6 +9,7 @@ expression date = inf
 save creditionals = store
 
 
+
 Дела на сейчас
 1) Реализовать функции: 
     puts

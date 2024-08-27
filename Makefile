@@ -46,7 +46,7 @@ debug: copy_to_build
 	$(CC) $(SRC_FILES) -O0 -o $(SRC_OUTPUTFILE) -D_DEBUG $(INCLUDE_FLAGS) $(CC_FLAGS)
 	./$(SRC_OUTPUTFILE) --testing
 
-launch:
+launch: build
 	./$(SRC_OUTPUTFILE) --user
 
 clean:

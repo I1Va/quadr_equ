@@ -12,7 +12,7 @@
 #include <math.h>
 
 #ifdef _DEBUG
-#define debug(str_, ...) fprintf(stderr, RED "[%s: %d] " str_, __FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define debug(str_, ...) fprintf_red(stderr, "[%s: %d] " str_, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #else
 #define debug(str_, ...)
 #endif // _DEBUG
@@ -44,6 +44,7 @@ enum roots_num
     NO_SOLUTIONS  = 0,
     ONE_SOLUTION  = 1,
     TWO_SOLUTIONS = 2,
+    INIT_SOLUTIONS = -2,
 };
 
 enum modes
@@ -55,7 +56,7 @@ enum modes
 
 enum return_states
 {
-    RETURN_SUCCES = 0,
+    RETURN_SUCCESS = 0,
     RETURN_FAILURE = -1,
 };
 
@@ -110,6 +111,7 @@ void init_quadr_coeffs(struct quadr_coeffs *const coeffs);
 */
 void init_quadr_roots(struct quadr_roots *const roots);
 
+void init_quadr_obj(struct quadr_equ_obj *equation);
 
 
 /* 
@@ -176,7 +178,7 @@ COMPARE FUNCTIONS
     \param[in] x1, x2
     \return equality
 */
-bool cmp_eq(const double x1, const double x2);
+bool eq_doubles(const double x1, const double x2);
 
 
 /*! 
@@ -185,8 +187,6 @@ bool cmp_eq(const double x1, const double x2);
     \param[in] s1, s2
     \return equality
 */
-bool cmp_strs(const char s1[], const char s2[]);
-
 
 /*! 
     \brief check equality of quad_roots equation with some error
@@ -195,7 +195,7 @@ bool cmp_strs(const char s1[], const char s2[]);
     \param[in] r1, r2
     \return equality
 */
-bool cmp_eq_roots(const struct quadr_roots r1, const struct quadr_roots r2);
+bool eq_doubles_roots(const struct quadr_roots r1, const struct quadr_roots r2);
 
 
 
@@ -300,9 +300,10 @@ int parsing_mode_launch();
 
 void getline(char *ptr);
 
-char* check_x_2(char *s1);
+char* check_lexem_x2(char *s1);
 
-char* get_num(double *val, char* ptr);
+char* get_num_lexem(double *val, char* ptr);
 
+char* check_lexem_x(char *string_ptr);
 
 #endif // QUADR_EQU_H
