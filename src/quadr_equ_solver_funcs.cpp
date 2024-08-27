@@ -281,59 +281,6 @@ int testing_mode_launch() {
     return RETURN_SUCCES;
 }
 
-
-// strtod
-
-// char* get_num_from_string(char *ptr, char *str) {
-//     bool start = true;
-//     bool num = false;
-//     bool sep = false;
-//     char sign = '0';
-//     while (1) {
-//         if (*ptr == '+' || *ptr == '-') {
-//             sign = *ptr;
-//             if (start) {
-//                 *str = *ptr;
-//                 ptr++;
-//                 str++;
-//                 start = false;
-//             } else {
-//                 return NULL;
-//             }
-//         } else if (*ptr >= '0' && *ptr <= '9') {
-//             num = true;
-//             *str = *ptr;
-//             ptr++;
-//             str++;
-//             start = false;
-//         } else if (*ptr == '.' || *ptr == ',') {
-//             if (!num || sep) {
-//                 return NULL;
-//             }
-//             *str = *ptr;
-//             ptr++;
-//             str++;
-//             start = false;
-//         } else {
-//             if (!num) {
-//                 if (start) {
-//                     *str = '1';
-//                     str++;
-//                 } else if (sign == 1) {
-                    
-//                 }
-//             }
-//             if (start) {
-//                 return ptr;
-//             }
-//             if (!num) {
-//                 return NULL;
-//             }
-//             return ptr;
-//         }
-//     }
-// }
-
 char* check_x_2(char *s1) {
     if (*s1 != 'x' && *s1 != 'X') {
         return NULL;
@@ -353,23 +300,31 @@ char* check_x_2(char *s1) {
     return s1;
 }
 
-// for (size_t i = 0; com[i] != '\0'; i++) {
-//         cur->str[cur->idx++] = com[i];
-//         if (com[i] >= '0' && com[i] <= '9') {
-//             cur->num = true;
-//         } else if (com[i] == '.' || com[i] == ',') {
-//             if (!cur->num || cur->sep) {
-//                 printf("Invalid input\n");
-//                 return RETURN_FAILURE;
-//             }
-//             cur->sep = true;
-//         } else if (com[i] == 'x') {
-//             if (!cur->num) {
-//                 cur->val = 1;
-                
-//             }
-//         }
-//     } 
+void remove_spaces(char *start_ptr) {
+    char buf[MAX_STRING_SIZE];
+    char *buf_ptr = buf;
+    char *ptr = start_ptr;
+    while (*ptr != '\0') {
+        if (*ptr != ' ') {
+            *buf_ptr = *ptr;
+            buf_ptr++;
+        }
+        ptr++;
+    }
+    buf_ptr = buf;
+    ptr = start_ptr;
+    while (*ptr != '\0') {
+        *ptr++ = *buf_ptr++; 
+    }
+}
+
+void getline(char *ptr) {
+    int v = getchar();
+    while (v != '\n') {
+        *ptr++ = (char) v;
+        v = getchar();
+    }
+}
 
 char* get_num(double *val, char* ptr) {
     char *prev = ptr;
@@ -387,13 +342,13 @@ char* get_num(double *val, char* ptr) {
 int parsing_mode_launch() {
     printf(RED "\n----------------------------> PARSING MODE <-----------------------------\n");
     print_border();
-    
-    printf(YEL "Enter your quadratic equation without spaces:\n");
+    printf(YEL "Enter your quadratic equation:\n");
 
-    char com[MAX_STRING_SIZE];
+    char com[MAX_STRING_SIZE] = {0};
+    getline(com);
+    remove_spaces(com);
     char *com_ptr = com;
-    scanf("%s", com);
-
+    
     quadr_equ_obj equation;
     
     com_ptr = get_num(&equation.coeffs.a, com_ptr);
