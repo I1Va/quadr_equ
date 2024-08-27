@@ -185,8 +185,7 @@ bool cmp_eq_roots(const struct quadr_roots r1, const struct quadr_roots r2) {
 }
 
 int example_mode_launch() {
-    printf(RED "\n----------------------------> EXAMPLE MODE <----------------------------\n");
-
+    printf(RED "\n----------------------------> EXAMPLE MODE <----------------------------\n" WHT);
     generate_tests_to_file(PATH_EXAMPLE, 1);
 
     struct quadr_equ_obj example_data[1];
@@ -330,11 +329,16 @@ char* get_num(double *val, char* ptr) {
     char *prev = ptr;
     *val = strtod(ptr, &ptr);
     if (prev == ptr) {
-        *val = 1.0;
         if (*ptr == '-') {
             *val *= -1.0;
+            ptr++;
+        } else if (*ptr == '+') {
+            *val = 1.0;
+            ptr++;
+        } else {
+            *val = 1.0;
         }
-        ptr++;
+        
     }
     return ptr;
 }
@@ -348,7 +352,6 @@ int parsing_mode_launch() {
     getline(com);
     remove_spaces(com);
     char *com_ptr = com;
-
     quadr_equ_obj equation;
     
     com_ptr = get_num(&equation.coeffs.a, com_ptr);
@@ -356,7 +359,6 @@ int parsing_mode_launch() {
         printf("Invalid input\n");
         return RETURN_FAILURE;
     }
-
     com_ptr = get_num(&equation.coeffs.b, com_ptr);
     if (*com_ptr != 'x') {
         printf("Invalid input\n");
