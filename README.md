@@ -30,7 +30,7 @@ make launch
 ```shell
 make parsing
 ```
-![parsing](images/parsin_mode.png)
+![parsing mode](images/parsin_mode.png)
 
 ## Features
 1.  ***Auto testing***

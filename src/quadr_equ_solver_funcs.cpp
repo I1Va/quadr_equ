@@ -348,7 +348,7 @@ int parsing_mode_launch() {
     getline(com);
     remove_spaces(com);
     char *com_ptr = com;
-    
+
     quadr_equ_obj equation;
     
     com_ptr = get_num(&equation.coeffs.a, com_ptr);
