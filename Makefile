@@ -17,10 +17,15 @@ RANDOM_DIR = random
 TEST_DIR = test_data
 
 SRC_DIR = src
-SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
-SRC_OUTPUTFILE = $(BUILD_DIR)/quadr_eq.out
 
-# LD_FLAGS = 
+SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
+
+OUT_FILE = $(BUILD_DIR)/quadr_eq.out
+
+OBJ_FILES = $(SRC_FILES:.cpp=.o)
+
+
+# LD_FLAGS =
 
 .PHONY: build
 
@@ -30,24 +35,32 @@ copy_to_build:
 	cp -r ./$(SRC_DIR)/$(RANDOM_DIR) ./$(BUILD_DIR)
 	cp -r ./$(SRC_DIR)/$(TEST_DIR) ./$(BUILD_DIR)
 
-build: copy_to_build
-	$(CC) $(SRC_FILES) -O0 -o $(SRC_OUTPUTFILE) $(INCLUDE_FLAGS) $(CC_FLAGS)
+
+# $< $^ $@
+
+%.o: %.cpp
+	$(CC) $< -O0 -o $@ -c $(INCLUDE_FLAGS) $(CC_FLAGS)
+
+
+build: $(OBJ_FILES) copy_to_build
+	$(CC) $(OBJ_FILES) -o $(OUT_FILE)
+
 
 example: build
-	./$(SRC_OUTPUTFILE) --example
+	./$(OUT_FILE) --example
 
 testing: build
-	./$(SRC_OUTPUTFILE) -t
+	./$(OUT_FILE) -t
 
 parsing: build
-	./$(SRC_OUTPUTFILE) -p
+	./$(OUT_FILE) -p
 
 debug: copy_to_build
-	$(CC) $(SRC_FILES) -O0 -o $(SRC_OUTPUTFILE) -D_DEBUG $(INCLUDE_FLAGS) $(CC_FLAGS)
-	./$(SRC_OUTPUTFILE) --testing
+	$(CC) $(SRC_FILES) -O0 -o $(OUT_FILE) -D_DEBUG $(INCLUDE_FLAGS) $(CC_FLAGS)
+	./$(OUT_FILE) --testing
 
 launch: build
-	./$(SRC_OUTPUTFILE) --user
+	./$(OUT_FILE) --user
 
 clean:
-	rm -f $(SRC_OUTPUTFILE) $(TM_OUTPUTFILE)
+	rm -f $(OUT_FILE) $(TM_OUTPUTFILE) $(OBJ_FILES)
